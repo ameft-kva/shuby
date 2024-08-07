@@ -99,5 +99,5 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   config.action_mailer.default_url_options = {host: Jumpstart.config.domain}
-  config.action_mailer.smtp_settings.merge!(Jumpstart::Mailer.new(Jumpstart.config).settings)
+  config.action_mailer.smtp_settings = Jumpstart::Mailer.new(Jumpstart.config).settings
 end
