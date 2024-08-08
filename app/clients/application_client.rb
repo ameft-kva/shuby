@@ -37,6 +37,8 @@ class ApplicationClient
 
   BASE_URI = "https://example.org"
   NET_HTTP_ERRORS = [Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, EOFError, Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError]
+  READ_TIMEOUT = 60
+  OPEN_TIMEOUT = 60
 
   attr_reader :auth, :basic_auth, :token
 
@@ -190,6 +192,14 @@ class ApplicationClient
     self.class::BASE_URI
   end
 
+  def read_timeout
+    self.class::READ_TIMEOUT
+  end
+
+  def open_timeout
+    self.class::OPEN_TIMEOUT
+  end
+
   # Makes an HTTP request
   #   `klass` should be a Net::HTTP::Request class such as Net::HTTP::Get
   #   `path` is a String for the URL path without the protocol and domain. For example: "/api/v1/me"
@@ -219,6 +229,8 @@ class ApplicationClient
 
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true if uri.instance_of? URI::HTTPS
+    http.read_timeout = read_timeout
+    http.open_timeout = open_timeout
 
     all_headers = default_headers.merge(headers)
 
