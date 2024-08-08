@@ -69,9 +69,7 @@ class ApplicationClient
 
   # Override to customize the content type
   # Returns a String
-  def content_type
-    "application/json"
-  end
+  def content_type = "application/json"
 
   # Override to customize the authorization header
   # Returns a Hash
@@ -80,15 +78,11 @@ class ApplicationClient
   #
   #   { "X-API-Key" => token }
   #   { "AccessKey" => token }
-  def authorization_header
-    {"Authorization" => "Bearer #{auth&.token || token}"}
-  end
+  def authorization_header = {"Authorization" => "Bearer #{auth&.token || token}"}
 
   # Override to customize default query params
   # Returns a Hash
-  def default_query_params
-    {}
-  end
+  def default_query_params = {}
 
   # Loops through a URL with pagination
   # Each request yields the response to the provide block
@@ -125,59 +119,44 @@ class ApplicationClient
   #  get("/tweets/1", headers: {"Content-Type" => "application/xml")
   #  => GET /tweets/1
   #  => Content-Type: application/xml
-  def get(path, **)
-    make_request(klass: Net::HTTP::Get, path: path, **)
-  end
+  def get(path, **) = make_request(klass: Net::HTTP::Get, path: path, **)
 
   # Make a POST request
   # Pass `headers: {}` to add or override default headers
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a JSON body to the request
   # Pass `form_data: {}` to add form data to the request (multipart/form-data)
-  def post(path, **)
-    make_request(klass: Net::HTTP::Post, path: path, **)
-  end
+  def post(path, **) = make_request(klass: Net::HTTP::Post, path: path, **)
 
   # Make a PATCH request
   # Pass `headers: {}` to add or override default headers
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a body to the request
   # Pass `form_data: {}` to add form data to the request (multipart/form-data)
-  def patch(path, **)
-    make_request(klass: Net::HTTP::Patch, path: path, **)
-  end
+  def patch(path, **) = make_request(klass: Net::HTTP::Patch, path: path, **)
 
   # Make a PUT request
   # Pass `headers: {}` to add or override default headers
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a body to the request
   # Pass `form_data: {}` to add form data to the request (multipart/form-data)
-  def put(path, **)
-    make_request(klass: Net::HTTP::Put, path: path, **)
-  end
+  def put(path, **) = make_request(klass: Net::HTTP::Put, path: path, **)
 
   # Make a DELETE request
   # Pass `headers: {}` to add or override default headers
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a body to the request
-  def delete(path, **)
-    make_request(klass: Net::HTTP::Delete, path: path, **)
-  end
+  def delete(path, **) = make_request(klass: Net::HTTP::Delete, path: path, **)
 
   # Returns the BASE_URI from the current class
-  def base_uri
-    self.class::BASE_URI
-  end
+  def base_uri = self.class::BASE_URI
 
   # Override to set timeouts for all requests
-  def read_timeout
-  end
+  def open_timeout = nil
 
-  def open_timeout
-  end
+  def read_timeout = nil
 
-  def write_timeout
-  end
+  def write_timeout = nil
 
   # Makes an HTTP request
   #   `klass` should be a Net::HTTP::Request class such as Net::HTTP::Get
@@ -210,10 +189,9 @@ class ApplicationClient
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true if uri.instance_of? URI::HTTPS
 
-    # Timeouts
-    http.open_timeout = timeout if (timeout = http_options.fetch(:open_timeout, open_timeout))
-    http.read_timeout = timeout if (timeout = http_options.fetch(:read_timeout, read_timeout))
-    http.write_timeout = timeout if (timeout = http_options.fetch(:write_timeout, write_timeout))
+    http.open_timeout = http_options[:open_timeout] || open_timeout || http.open_timeout
+    http.read_timeout = http_options[:read_timeout] || read_timeout || http.read_timeout
+    http.write_timeout = http_options[:write_timeout] || write_timeout || http.write_timeout
 
     all_headers = default_headers.merge(headers)
 
@@ -332,9 +310,7 @@ class ApplicationClient
     #
     # Returns:
     #   "application/json"
-    def content_type
-      headers[:content_type].split(";").first
-    end
+    def content_type = headers[:content_type].split(";").first
 
     def parsed_body
       @parsed_body ||= PARSER.fetch(content_type, FALLBACK_PARSER).call(self)
