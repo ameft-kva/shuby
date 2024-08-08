@@ -37,17 +37,6 @@
 
   <div class="relative items-start">
     <div class="flex h-6 items-center toggle">
-      <%= check_box_tag "configuration[gems][]", "rack-attack", Jumpstart.config.gems.include?("rack-attack"), id: "rack-attack", class: "form-checkbox" %>
-      <label for="rack-attack" class="font-medium text-gray-900">Rack Attack</label>
-    </div>
-    <div class="pl-1 ml-14 text-sm leading-6">
-      <p class="text-gray-500"><%= link_to "Rack Attack", "https://github.com/rack/rack-attack", target: :_blank %> lets you easily decide when to allow, block and throttle based on properties of the request.</p>
-      <p class="text-gray-500">See <code>config/initializers/rack_attack.rb</code> to define rate limiting rules.</p>
-    </div>
-  </div>
-
-  <div class="relative items-start">
-    <div class="flex h-6 items-center toggle">
       <%= check_box_tag "configuration[gems][]", "whenever", Jumpstart.config.gems.include?("whenever"), id: "whenever", class: "form-checkbox" %>
       <label for="whenever" class="font-medium text-gray-900">Whenever</label>
     </div>
