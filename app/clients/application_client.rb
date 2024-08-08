@@ -125,8 +125,8 @@ class ApplicationClient
   #  get("/tweets/1", headers: {"Content-Type" => "application/xml")
   #  => GET /tweets/1
   #  => Content-Type: application/xml
-  def get(path, **kwargs)
-    make_request(klass: Net::HTTP::Get, path: path, **kwargs)
+  def get(path, **)
+    make_request(klass: Net::HTTP::Get, path: path, **)
   end
 
   # Make a POST request
@@ -134,8 +134,8 @@ class ApplicationClient
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a JSON body to the request
   # Pass `form_data: {}` to add form data to the request (multipart/form-data)
-  def post(path, **kwargs)
-    make_request(klass: Net::HTTP::Post, path: path, **kwargs)
+  def post(path, **)
+    make_request(klass: Net::HTTP::Post, path: path, **)
   end
 
   # Make a PATCH request
@@ -143,8 +143,8 @@ class ApplicationClient
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a body to the request
   # Pass `form_data: {}` to add form data to the request (multipart/form-data)
-  def patch(path, **kwargs)
-    make_request(klass: Net::HTTP::Patch, path: path, **kwargs)
+  def patch(path, **)
+    make_request(klass: Net::HTTP::Patch, path: path, **)
   end
 
   # Make a PUT request
@@ -152,16 +152,16 @@ class ApplicationClient
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a body to the request
   # Pass `form_data: {}` to add form data to the request (multipart/form-data)
-  def put(path, **kwargs)
-    make_request(klass: Net::HTTP::Put, path: path, **kwargs)
+  def put(path, **)
+    make_request(klass: Net::HTTP::Put, path: path, **)
   end
 
   # Make a DELETE request
   # Pass `headers: {}` to add or override default headers
   # Pass `query: {}` to add query parameters
   # Pass `body: {}` to add a body to the request
-  def delete(path, **kwargs)
-    make_request(klass: Net::HTTP::Delete, path: path, **kwargs)
+  def delete(path, **)
+    make_request(klass: Net::HTTP::Delete, path: path, **)
   end
 
   # Returns the BASE_URI from the current class
@@ -170,9 +170,14 @@ class ApplicationClient
   end
 
   # Override to set timeouts for all requests
-  def read_timeout; end
-  def open_timeout; end
-  def write_timeout; end
+  def read_timeout
+  end
+
+  def open_timeout
+  end
+
+  def write_timeout
+  end
 
   # Makes an HTTP request
   #   `klass` should be a Net::HTTP::Request class such as Net::HTTP::Get
