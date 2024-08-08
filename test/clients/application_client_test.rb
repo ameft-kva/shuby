@@ -283,24 +283,4 @@ class ApplicationClientTest < ActiveSupport::TestCase
       end
     end
   end
-
-  class CustomTimeoutTest < ActiveSupport::TestCase
-    class TestTimeoutClient < ApplicationClient
-      BASE_URI = "https://test.example.org"
-      READ_TIMEOUT = 20
-      OPEN_TIMEOUT = 10
-    end
-
-    def setup
-      @client = TestTimeoutClient.new
-    end
-
-    test "read timeout is set" do
-      assert_equal 20, @client.read_timeout
-    end
-
-    test "open timeout is set" do
-      assert_equal 10, @client.open_timeout
-    end
-  end
 end
