@@ -5,6 +5,9 @@
  * Jumpstart Pro default styles
  * Remove these if you'd like to use TailwindUI which expects a clean slate
 */
+@import "themes/dark";
+@import "themes/juicy";
+@import "themes/light";
 @import "components/base";
 @import "components/actiontext";
 @import "components/alert";
