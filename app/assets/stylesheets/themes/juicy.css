@@ -1,4 +1,4 @@
-.juicy {
+:root.juicy {
   /*Primary*/
   --bg-primary: theme('colors.indigo.700');
   --bg-primary-hover: theme('colors.indigo.600');

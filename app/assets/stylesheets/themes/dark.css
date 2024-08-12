@@ -1,4 +1,4 @@
-.dark {
+:root.dark {
   /*Primary*/
   --bg-primary: theme('colors.primary.700');
   --bg-primary-hover: theme('colors.primary.600');
