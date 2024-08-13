@@ -1,3 +1,4 @@
+:root.dark,
 .dark {
   /*Primary*/
   --bg-primary: theme('colors.primary.700');
