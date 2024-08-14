@@ -46,7 +46,7 @@
   /*Warning*/
   --bg-warning-secondary: theme('colors.amber.100');
   --text-on-warning-secondary: theme('colors.amber.800');
-  --icon-on-info-secondary: theme('colors.amber.600');
+  --icon-on-warning-secondary: theme('colors.amber.600');
 
   /*Accent*/
   --bg-accent: theme('colors.lime.300');

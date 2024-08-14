@@ -39,14 +39,14 @@
   --icon-on-success-secondary: theme('colors.success.600');
 
   /*Info*/
-  --bg-info-secondary: theme('colors.primary.50');
-  --text-on-info-secondary: theme('colors.primary.700');
-  --icon-on-info-secondary: theme('colors.primary.500');
+  --bg-info-secondary: theme('colors.info.50');
+  --text-on-info-secondary: theme('colors.info.700');
+  --icon-on-info-secondary: theme('colors.info.500');
 
   /*Warning*/
   --bg-warning-secondary: theme('colors.warning.50');
   --text-on-warning-secondary: theme('colors.warning.700');
-  --icon-on-info-secondary: theme('colors.warning.700');
+  --icon-on-warning-secondary: theme('colors.warning.700');
 
   /*Accent*/
   --bg-accent: theme('colors.accent.700');
