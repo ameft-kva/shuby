@@ -1,0 +1,140 @@
+<% content_for :section_title, "Themes" %>
+
+<%= h2_with_anchor "Overview" %>
+
+<p>
+Jumpstart Pro’s color system uses color roles with a semantic naming system (“primary”, “on-primary”,
+“text-on-inverse” etc.). By mapping Tailwind color tokens to Jumpstart Pro’s semantic color names, there’s no
+need to re-apply colors for every single component when creating a new or custom theme.
+</p>
+
+<p>
+Semantic color names make theming, customization, and system-wide changes to color (like swapping primary
+colors to match your brand) easier and more efficient.
+</p>
+
+<p>
+Jumpstart Pro comes with a default set of themes that can be used to quickly get started with a new application. The
+default themes are light, dark, and juicy. The light and dark themes are the ones to modify if you don't need a
+lot of fine-grained control over the look and feel of your application. The juicy theme is an example of when you
+want to go further and have more control or use a custom theme.
+</p>
+
+<%= h3_with_anchor "Modifying the default themes" %>
+
+<p>
+The light and dark themes that ship by default use semantically named color roles which are defined in
+<code>tailwind.config.js</code> and map to Tailwind colors. Changing the colors here is the easiest way to make
+large application wide changes to the default theming for both light and dark modes. To get started changing the
+colors, if not creating a custom theme, you will need to modify the color values in the <code>theme</code> object
+in <code>tailwind.config.js</code>.
+</p>
+
+<p>
+The juicy theme is an example of when you want to go further and have more fine-grained control over every aspect of
+a theme. It uses none of the default semantic names setup in <code>tailwind.config.js.</code> This is so that changes
+there do not affect this theme.
+</p>
+
+<p>
+The next sections will walk you through the default color roles and how to modify them.
+</p>
+
+<%= h5_with_anchor "Primary and secondary colors" %>
+
+<p>
+To start updating colors or creating your own theme, begin with Primary. Primary can be your main brand color or
+a primary accent color that is high-emphasis.
+</p>
+
+<p>
+Secondary colors are used for less prominent components, but could still carry a color expression of your brand.
+</p>
+
+<%= h5_with_anchor "Danger, Success, Info, Warning & Accent" %>
+
+<p>
+Some colors communicate status in the UI—destructive or successful actions, warnings, alerts, etc.
+</p>
+
+<p>
+If you change these, we recommend choosing from similar color palettes—pink or red for danger, green or turquoise
+for success, etc.—as these are common associations understood by end users.
+</p>
+
+<%= h5_with_anchor "Dark and Light" %>
+
+<p>
+Dark and light buttons are named for their background colors.
+</p>
+
+<%= h5_with_anchor "Disabled" %>
+
+<p>
+If you change these, we recommend that you ensure disabled states are visually distinct from enabled states.
+</p>
+
+<%= h5_with_anchor "Base: Text, Borders, and Elevation" %>
+
+<p>
+These colors establish hierarchy in the UI, with different shades of colors across text, icons, surfaces, and
+borders—for example, headers vs. body text, high vs. low elevation of a surface, an input field outline vs. a
+faint dividing line, a selected element, etc.
+</p>
+
+<p>
+To distinguish them from other color groups, they are named with the prefix “base-”.
+</p>
+
+
+<%= h3_with_anchor "Custom Themes" %>
+
+<p>
+If you want to create a completely custom theme, you can do so by copying the any of the default theme files
+(light.css, dark.css, or juicy.css), creating a file for your theme in <code>app/assets/stylesheets/themes</code>,
+pasting in the copied theme, changing the top level class name to match the file/theme name and modifying the color
+values to your liking. After that import your new theme in <code>app/assets/stylesheets/application.scss</code> and
+you're good to go.
+</p>
+
+<%= h4_with_anchor "Example: Changing the default color theme" %>
+
+<p>
+<em>⚠️ Changing the colors here will only affect light and dark themes and not the juicy theme.</em>
+</p>
+
+<p>
+Here are the default semantic names for the colors used in the light and dark themes:
+
+<div class="not-prose">
+  <pre><code>// tailwind.config.js
+  theme: {
+    extend: {
+      colors: {
+        primary: colors.blue,
+        secondary: colors.gray,
+        tertiary: colors.gray,
+        danger: colors.red,
+        success: colors.green,
+        info: colors.blue,
+        warning: colors.yellow,
+        accent: colors.orange,
+        light: colors.gray,
+        dark: colors.gray,
+        disabled: colors.gray,
+      },
+    },
+  },
+</code></pre>
+</div>
+
+<p>
+If your have a brand color, say teal for example, that you want to use, you can change the <code>primary</code> color
+value from <code>colors.blue</code> to <code>colors.teal</code>. This will change the primary color for both light
+and dark modes.
+</p>
+
+<p>
+These colors come from the Tailwind color palette. You can find the full list of Tailwind
+colors <%= link_to "here", "https://tailwindcss.com/docs/customizing-colors", target: "_blank" %>
+</p>
