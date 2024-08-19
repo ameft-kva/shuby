@@ -3,8 +3,8 @@
   /*Primary*/
   --bg-primary: theme('colors.indigo.700');
   --bg-primary-hover: theme('colors.indigo.600');
-  --text-on-primary: theme('colors.white');
-  --border-primary: theme('colors.indigo.700');
+  --text-on-primary: theme('colors.slate.50');
+  --border-primary: theme('colors.indigo.600');
   --border-primary-hover: theme('colors.indigo.500');
   --text-primary: theme('colors.indigo.700');
   --text-primary-hover: theme('colors.indigo.600');
@@ -23,9 +23,9 @@
   --border-danger: theme('colors.rose.500');
   --border-danger-focus: theme('colors.rose.500');
   --text-danger: theme('colors.rose.700');
-  --bg-danger-secondary: theme('colors.red.50');
-  --text-on-danger-secondary: theme('colors.red.700');
-  --icon-on-danger-secondary: theme('colors.red.600');
+  --bg-danger-secondary: theme('colors.rose.50');
+  --text-on-danger-secondary: theme('colors.rose.700');
+  --icon-on-danger-secondary: theme('colors.rose.600');
 
   /*Success*/
   --bg-success: theme('colors.emerald.800');
@@ -63,8 +63,9 @@
 
   /*Dark*/
   --bg-dark: theme('colors.indigo.950');
+  --bg-dark-secondary: theme('colors.indigo.500');
   --bg-dark-hover: theme('colors.indigo.900');
-  --text-on-dark: theme('colors.white');
+  --text-on-dark: theme('colors.indigo.50');
   --text-on-dark-outline: theme('colors.indigo.900');
   --border-dark: theme('colors.indigo.700');
   --border-dark-focus: theme('colors.indigo.500');

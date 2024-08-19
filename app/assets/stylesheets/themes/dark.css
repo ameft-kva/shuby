@@ -63,6 +63,7 @@
 
   /*Dark*/
   --bg-dark: theme('colors.dark.950');
+  --bg-dark-secondary: theme('colors.dark.400');
   --bg-dark-hover: theme('colors.dark.900');
   --text-on-dark: theme('colors.white');
   --text-on-dark-outline: theme('colors.dark.200');
