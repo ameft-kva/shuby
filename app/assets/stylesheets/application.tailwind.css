@@ -26,6 +26,7 @@
 @import "components/nav";
 @import "components/notifications";
 @import "components/pagination";
+@import "components/pills";
 @import "components/strada";
 @import "components/tabs";
 @import "components/tooltips";
