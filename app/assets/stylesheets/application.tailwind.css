@@ -31,6 +31,7 @@
 @import "components/trix";
 @import "components/typography";
 @import "components/util";
+@import "components/wells";
 @import "components/braintree";
 
 @import "tailwindcss/utilities";
