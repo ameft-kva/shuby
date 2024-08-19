@@ -32,6 +32,11 @@ button[disabled]        .when-enabled { display: none; }
       opacity: 60%;
       cursor: not-allowed;
     }
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
   }
 
   .btn-outline {
@@ -76,6 +81,11 @@ button[disabled]        .when-enabled { display: none; }
 
     &.btn-xl {
       padding: 14px;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
     }
   }
 
