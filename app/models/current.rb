@@ -8,7 +8,6 @@ class Current < ActiveSupport::CurrentAttributes
 
   resets do
     Time.zone = nil
-    @account_user = nil
   end
 
   def user=(value)
