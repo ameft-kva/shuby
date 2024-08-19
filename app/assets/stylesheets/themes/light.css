@@ -89,9 +89,9 @@
   --base-bg-base: theme('colors.gray.50');
   --base-bg-low: theme('colors.white');
   --base-bg-lowest: theme('colors.gray.50');
-  --base-border-primary: theme('colors.primary.500');
-  --base-border-secondary: theme('colors.primary.400');
-  --base-border-tertiary: theme('colors.primary.300');
+  --base-border-primary: theme('colors.gray.500');
+  --base-border-secondary: theme('colors.gray.400');
+  --base-border-tertiary: theme('colors.gray.300');
   --base-border-focus: theme('colors.primary.500');
   --base-bg-selected: theme('colors.primary.700');
   --base-bg-hover: theme('colors.primary.50');

@@ -83,7 +83,7 @@
   --base-text-tertiary: theme('colors.slate.600');
   --base-text-disabled: theme('colors.slate.400');
   --base-icon: theme('colors.indigo.800');
-  --base-bg-backdrop: theme('colors.slate.800');
+  --base-bg-backdrop: theme('colors.indigo.950');
   --base-bg-highest: theme('colors.sky.400');
   --base-bg-high: theme('colors.sky.300');
   --base-bg-base: theme('colors.sky.200');
