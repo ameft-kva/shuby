@@ -17,6 +17,11 @@
     flex-shrink: 0;
   }
 
+  h4 a, p a {
+    display: inline;
+    margin-right: 0px;
+  }
+
   p {
     font-weight: 400;
   }
