@@ -3,21 +3,19 @@
 <%= h2_with_anchor "Overview" %>
 
 <p>
-Jumpstart Pro’s color system uses color roles with a semantic naming system (“primary”, “on-primary”,
-“text-on-inverse” etc.). By mapping Tailwind color tokens to Jumpstart Pro’s semantic color names, there’s no
-need to re-apply colors for every single component when creating a new or custom theme.
+Jumpstart Pro comes with a default set of themes that can be used to quickly get started with a new
+application.
 </p>
 
 <p>
-Semantic color names make theming, customization, and system-wide changes to color (like swapping primary
-colors to match your brand) easier and more efficient.
+The dark and light themes provide a great set of neutral colors for any interface. They’re great starting
+points to modify when creating your own custom theme. Jumpstart’s juicy theme is a good example of how a
+theme can be customized to reflect a stronger brand expression.
 </p>
 
 <p>
-Jumpstart Pro comes with a default set of themes that can be used to quickly get started with a new application. The
-default themes are light, dark, and juicy. The light and dark themes are the ones to modify if you don't need a
-lot of fine-grained control over the look and feel of your application. The juicy theme is an example of when you
-want to go further and have more control or use a custom theme.
+Semantic color names in Jumpstart’s color system make theming, customization, and system-wide changes
+to color (like swapping primary colors to match your brand) easier and more efficient.
 </p>
 
 <%= h3_with_anchor "Modifying the default themes" %>
@@ -40,7 +38,7 @@ there do not affect this theme.
 The next sections will walk you through the default color roles and how to modify them.
 </p>
 
-<%= h5_with_anchor "Primary and secondary colors" %>
+<%= h5_with_anchor "Primary and Secondary colors" %>
 
 <p>
 To start updating colors or creating your own theme, begin with Primary. Primary can be your main brand color or
@@ -74,23 +72,35 @@ Dark and light buttons are named for their background colors.
 If you change these, we recommend that you ensure disabled states are visually distinct from enabled states.
 </p>
 
-<%= h5_with_anchor "Base: Text, Borders, and Elevation" %>
+<%= h5_with_anchor "Base" %>
+
+<p>
+These colors are used for baseline or default foundational design elements like page background, divider lines,
+borders on elements with focus, etc.
+</p>
 
 <p>
 These colors establish hierarchy in the UI, with different shades of colors across text, icons, surfaces, and
-borders—for example, headers vs. body text, high vs. low elevation of a surface, an input field outline vs. a
-faint dividing line, a selected element, etc.
+borders. To distinguish them from other color groups, they are named with the prefix <code>base-</code>.
 </p>
 
 <p>
-To distinguish them from other color groups, they are named with the prefix “base-”.
+<code>base</code> as a semantic building block is used for colors that portray elevation, like
+<code>base-bg-lowest</code> and <code>base-bg-highest</code>—especially in dark mode, where things like drop shadow
+can’t be relied on to communicate depth. <code>base</code> is also used to set consistent colors for icons
+(<code>base-icon</code>) and text (<code>base-text</code>, <code>base-text-disabled</code>, etc.).
 </p>
 
+<p>
+Many products keep things neutral with white page backgrounds and varying shades of gray for text, but others use
+backgrounds and text color as another way to express brand (like in the juicy theme). With <code>base-*</code>, our
+color system easily supports either scenario.
+</p>
 
 <%= h3_with_anchor "Custom Themes" %>
 
 <p>
-If you want to create a completely custom theme, you can do so by copying the any of the default theme files
+If you want to create a completely custom theme, you can do so by copying any of the default theme files
 (light.css, dark.css, or juicy.css), creating a file for your theme in <code>app/assets/stylesheets/themes</code>,
 pasting in the copied theme, changing the top level class name to match the file/theme name and modifying the color
 values to your liking. After that import your new theme in <code>app/assets/stylesheets/application.scss</code> and
@@ -104,7 +114,8 @@ you're good to go.
 </p>
 
 <p>
-Here are the default semantic names for the colors used in the light and dark themes:
+<Here are the default semantic names for the colors used in the light and dark themes:
+</p>
 
 <div class="not-prose">
   <pre><code>// tailwind.config.js
@@ -136,5 +147,14 @@ and dark modes.
 
 <p>
 These colors come from the Tailwind color palette. You can find the full list of Tailwind
-colors <%= link_to "here", "https://tailwindcss.com/docs/customizing-colors", target: "_blank" %>
+colors <%= link_to "here", "https://tailwindcss.com/docs/customizing-colors", target: "_blank" %>.
+</p>
+
+<%= h5_with_anchor "Using 'on-*' to track relationships between colors" %>
+
+<p>
+A color role’s semantic name gives clues about how a color may “bond” with other colors. Semantic names with
+<code>on-*</code> indicate a relationship to another color in the system. When choosing colors for
+a custom theme, consider checking the contrast ratio between these color pairs for accessibility with
+a tool like <%= link_to "WebAIM's Contrast Checker", "https://webaim.org/resources/contrastchecker/", target: "_blank" %>.
 </p>
