@@ -29,6 +29,8 @@ class ApplicationClient
 
   class Unauthorized < Error; end
 
+  class UnprocessableEntity < Error; end
+
   class RateLimit < Error; end
 
   class NotFound < Error; end
@@ -227,6 +229,8 @@ class ApplicationClient
       raise Forbidden, response.body
     when "404"
       raise NotFound, response.body
+    when "422"
+      raise UnprocessableEntity, response.body
     when "429"
       raise RateLimit, response.body
     when "500"
