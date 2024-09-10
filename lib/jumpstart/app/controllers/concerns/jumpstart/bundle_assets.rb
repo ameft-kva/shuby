@@ -19,7 +19,7 @@ module Jumpstart::BundleAssets
   def asset_precompiled?(path)
     if Rails.application.assets.respond_to?(:load_path)
       Rails.application.assets.load_path.find(path)
-    else Rails.application.respond_to?(:asset_precompiled?)
+    elsif Rails.application.respond_to?(:asset_precompiled?)
       Rails.application.asset_precompiled?(path)
     end
   end
