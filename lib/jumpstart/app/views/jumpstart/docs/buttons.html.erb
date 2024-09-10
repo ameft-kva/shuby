@@ -153,11 +153,22 @@ You can also have icons on left sides, both sides or right side of the button te
 <% end %>
 
 <%= h2_with_anchor "Disabled" %>
-<p>Buttons can be disabled by adding the <code>disabled</code> attribute to the button tag.</p>
 <%= render "jumpstart/docs/snippet" do %>
-  <div class="space-y-4 space-x-2">
+<section class="space-y-8">
+<p>Buttons can be disabled by adding the <code>disabled</code> attribute to the button tag.</p>
+
+  <div class="space-x-2">
+    <% types.each do |name, type| %>
+      <%= tag.button name, class: "btn #{type}", disabled: true %>
+    <% end %>
+  </div>
+
+  <p>Buttons can optionally display a spinner svg by using the <code>button_text</code> helper method.</p>
+
+  <div class="space-x-2">
     <% types.each do |name, type| %>
       <%= tag.button button_text(name), class: "btn #{type}", disabled: true %>
     <% end %>
   </div>
+</section>
 <% end %>

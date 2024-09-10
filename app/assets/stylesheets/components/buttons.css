@@ -105,6 +105,11 @@ button[disabled]        .when-enabled { display: none; }
       color: var(--text-on-primary);
     }
 
+    &:disabled:hover {
+      background: var(--bg-primary);
+      color: var(--text-on-primary);
+    }
+
     &.btn-outline {
       background: transparent;
       color: var(--text-primary);
@@ -129,6 +134,11 @@ button[disabled]        .when-enabled { display: none; }
       color: var(--text-on-secondary-hover);
     }
 
+    &:disabled:hover {
+      background: var(--bg-secondary);
+      color: var(--text-on-secondary);
+    }
+
     &.btn-outline {
       background: transparent;
       color: var(--text-on-secondary);
@@ -147,6 +157,11 @@ button[disabled]        .when-enabled { display: none; }
 
     &:hover {
       background: var(--bg-danger-hover);
+      color: var(--text-on-danger);
+    }
+
+    &:disabled:hover {
+      background: var(--bg-danger);
       color: var(--text-on-danger);
     }
 
@@ -174,6 +189,11 @@ button[disabled]        .when-enabled { display: none; }
 
     &:hover {
       background: var(--bg-success-hover);
+      color: var(--text-on-success);
+    }
+
+    &:disabled:hover {
+      background: var(--bg-success);
       color: var(--text-on-success);
     }
 
@@ -207,6 +227,11 @@ button[disabled]        .when-enabled { display: none; }
       color: var(--text-on-light);
     }
 
+    &:disabled:hover {
+      background: var(--bg-light);
+      color: var(--text-on-light);
+    }
+
     &.btn-outline {
       background: transparent;
       color: var(--text-on-light-outline);
@@ -228,6 +253,11 @@ button[disabled]        .when-enabled { display: none; }
       background: var(--bg-dark-hover);
       color: var(--text-on-dark);
       border: 1px solid var(--bg-dark-hover);
+    }
+
+    &:disabled:hover {
+      background: var(--bg-dark);
+      color: var(--text-on-dark);
     }
 
     &:focus-visible {
@@ -254,6 +284,11 @@ button[disabled]        .when-enabled { display: none; }
 
     &:hover {
       color: var(--text-primary-hover);
+    }
+
+    &:disabled:hover {
+      background: transparent;
+      color: var(--text-primary);
     }
 
     &.btn-icon {
