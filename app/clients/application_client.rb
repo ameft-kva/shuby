@@ -1,3 +1,5 @@
+require "ostruct"
+
 class ApplicationClient
   # A basic API client with HTTP methods
   #
