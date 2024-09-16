@@ -18,7 +18,11 @@
     <%= render "payments_dependencies" %>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path %>
   </head>
   <body class="h-full font-sans antialiased font-normal leading-normal bg-gray-50 dark:bg-gray-900 dark:text-gray-50" data-controller="theme" data-theme-preference-value="<%= current_user&.theme %>">
     <div class="main flex flex-col">
