@@ -130,6 +130,7 @@ div.form-control {
 }
 
 select {
+  background-color: var(--base-bg-low);
   border: 1px solid var(--base-border-primary);
   border-radius: 6px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
@@ -156,6 +157,7 @@ select:not([multiple]) {
 }
 
 select[multiple] {
+  background: var(--base-bg-low);
   border: 1px solid var(--base-border-primary);
   border-radius: 6px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
