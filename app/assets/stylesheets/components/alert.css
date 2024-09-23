@@ -1,5 +1,5 @@
 .alert,
-.notice {
+.banner {
   background: var(--base-bg-base);
   color: var(--base-text-secondary);
   padding: 16px;
@@ -111,43 +111,60 @@
   }
 }
 
-.notice {
+.banner {
   justify-content: center;
   gap: 8px;
 
-  &.notice-info {
+  &.banner-info {
     background: var(--bg-info-secondary);
     color: var(--text-on-info-secondary);
-
-    svg {
-      color: var(--icon-on-info-secondary);
-    }
   }
 
-  &.notice-success {
+  &.banner-success {
     background: var(--bg-success-secondary);
     color: var(--text-on-success-secondary);
-
-    svg {
-      color: var(--icon-on-success-secondary);
-    }
   }
 
-  &.notice-error {
+  &.banner-error {
     background: var(--bg-danger-secondary);
     color: var(--text-on-danger-secondary);
-
-    svg {
-      color: var(--icon-on-danger-secondary);
-    }
   }
 
-  &.notice-warning {
+  &.banner-warning {
     background: var(--bg-warning-secondary);
     color: var(--text-on-warning-secondary);
+  }
 
-    svg {
-      color: var(--icon-on-warning-secondary);
+  &.banner-impersonate {
+    background: var(--bg-danger-hover);
+    color: var(--text-on-danger);
+
+    a {
+      color: var(--text-on-danger);
+    }
+
+    > * + * {
+      margin-left: 8px;
     }
   }
+}
+
+.icon-alert {
+  fill: var(--icon-on-warning-secondary);
+}
+
+.icon-error {
+  fill: var(--icon-on-danger-secondary);
+}
+
+.icon-notice {
+  fill: var(--icon-on-info-secondary);
+}
+
+.icon-success {
+  fill: var(--icon-on-success-secondary);
+}
+
+.icon-default {
+  fill: var(--base-icon);
 }

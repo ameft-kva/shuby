@@ -26,8 +26,6 @@ gem "rqrcode", "~> 2.1"
 gem "ruby-oembed", "~> 0.18.0", require: "oembed"
 
 group :development, :test do
-  # Lint code for consistent style
-  gem "standard", require: false
   gem "erb_lint", require: false
   gem "mailbin"
 end

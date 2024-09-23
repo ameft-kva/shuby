@@ -36,10 +36,5 @@ module Jumpstart
         app.config.middleware.use Jumpstart::AccountMiddleware
       end
     end
-
-    initializer "jumpstart.sidekiq" do
-      # Removable https://github.com/hotwired/turbo-rails/issues/522
-      ::Sidekiq.strict_args!(false) if defined?(::Sidekiq)
-    end
   end
 end
