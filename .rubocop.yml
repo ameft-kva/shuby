@@ -7,6 +7,7 @@ inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 # Layout/SpaceInsideArrayLiteralBrackets:
 #   Enabled: false
 
+# https://github.com/standardrb/standard/blob/v1.40.0/config/base.yml
 Bundler/DuplicatedGem:
   Enabled: true
   Include:
