@@ -1,5 +1,3 @@
-require "ostruct"
-
 class ApplicationClient
   # A basic API client with HTTP methods
   #
@@ -262,13 +260,13 @@ class ApplicationClient
     #     Response::PARSER["text/html"] = ->(response) { Nokogiri::HTML(response.body) }
     #   end
     #
-    # To parse JSON as a Hash instead of OpenStruct:
+    # To parse JSON as a Hash instead:
     #
     #   class MyClient < ApplicationClient
     #     Response::JSON_OBJECT_CLASS = nil
     #   end
 
-    JSON_OBJECT_CLASS = OpenStruct
+    JSON_OBJECT_CLASS = ActiveSupport::InheritableOptions
     PARSER = {
       "application/json" => ->(response) { JSON.parse(response.body, object_class: JSON_OBJECT_CLASS) },
       "application/xml" => ->(response) { Nokogiri::XML(response.body) }
