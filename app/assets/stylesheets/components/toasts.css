@@ -18,8 +18,8 @@
 
   @media (max-width:640px) {
     #toasts {
-      align-items: center;
-      padding: 24px;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
