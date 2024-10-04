@@ -1,4 +1,5 @@
 subscribed:
+  type: Pay::FakeProcessor::Subscription
   customer: subscribed
   name: default
   processor_id: fake_1
