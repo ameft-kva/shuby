@@ -24,6 +24,7 @@
 
   p {
     font-weight: 400;
+    color: var(--base-text-secondary);
   }
 }
 
@@ -118,21 +119,37 @@
   &.banner-info {
     background: var(--bg-info-secondary);
     color: var(--text-on-info-secondary);
+
+    p {
+      color: var(--text-on-info-secondary);
+    }
   }
 
   &.banner-success {
     background: var(--bg-success-secondary);
     color: var(--text-on-success-secondary);
+
+    p {
+      color: var(--text-on-success-secondary);
+    }
   }
 
   &.banner-error {
     background: var(--bg-danger-secondary);
     color: var(--text-on-danger-secondary);
+
+    p {
+      color: var(--text-on-danger-secondary);
+    }
   }
 
   &.banner-warning {
     background: var(--bg-warning-secondary);
     color: var(--text-on-warning-secondary);
+
+    p {
+      color: var(--text-on-warning-secondary);
+    }
   }
 
   &.banner-impersonate {
