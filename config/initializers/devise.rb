@@ -3,7 +3,7 @@
 class TurboFailureApp < Devise::FailureApp
   # Compatibility for Turbo::Native::Navigation
   class << self
-    def helper_method(name)
+    def helper_method(*methods)
     end
   end
 
