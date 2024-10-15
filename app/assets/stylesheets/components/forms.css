@@ -314,6 +314,11 @@ form.inline {
   align-items: flex-start;
   gap: 8px;
 
+  input[type="checkbox"],
+  input[type='radio'] {
+    margin-top: 4px;
+  }
+
   label {
     display: block;
     margin-bottom: 0px;
@@ -516,7 +521,6 @@ form.inline {
   background: var(--base-bg-base);
   border: 1px solid var(--base-border-secondary);
   cursor: pointer;
-  margin-top: 4px;
   margin-bottom: 0;
 
   &:focus,
