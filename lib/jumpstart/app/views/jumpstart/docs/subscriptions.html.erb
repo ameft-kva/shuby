@@ -17,7 +17,7 @@ Plan.where(name: "Free").first_or_create(hidden: true, amount: 0, currency: :usd
 # Create a fake subscription for the admin user so they have access to everything by default
 account = user.accounts.first
 account.set_payment_processor :fake_processor, allow_fake: true
-account.payment_processor.subscribe</code></pre>
+account.payment_processor.subscribe(plan: :free)</code></pre>
 </div>
 
 <%= h5_with_anchor "Enterprise Plans" %>
