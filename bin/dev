@@ -7,4 +7,4 @@ if ! command -v overmind 2>&1 >/dev/null; then
   gem install overmind
 fi
 
-exec overmind start -f Procfile.dev "$@"
+exec overmind start -T -f Procfile.dev "$@"
