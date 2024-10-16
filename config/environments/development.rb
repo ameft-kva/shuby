@@ -82,5 +82,5 @@ Rails.application.configure do
   # config.action_controller.default_url_options = {host: "lvh.me", port: ENV.fetch("PORT", 3000).to_i}
 
   # config.active_job.queue_adapter = Jumpstart.config.queue_adapter
-  # config.solid_queue.connects_to = { database: { writing: :queue } } if config.solid_queue
+  # config.solid_queue.connects_to = {database: {writing: :queue}}
 end
