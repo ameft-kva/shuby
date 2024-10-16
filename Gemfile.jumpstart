@@ -67,10 +67,6 @@ gem "skylight" if Jumpstart.config.skylight?
 
 # Background jobs
 gem "sidekiq" if Jumpstart.config.background_job_processor == "sidekiq"
-gem "delayed" if Jumpstart.config.background_job_processor == "delayed_job"
-gem "sneakers" if Jumpstart.config.background_job_processor == "sneakers"
-gem "sucker_punch" if Jumpstart.config.background_job_processor == "sucker_punch"
-gem "good_job" if Jumpstart.config.background_job_processor == "good_job"
 
 if Jumpstart.config.background_job_processor == "solid_queue"
   gem "solid_queue"

@@ -2,10 +2,7 @@
 require_relative "yaml_serializer"
 
 module Jumpstart
-  def self.config
-    @config ||= Configuration.load!
-  end
-
+  def self.config = @config ||= Configuration.load!
   def self.config=(value)
     @config = value
   end
@@ -54,9 +51,7 @@ module Jumpstart
         end
       end
 
-      def integrations
-        @integrations || []
-      end
+      def integrations = @integrations || []
 
       def self.has_credentials?(integration)
         credentials_for(integration).first.last.present? if credentials_for(integration).present?
@@ -70,37 +65,14 @@ module Jumpstart
     module Payable
       attr_writer :payment_processors
 
-      def payment_processors
-        Array(@payment_processors)
-      end
-
-      def payments_enabled?
-        payment_processors.any?
-      end
-
-      def stripe?
-        payment_processors.include? "stripe"
-      end
-
-      def lemon_squeezy?
-        payment_processors.include? "lemon_squeezy"
-      end
-
-      def braintree?
-        payment_processors.include? "braintree"
-      end
-
-      def paypal?
-        payment_processors.include? "paypal"
-      end
-
-      def paddle_billing?
-        payment_processors.include? "paddle_billing"
-      end
-
-      def paddle_classic?
-        payment_processors.include? "paddle_classic"
-      end
+      def payment_processors = Array(@payment_processors)
+      def payments_enabled? = payment_processors.any?
+      def stripe? = payment_processors.include? "stripe"
+      def lemon_squeezy? = payment_processors.include? "lemon_squeezy"
+      def braintree? = payment_processors.include? "braintree"
+      def paypal? = payment_processors.include? "paypal"
+      def paddle_billing? = payment_processors.include? "paddle_billing"
+      def paddle_classic? = payment_processors.include? "paddle_classic"
     end
 
     include Mailable
@@ -130,9 +102,7 @@ module Jumpstart
       end
     end
 
-    def self.config_path
-      File.join("config", "jumpstart.yml")
-    end
+    def self.config_path = File.join("config", "jumpstart.yml")
 
     def self.create_default_config
       FileUtils.cp File.join(File.dirname(__FILE__), "../templates/jumpstart.yml"), config_path
@@ -145,7 +115,7 @@ module Jumpstart
       @domain = options["domain"] || "example.com"
       @support_email = options["support_email"] || "support@example.com"
       @default_from_email = options["default_from_email"] || "My App <no-reply@example.com>"
-      @background_job_processor = options["background_job_processor"] || "async"
+      @background_job_processor = options["background_job_processor"]
       @email_provider = options["email_provider"]
       @personal_accounts = cast_to_boolean(options["personal_accounts"], default: true)
       @apns = cast_to_boolean(options["apns"])
@@ -179,46 +149,21 @@ module Jumpstart
       Jumpstart.config = self
     end
 
-    def job_processor
-      (background_job_processor || :async).to_sym
-    end
+    def job_processor = background_job_processor&.to_sym
+    def queue_adapter = job_processor
 
-    def queue_adapter
-      case job_processor
-      when :delayed_job
-        :delayed
-      else
-        job_processor
-      end
-    end
+    def gems = Array(@gems)
 
-    def gems
-      Array(@gems)
-    end
-
-    def omniauth_providers
-      Array(@omniauth_providers)
-    end
-
-    def register_with_account?
-      !personal_accounts?
-    end
+    def omniauth_providers = Array(@omniauth_providers)
 
     def personal_accounts=(value)
       @personal_accounts = cast_to_boolean(value)
     end
+    def personal_accounts? = @personal_accounts.nil? ? true : cast_to_boolean(@personal_accounts)
+    def register_with_account? = !personal_accounts?
 
-    def personal_accounts?
-      @personal_accounts.nil? ? true : cast_to_boolean(@personal_accounts)
-    end
-
-    def apns?
-      cast_to_boolean(@apns || false)
-    end
-
-    def fcm?
-      cast_to_boolean(@fcm || false)
-    end
+    def apns? = cast_to_boolean(@apns || false)
+    def fcm? = cast_to_boolean(@fcm || false)
 
     def update_procfiles
       write_procfile Rails.root.join("Procfile"), procfile_content
@@ -267,13 +212,8 @@ module Jumpstart
       end
     end
 
-    def model_name
-      ActiveModel::Name.new(self, nil, "Configuration")
-    end
-
-    def persisted?
-      false
-    end
+    def model_name = ActiveModel::Name.new(self, nil, "Configuration")
+    def persisted? = false
 
     private
 
@@ -306,16 +246,14 @@ module Jumpstart
       end
     end
 
+    # Safely copy template, so we don't blow away any customizations you made
     def copy_template(filename)
-      # Safely copy template, so we don't blow away any customizations you made
       unless File.exist?(filename)
         FileUtils.cp(template_path(filename), Rails.root.join(filename))
       end
     end
 
-    def template_path(filename)
-      Rails.root.join("lib/templates", filename)
-    end
+    def template_path(filename) = Rails.root.join("lib/templates", filename)
 
     FALSE_VALUES = [
       false, 0,

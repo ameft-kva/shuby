@@ -2,6 +2,10 @@
 
 This file includes notes on major changes that might affect your application and require changes from you to update.
 
+### October 16, 2024
+
+* Added a "configure your own" option for Active Job queue adapter and simplified the supported list to Async, SolidQueue and Sidekiq. If you wish to use another queue adapter, select the "configure your own" option and add the queue adapter to your environments.
+
 ### September 23, 2024
 
 * Redis has been removed in favor of SolidCable, SolidCache, and SolidQueue in Rails 8.
