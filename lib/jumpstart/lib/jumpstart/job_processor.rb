@@ -32,8 +32,6 @@ module Jumpstart
         "bundle exec que -q default -q mailers -q action_mailbox_incineration -q action_mailbox_routing -q active_storage_analysis -q active_storage_purge"
       when "good_job"
         "bundle exec good_job start"
-      when "solid_queue"
-        "bundle exec rake solid_queue:start"
       end
     end
   end
