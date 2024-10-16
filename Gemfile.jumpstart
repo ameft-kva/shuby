@@ -69,7 +69,6 @@ gem "skylight" if Jumpstart.config.skylight?
 gem "sidekiq" if Jumpstart.config.background_job_processor == "sidekiq"
 
 if Jumpstart.config.background_job_processor == "solid_queue"
-  gem "solid_queue"
   gem "mission_control-jobs"
 end
 
