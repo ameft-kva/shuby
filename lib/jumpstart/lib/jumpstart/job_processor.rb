@@ -2,13 +2,13 @@ module Jumpstart
   class JobProcessor
     AVAILABLE_PROVIDERS = {
       "Async" => :async,
+      "SolidQueue" => :solid_queue,
       "Sidekiq" => :sidekiq,
       "DelayedJob" => :delayed_job,
       "Sneakers" => :sneakers,
       "SuckerPunch" => :sucker_punch,
       "Que" => :que,
-      "GoodJob" => :good_job,
-      "SolidQueue" => :solid_queue
+      "GoodJob" => :good_job
     }.freeze
 
     AVAILABLE_PROVIDERS.each do |_, name|
@@ -20,6 +20,8 @@ module Jumpstart
     def self.command(processor)
       # async, sucker_punch don't need separate processes
       case processor.to_s
+      when "solid_queue"
+        "bin/jobs"
       when "sidekiq"
         "bundle exec sidekiq"
       when "delayed_job"
