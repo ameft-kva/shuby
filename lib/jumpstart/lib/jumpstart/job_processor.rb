@@ -4,7 +4,7 @@ module Jumpstart
       "I'll configure my own" => nil,
       "Async" => :async,
       "SolidQueue" => :solid_queue,
-      "Sidekiq" => :sidekiq,
+      "Sidekiq" => :sidekiq
     }.freeze
 
     AVAILABLE_PROVIDERS.each do |_, name|

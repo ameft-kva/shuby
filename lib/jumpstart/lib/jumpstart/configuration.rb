@@ -3,6 +3,7 @@ require_relative "yaml_serializer"
 
 module Jumpstart
   def self.config = @config ||= Configuration.load!
+
   def self.config=(value)
     @config = value
   end
@@ -66,12 +67,19 @@ module Jumpstart
       attr_writer :payment_processors
 
       def payment_processors = Array(@payment_processors)
+
       def payments_enabled? = payment_processors.any?
+
       def stripe? = payment_processors.include? "stripe"
+
       def lemon_squeezy? = payment_processors.include? "lemon_squeezy"
+
       def braintree? = payment_processors.include? "braintree"
+
       def paypal? = payment_processors.include? "paypal"
+
       def paddle_billing? = payment_processors.include? "paddle_billing"
+
       def paddle_classic? = payment_processors.include? "paddle_classic"
     end
 
@@ -150,6 +158,7 @@ module Jumpstart
     end
 
     def job_processor = background_job_processor&.to_sym
+
     def queue_adapter = job_processor
 
     def gems = Array(@gems)
@@ -159,10 +168,13 @@ module Jumpstart
     def personal_accounts=(value)
       @personal_accounts = cast_to_boolean(value)
     end
+
     def personal_accounts? = @personal_accounts.nil? ? true : cast_to_boolean(@personal_accounts)
+
     def register_with_account? = !personal_accounts?
 
     def apns? = cast_to_boolean(@apns || false)
+
     def fcm? = cast_to_boolean(@fcm || false)
 
     def update_procfiles
@@ -213,6 +225,7 @@ module Jumpstart
     end
 
     def model_name = ActiveModel::Name.new(self, nil, "Configuration")
+
     def persisted? = false
 
     private
