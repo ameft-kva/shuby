@@ -1,4 +1,6 @@
 # Add dependencies for your application in the main Gemfile
+require_relative "lib/jumpstart/lib/jumpstart/yaml_serializer"
+require_relative "lib/jumpstart/lib/jumpstart/configuration"
 
 # Jumpstart Pro dependencies
 gem "administrate", github: "excid3/administrate"

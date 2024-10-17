@@ -1,5 +1,6 @@
 # Gems cannot be loaded here since this runs during bundler/setup
 require_relative "yaml_serializer"
+require_relative "job_processor"
 
 module Jumpstart
   def self.config = @config ||= Configuration.load!
@@ -123,7 +124,7 @@ module Jumpstart
       @domain = options["domain"] || "example.com"
       @support_email = options["support_email"] || "support@example.com"
       @default_from_email = options["default_from_email"] || "My App <no-reply@example.com>"
-      @background_job_processor = options["background_job_processor"]
+      @background_job_processor = options["background_job_processor"].presence_in Jumpstart::JobProcessor::AVAILABLE_PROVIDERS.values.map(&:to_s)
       @email_provider = options["email_provider"]
       @personal_accounts = cast_to_boolean(options["personal_accounts"], default: true)
       @apns = cast_to_boolean(options["apns"])
