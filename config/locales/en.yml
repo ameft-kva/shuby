@@ -183,6 +183,10 @@ en:
       pricing: "Pricing"
       announcements: "What's New"
 
+  checkout:
+    returns:
+      success: "Thanks for your payment."
+
   dashboard:
     show:
       title: "Dashboard"

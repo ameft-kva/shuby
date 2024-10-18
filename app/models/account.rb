@@ -11,7 +11,6 @@ class Account < ApplicationRecord
   has_many :notification_mentions, as: :record, dependent: :destroy, class_name: "Noticed::Event"
   has_many :account_notifications, dependent: :destroy, class_name: "Noticed::Event"
   has_many :users, through: :account_users
-  has_many :addresses, as: :addressable, dependent: :destroy
 
   scope :personal, -> { where(personal: true) }
   scope :team, -> { where(personal: false) }

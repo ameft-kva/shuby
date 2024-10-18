@@ -8,6 +8,11 @@
   </div>
 
   <div class="form-picker-group toggle">
+    <%= check_box_tag "configuration[payment_processors][]", :lemon_squeezy, @config.lemon_squeezy?, id: :lemon_squeezy %>
+    <label for="lemon_squeezy">Lemon Squeezy</label>
+  </div>
+
+  <div class="form-picker-group toggle">
     <%= check_box_tag "configuration[payment_processors][]", :paddle_billing, @config.paddle_billing?, id: :paddle_billing %>
     <label for="paddle_billing">Paddle Billing</label>
   </div>
