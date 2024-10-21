@@ -18,6 +18,6 @@ export default class extends Controller {
   }
 
   get _isTurboNativeApp() {
-    return navigator.userAgent.indexOf("Turbo Native") !== -1
+    return (navigator.userAgent.indexOf("Turbo Native") !== -1) || (navigator.userAgent.indexOf("Hotwire Native") !== -1)
   }
 }
