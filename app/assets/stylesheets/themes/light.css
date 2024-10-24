@@ -98,4 +98,7 @@
   --base-bg-hover: theme('colors.primary.50');
   --base-bg-tooltip: theme('colors.gray.800');
   --base-text-on-tooltip: theme('colors.white');
+
+  /* Background */
+  background-color: var(--base-bg-low);
 }
