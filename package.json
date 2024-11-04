@@ -4,7 +4,7 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/strada": "^1.0.0-beta1",
-    "@hotwired/turbo-rails": "^8.0.10",
+    "@hotwired/turbo-rails": "^8.0.12",
     "@rails/actioncable": "^8.0.0-beta1",
     "@rails/actiontext": "^8.0.0-beta1",
     "@rails/activestorage": "^8.0.0-beta1",
