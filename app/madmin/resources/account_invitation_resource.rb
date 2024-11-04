@@ -8,11 +8,13 @@ class AccountInvitationResource < Madmin::Resource
   attribute :email
   attribute :created_at, form: false
   attribute :updated_at, form: false
-  attribute :admin
-  attribute :member
+
+  AccountUser::ROLES.each do |role|
+    attribute role, :boolean
+  end
 
   # Associations
-  attribute :account
+  attribute :account, form: false
   attribute :invited_by
 
   # Uncomment this to customize the display name of records in the admin area.

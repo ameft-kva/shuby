@@ -5,12 +5,14 @@ class AccountUserResource < Madmin::Resource
   attribute :id, form: false
   attribute :created_at, form: false
   attribute :updated_at, form: false
-  attribute :admin
-  attribute :member
+
+  AccountUser::ROLES.each do |role|
+    attribute role, :boolean
+  end
 
   # Associations
-  attribute :account
-  attribute :user
+  attribute :account, form: false
+  attribute :user, form: false
 
   # Uncomment this to customize the display name of records in the admin area.
   # def self.display_name(record)
