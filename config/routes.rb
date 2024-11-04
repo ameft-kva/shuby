@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   draw :dev if Rails.env.local?
 
   authenticated :user, lambda { |u| u.admin? } do
-    draw :admin
+    draw :madmin
   end
 
   resources :announcements, only: [:index, :show]

@@ -56,5 +56,11 @@ module JumpstartApp
 
     # Support older SHA1 digests for ActiveRecord::Encryption
     config.active_record.encryption.support_sha1_for_non_deterministic_encryption = true
+
+    config.after_initialize do |app|
+      Madmin.importmap.draw do
+        pin_all_from Rails.root.join("app/javascript/madmin/controllers"), under: "controllers", to: "madmin/controllers"
+      end
+    end
   end
 end

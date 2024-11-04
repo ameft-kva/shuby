@@ -32,8 +32,8 @@ module FlashHelper
     return if current_user == true_user
 
     banner classes: "banner-impersonate" do
-      tag.span("Logged in as <b>#{link_to "#{current_user.name} (#{current_user.email})", main_app.admin_user_path(current_user), class: "underline"}</b>".html_safe) +
-        button_to("Log out", main_app.admin_user_impersonate_path(current_user), method: :delete, form_class: "inline-block", class: "btn btn-secondary btn-small")
+      tag.span("Logged in as <b>#{link_to "#{current_user.name} (#{current_user.email})", main_app.madmin_user_path(current_user), class: "underline"}</b>".html_safe) +
+        button_to("Log out", main_app.madmin_user_impersonate_path(current_user), method: :delete, form_class: "inline-block", class: "btn btn-secondary btn-small")
     end
   end
 end

@@ -17,10 +17,7 @@ import http from "http"
 import { setTimeout } from "timers/promises"
 
 const clients = []
-const entryPoints = [
-  "application.js",
-  "administrate.js"
-]
+const entryPoints = ["application.js"]
 const watchDirectories = [
   "./app/javascript",
   "./app/views",
