@@ -137,7 +137,7 @@
   resolved "https://registry.yarnpkg.com/@hotwired/strada/-/strada-1.0.0-beta1.tgz#95506e76d77cab389eb4315845673f5e8a758802"
   integrity sha512-3J9Rc/qnWvnTnl9zD4l2ZHQQ3QbZANiKCh+AiYW2Lak+7JHx/U0AU+eoA4QDVlVylNFmKbxo3HTLCjEx9txqjA==
 
-"@hotwired/turbo-rails@^8.0.10":
+"@hotwired/turbo-rails@^8.0.12":
   version "8.0.12"
   resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-8.0.12.tgz#6f1a2661122c0a2bf717f3bc68b5106638798c89"
   integrity sha512-ZXwu9ez+Gd4RQNeHIitqOQgi/LyqY8J4JqsUN0nnYiZDBRq7IreeFdMbz29VdJpIsmYqwooE4cFzPU7QvJkQkA==
@@ -243,21 +243,21 @@
   integrity sha512-YgFCyD+9mBhpJdfgf4QtJwk+vZbByVMXsEGREM6GrPk9A1pYXkkIpzYd3+843E+33e3S81yywhqZc3DyrZGPSg==
 
 "@rails/actioncable@^8.0.0-beta1":
-  version "8.0.0-beta1"
-  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.0.0-beta1.tgz#c6783e41674320e08ce308c5055884e71bd4cb33"
-  integrity sha512-nfnZ7DSpFHm81oScVX5ekdroyvlSByoty4NdypNL4xEN6LvGOLtyqY4rVr5BGwjEx0nYOWoUMC1Xv2WIPBRzag==
+  version "8.0.0-rc1"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-8.0.0-rc1.tgz#f0296b7c2a8e821545808abef01d5d41cb1be19a"
+  integrity sha512-6hoOU5klQGq9z4HQwC96H0PW3Dt2GxgF8VnW7x3660rON76OBdS7izJG7QT6jXphMN9aDA9IDIZa3m3uo3UtiQ==
 
 "@rails/actiontext@^8.0.0-beta1":
-  version "8.0.0-beta1"
-  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-8.0.0-beta1.tgz#81524c48ce784bc5df551eff6b252f93506c1731"
-  integrity sha512-1mnwpaBdY0N4CaKMSoVMF4ftaUGyCmZ+n+xjdaQQ9EXlmO1cSjsSphnCjAYV1iIMD9i+HDkIF0SPMopaWWWOwg==
+  version "8.0.0-rc1"
+  resolved "https://registry.yarnpkg.com/@rails/actiontext/-/actiontext-8.0.0-rc1.tgz#53c3cba9630e0a019417f7786fb1ee3b2c610ebd"
+  integrity sha512-jPh/7cIR7Ol82V78o2376n9hI+1Lflyru56Yu5HQ4gcRZdYLko2vlgdy7DaW14J8P4O5SHNI/jdzHDNBA5VVJA==
   dependencies:
     "@rails/activestorage" ">= 8.0.0-alpha"
 
 "@rails/activestorage@>= 8.0.0-alpha", "@rails/activestorage@^8.0.0-beta1":
-  version "8.0.0-beta1"
-  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-8.0.0-beta1.tgz#a999d3f5210b96b099e7061e153267ff069406b7"
-  integrity sha512-wvmWf4k0JsOJIMQPdeFOXjPj3eCa/1ELDGTT0jHQvIdrAHqhvsFSgFyjFLhkkJHqAk3F/UGiqZ+BHEfk7mrrHg==
+  version "8.0.0-rc1"
+  resolved "https://registry.yarnpkg.com/@rails/activestorage/-/activestorage-8.0.0-rc1.tgz#ac6c4008ae2d307ec824b56028dd35b9084c7cd4"
+  integrity sha512-gI2Ij7mDN3d/MCPebE67hL30Y9I5reGvMWGOhFzvz0JMnf7n5U+tm1/B68Vm801g/vsbeLM+RtkuDSl+OZee9w==
   dependencies:
     spark-md5 "^3.0.1"
 
@@ -380,9 +380,9 @@ camelcase-css@^2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001646, caniuse-lite@^1.0.30001663:
-  version "1.0.30001668"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001668.tgz#98e214455329f54bf7a4d70b49c9794f0fbedbed"
-  integrity sha512-nWLrdxqCdblixUO+27JtGJJE/txpJlyUy5YN1u53wLZkP0emYCo5zgS6QYft7VUYR42LGgi/S5hdLZTrnyIddw==
+  version "1.0.30001669"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001669.tgz#fda8f1d29a8bfdc42de0c170d7f34a9cf19ed7a3"
+  integrity sha512-DlWzFDJqstqtIVx1zeSpIMLjunf5SmwOw0N2Ck/QSQdS8PLS4+9HrLaYei4w8BIAL7IB/UEDu889d8vhCTPA0w==
 
 chokidar@^3.5.3:
   version "3.6.0"
@@ -467,9 +467,9 @@ eastasianwidth@^0.2.0:
   integrity sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==
 
 electron-to-chromium@^1.5.28:
-  version "1.5.38"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.38.tgz#c6a14e1506717c5a46d439580d7424d8d5860180"
-  integrity sha512-VbeVexmZ1IFh+5EfrYz1I0HTzHVIlJa112UEWhciPyeOcKJGeTv6N8WnG4wsQB81DGCaVEGhpSb6o6a8WYFXXg==
+  version "1.5.41"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.41.tgz#eae1ba6c49a1a61d84cf8263351d3513b2bcc534"
+  integrity sha512-dfdv/2xNjX0P8Vzme4cfzHqnPm5xsZXwsolTYr0eyW18IUmNyG08vL+fttvinTfhKfIKdRoqkDIC9e9iWQCNYQ==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -814,9 +814,9 @@ path-scurry@^1.11.1:
     minipass "^5.0.0 || ^6.0.2 || ^7.0.0"
 
 picocolors@^1.0.0, picocolors@^1.0.1, picocolors@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.0.tgz#5358b76a78cde483ba5cef6a9dc9671440b27d59"
-  integrity sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/picocolors/-/picocolors-1.1.1.tgz#3d321af3eab939b083c8f929a1d12cda81c26b6b"
+  integrity sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
   version "2.3.1"
@@ -987,16 +987,7 @@ stimulus-flatpickr@^3.0.0-0:
   dependencies:
     "@hotwired/stimulus" "^3.0.0"
 
-"string-width-cjs@npm:string-width@^4.2.0":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
-  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
-  dependencies:
-    emoji-regex "^8.0.0"
-    is-fullwidth-code-point "^3.0.0"
-    strip-ansi "^6.0.1"
-
-string-width@^4.1.0:
+"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -1014,14 +1005,7 @@ string-width@^5.0.1, string-width@^5.1.2:
     emoji-regex "^9.2.2"
     strip-ansi "^7.0.1"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
-  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
-  dependencies:
-    ansi-regex "^5.0.1"
-
-strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -1133,9 +1117,9 @@ tributejs@^5.1.3:
   integrity sha512-B5CXihaVzXw+1UHhNFyAwUTMDk1EfoLP5Tj1VhD9yybZ1I8DZJEv8tZ1l0RJo0t0tk9ZhR8eG5tEsaCvRigmdQ==
 
 trix@^2.0.0:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.6.tgz#a7897cd67e03e6c8664df5dd31365bf87366e8db"
-  integrity sha512-NHX69IkQz/JEQWI++sRryleXWo1PuN8GKjvU+jYgMX6UbN2Pzfg6k46RpmdRl+1q0SyoGbyOZDoFUpNwEdjtXA==
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/trix/-/trix-2.1.7.tgz#239dc3fbba87ce30eea44286ea09865c7fbab10f"
+  integrity sha512-RyFmjLJfxP2nuAKqgVqJ40wk4qoYfDQtyi71q6ozkP+X4EOILe+j5ll5g/suvTyMx7BacGszNWzjnx9Vbj17sw==
 
 ts-interface-checker@^0.1.9:
   version "0.1.13"

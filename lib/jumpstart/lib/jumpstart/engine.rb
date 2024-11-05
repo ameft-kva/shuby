@@ -12,8 +12,6 @@ module Jumpstart
     end
 
     config.to_prepare do
-      Administrate::ApplicationController.helper Jumpstart::AdministrateHelpers
-
       if Rails.env.development?
         ::ApplicationController.include(Jumpstart::Welcome)
         ::ApplicationController.include(Jumpstart::BundleAssets)

@@ -4,7 +4,11 @@ This file includes notes on major changes that might affect your application and
 
 ### October 16, 2024
 
-* Added a "configure your own" option for Active Job queue adapter and simplified the supported list to Async, SolidQueue and Sidekiq. If you wish to use another queue adapter, select the "configure your own" option and add the queue adapter to your environments.
+* Added a "configure your own" option for Active Job queue adapter and simplified the supported list to Async, SolidQueue and Sidekiq.
+
+  To use another queue adapter, select the "configure your own" option and add the queue adapter to your environments.
+  
+  If you're using one of the removed queue adapters, be sure to remove it from `config/jumpstart.yml` and set it in your environments.
 
 ### September 23, 2024
 

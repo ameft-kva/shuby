@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   draw :api
   draw :billing
   draw :turbo_native
+  draw :hotwire_native
   draw :users
   draw :dev if Rails.env.local?
 
   authenticated :user, lambda { |u| u.admin? } do
-    draw :admin
+    draw :madmin
   end
 
   resources :announcements, only: [:index, :show]

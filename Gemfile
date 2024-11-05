@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby file: ".ruby-version"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 8.0.0.beta1"
+gem "rails", "~> 8.0.0.rc2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft", "~> 1.0"
 # Use postgresql as the database for Active Record
@@ -69,8 +69,6 @@ end
 # gem "redis", "~> 5.1"
 
 # Jumpstart Pro dependencies
-require_relative "lib/jumpstart/lib/jumpstart/yaml_serializer"
-require_relative "lib/jumpstart/lib/jumpstart/configuration"
 eval_gemfile "Gemfile.jumpstart"
 
 # We recommend using strong migrations when your app is in production

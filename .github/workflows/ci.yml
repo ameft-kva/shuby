@@ -40,8 +40,8 @@ jobs:
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
-      - name: Erblint
-        run: bundle exec erblint --lint-all
+      - name: Lint ERB for consistent style
+        run: bundle exec erb_lint --lint-all
 
   test:
     timeout-minutes: 10
@@ -95,7 +95,7 @@ jobs:
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
         run: |
-          bin/rails zeitwerk:check test:prepare db:test:prepare test test:system
+          bin/rails test:prepare db:test:prepare zeitwerk:check test test:system
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4

@@ -8,6 +8,8 @@
 @import "themes/dark";
 @import "themes/juicy";
 @import "themes/light";
+@import "themes/jumpstart-dark";
+@import "themes/jumpstart";
 @import "components/base";
 @import "components/actiontext";
 @import "components/alert";
