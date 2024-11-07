@@ -1,5 +1,8 @@
 :root.dark,
 .dark {
+  /* Tells browser to use dark mode scroll bars, etc */
+  color-scheme: dark;
+
   /*Primary*/
   --bg-primary: theme('colors.primary.700');
   --bg-primary-hover: theme('colors.primary.600');
