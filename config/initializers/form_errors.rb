@@ -13,7 +13,7 @@ ActionView::Base.field_error_proc = proc do |html_tag, instance|
       element.add_class("error")
 
       attribute = instance.object.class.human_attribute_name(instance.send(:sanitized_method_name))
-      errors = instance.error_message.uniq.to_sentence
+      errors = instance.error_message.to_sentence
 
       <<~HTML
         #{element}
