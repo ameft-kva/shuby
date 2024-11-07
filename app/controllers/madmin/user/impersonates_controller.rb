@@ -2,7 +2,7 @@ class Madmin::User::ImpersonatesController < Madmin::ApplicationController
   def create
     user = ::User.find(params[:user_id])
     impersonate_user(user)
-    redirect_to root_path, status: :see_other
+    redirect_to main_app.root_path, status: :see_other
   end
 
   def destroy
