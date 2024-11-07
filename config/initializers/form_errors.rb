@@ -8,12 +8,19 @@ ActionView::Base.field_error_proc = proc do |html_tag, instance|
   # Elements that can't have a border
   ignored_input_types = %w[checkbox hidden]
 
-  Nokogiri::HTML::DocumentFragment.parse(html_tag).children.each do |e|
-    html += if form_fields.include?(e.node_name) && ignored_input_types.exclude?(e.get_attribute("type"))
-      e.add_class("error")
-      %(#{e}<p class="form-hint error">&nbsp;#{instance.object.class.human_attribute_name(instance.send(:sanitized_method_name))} #{instance.error_message.uniq.to_sentence}</p>)
+  Nokogiri::HTML::DocumentFragment.parse(html_tag).children.each do |element|
+    html += if form_fields.include?(element.node_name) && ignored_input_types.exclude?(element.get_attribute("type"))
+      element.add_class("error")
+
+      attribute = instance.object.class.human_attribute_name(instance.send(:sanitized_method_name))
+      errors = instance.error_message.uniq.to_sentence
+
+      <<~HTML
+        #{element}
+        <p class="form-hint error">#{attribute} #{errors}</p>
+      HTML
     else
-      e.to_s
+      element.to_s
     end
   end
 
