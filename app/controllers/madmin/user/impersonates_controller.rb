@@ -8,6 +8,6 @@ class Madmin::User::ImpersonatesController < Madmin::ApplicationController
   def destroy
     user = current_user
     stop_impersonating_user
-    redirect_to madmin_user_path(user), status: :see_other
+    redirect_to main_app.madmin_user_path(user), status: :see_other
   end
 end
