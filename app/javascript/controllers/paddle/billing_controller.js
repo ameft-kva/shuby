@@ -52,7 +52,7 @@ export default class extends Controller {
     }
 
     if (event.name == "checkout.completed") {
-      Turbo.visit(`/subscriptions/paddle_billing?user_id=${event.data.customer.id}&paddle_billing_transaction_id=${event.data.transaction_id}`)
+      Turbo.visit(`/checkout/return?user_id=${event.data.customer.id}&paddle_billing_transaction_id=${event.data.transaction_id}`)
     }
   }
 
