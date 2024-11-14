@@ -56,6 +56,7 @@ Jumpstart::Engine.routes.draw do
     get :forms
     get :icons
     get :modals
+    get :navigation
     get :pagination
     get :pills
     get :tabs

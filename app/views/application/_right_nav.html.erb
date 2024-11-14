@@ -1,7 +1,8 @@
-<%# Place any links for the RIGHT side of the nav bar here. Be sure to add class: "nav-link" to each item for proper spacing. %>
-
 <% if Jumpstart.config.payments_enabled? && (!user_signed_in? || Current.account_admin?) && not_subscribed? %>
-  <%= nav_link_to t(".pricing"), pricing_path, class: "nav-link" %>
+  <%= nav_link_to t(".pricing"), pricing_path %>
 <% end %>
 
-<%= nav_link_to tag.span(t(".announcements")), announcements_path, class: ["nav-link", unread_announcements_class(current_user)] %>
+<% if !user_signed_in? %>
+  <%= link_to t(".log_in"), new_user_session_path %>
+  <div class="btn-container"><%= link_to t(".sign_up"), new_user_registration_path, class: "btn btn-primary" %></div>
+<% end %>

@@ -33,6 +33,7 @@
 @import "components/tabs";
 @import "components/toasts";
 @import "components/tooltips";
+@import "components/top_nav";
 @import "components/trix";
 @import "components/typography";
 @import "components/util";
