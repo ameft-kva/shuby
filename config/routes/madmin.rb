@@ -7,6 +7,11 @@ namespace :madmin, path: :admin do
   mount Flipper::UI.app(Flipper) => "/flipper" if defined?(::Flipper::UI)
 
   resources :announcements
+  namespace :active_storage do
+    resources :attachments
+    resources :blobs
+    resources :variant_records
+  end
   resources :users do
     resource :impersonate, module: :user
   end
