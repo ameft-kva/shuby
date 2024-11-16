@@ -23,7 +23,7 @@ module AccountsHelper
         content += image_tag(avatar_url_for(current_user), class: "avatar-small")
       end
 
-      tag.span(content, class: "avatar bg-primary-500 #{classes}")
+      tag.span(content, class: "avatar bg-primary-500 rounded-full w-6 h-6 #{classes}")
     end
   end
 

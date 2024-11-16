@@ -308,7 +308,7 @@ section nav a {
         }
     }
 
-    button[aria-label="Profile Menu"] span {
+    button[aria-label="Profile Menu"] > span {
         color: var(--base-text);
         display: flex;
         align-items: center;
@@ -322,7 +322,7 @@ section nav a {
             border: 1px solid var(--base-border-tertiary);
         }
 
-        span {
+        > span:last-of-type {
             display: none;
 
             @media (min-width: 1024px) {
