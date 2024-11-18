@@ -5,7 +5,7 @@ namespace :api, defaults: {format: :json} do
     resource :password
     resources :accounts
     resources :users
-    resources :notification_tokens, only: :create
+    resources :notification_tokens, param: :token, only: [:create, :destroy]
   end
 end
 

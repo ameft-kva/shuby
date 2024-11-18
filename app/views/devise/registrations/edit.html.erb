@@ -66,8 +66,9 @@
               method: :delete,
               class: "btn btn-danger btn-outline primary",
               data: {
-                controller: "turbo-native--sign-out",
-                action: "turbo-native--sign-out#deleteAccount",
+                controller: "bridge--sign-out",
+                action: "bridge--sign-out#signOut",
+                bridge__sign_out_path_value: api_v1_me_path,
                 turbo_confirm: t("are_you_sure"),
                 turbo_confirm_text: current_user.email,
                 turbo_confirm_description: t(".cancel_my_account_confirm_description_html")

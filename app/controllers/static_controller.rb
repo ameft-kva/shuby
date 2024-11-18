@@ -18,4 +18,9 @@ class StaticController < ApplicationController
   def privacy
     @agreement = Rails.application.config.agreements.find { _1.id == :privacy_policy }
   end
+
+  def reset_app
+    # Hotwire Native needs an empty page to route authentication and reset the app.
+    # We can't head: 200 because we also need the Turbo JavaScript in <head>.
+  end
 end

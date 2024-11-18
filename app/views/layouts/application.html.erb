@@ -3,8 +3,7 @@
   <head>
     <%= render "head" %>
   </head>
-
-  <body data-controller="theme" data-theme-preference-value="<%= current_user&.theme %>">
+  <body data-controller="theme bridge--menu-button <%= "bridge--notification-token" if user_signed_in? %>" data-theme-preference-value="<%= current_user&.theme %>">
     <header>
       <%= impersonation_banner %>
       <%= render "flash" %>
@@ -15,6 +14,6 @@
       <%= yield %>
     </main>
 
-    <%= render "footer" unless turbo_native_app? %>
+    <%= render "footer" unless hotwire_native_app? %>
   </body>
 </html>

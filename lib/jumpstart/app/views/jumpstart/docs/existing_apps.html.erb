@@ -13,10 +13,10 @@
 
 <%= h2_with_anchor "Mobile Views" %>
 <p>Some views will need a custom version for Turbo Native. You can use <a href="https://gorails.com/episodes/rails-request-variants">Request Variants</a> to accomplish this.</p>
-<p>Hotwire includes a <code>turbo_native_app?</code> helper that checks the <code>User-Agent</code> header for Turbo Native. You can set the request variant for Turbo Native requests using that.</p>
+<p>Hotwire includes a <code>hotwire_native_app?</code> helper that checks the <code>User-Agent</code> header for Turbo Native. You can set the request variant for Turbo Native requests using that.</p>
 <div class="not-prose">
   <pre class="lang-ruby"><code>before_action do
-  request.variant = :phone if turbo_native_app?
+  request.variant = :phone if hotwire_native_app?
 end</code></pre>
 </div>
 
