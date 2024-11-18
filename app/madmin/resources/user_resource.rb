@@ -5,6 +5,8 @@ class UserResource < Madmin::Resource
   attribute :id, form: false
   attribute :name
   attribute :email
+  attribute :password, :password
+  attribute :terms_of_service, :boolean, edit: false
   attribute :time_zone, form: false
   attribute :reset_password_sent_at, form: false
   attribute :remember_created_at, form: false
@@ -14,7 +16,6 @@ class UserResource < Madmin::Resource
   attribute :accepted_terms_at, form: false
   attribute :accepted_privacy_at, form: false
   attribute :otp_required_for_login, form: false
-  attribute :terms_of_service, index: false, form: false
   attribute :avatar, index: false
   attribute :admin, form: false
   attribute :created_at, form: false

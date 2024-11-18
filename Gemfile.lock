@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: https://github.com/excid3/madmin.git
-  revision: 80dcf51b8455506fa8541afabce59371960e6ea3
+  revision: 89ad662a3451231f485288d9e3bbf27e4f485553
   specs:
     madmin (1.2.11)
       importmap-rails
