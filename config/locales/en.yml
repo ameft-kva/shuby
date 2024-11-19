@@ -182,6 +182,11 @@ en:
       pricing: "Pricing"
       log_in: "Log In"
       sign_up: "Sign Up"
+    navbar:
+      accounts: "Accounts"
+      password: "Password"
+      profile: "Profile"
+      sign_out: "Sign out"
 
   checkout:
     returns:
