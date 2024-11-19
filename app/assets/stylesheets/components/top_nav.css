@@ -38,6 +38,10 @@
     right: 0;
     width: 100%;
 
+    &:not(:has(> nav a)) {
+        display: none;
+    }
+
     @media (min-width: 1024px) {
         box-shadow: none;
         padding: 0px;
@@ -268,20 +272,23 @@ section nav a {
     position: relative;
 
     @media (min-width: 1024px) {
-        border-radius: 4px;
-        padding: 8px;
+        > button {
 
-        &:hover {
-            background: var(--base-bg-hover);
-        }
+            border-radius: 4px;
+            padding: 8px;
 
-        &:focus {
-            background: var(--base-bg-hover);
-            outline: 2px solid transparent;
-            outline-offset: 2px;
+            &:hover {
+                background: var(--base-bg-hover);
+            }
 
-            svg {
-                transform: rotate(180deg);
+            &:focus {
+                background: var(--base-bg-hover);
+                outline: 2px solid transparent;
+                outline-offset: 2px;
+
+                svg {
+                    transform: rotate(180deg);
+                }
             }
         }
     }
