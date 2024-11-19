@@ -7,7 +7,7 @@ module Users
     end
 
     def set_notification_counts
-      @notification_counts = current_user.notifications.unread.group(:account_id).count
+      @notification_counts = current_user.notifications.unseen.group(:account_id).count
     end
   end
 end
