@@ -11,8 +11,7 @@
         <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, data: {controller: "bridge--sign-out", bridge__sign_out_path_value: api_v1_auth_path, action: "bridge--sign-out#signOut"} %>
       </nav>
 
-      <%= tag.div class: "ml-auto bg-white dark:bg-gray-800 flex-shrink-0 p-1 rounded-full text-gray-400 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800",
-        data: {
+      <%= tag.div data: {
           controller: "notifications",
           notifications_account_id_value: current_account.id,
           notifications_account_unread_value: @notification_counts[current_account.id],
