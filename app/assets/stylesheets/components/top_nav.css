@@ -26,6 +26,11 @@
             align-items: center;
         }
     }
+
+    &:not(:has(> .nav-container > nav a)) #sidebar-open {
+        display: none;
+    }
+
 }
 
 .nav-container {
@@ -37,10 +42,6 @@
     left: 0;
     right: 0;
     width: 100%;
-
-    &:not(:has(> nav a)) {
-        display: none;
-    }
 
     @media (min-width: 1024px) {
         box-shadow: none;
