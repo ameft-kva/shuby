@@ -2,6 +2,13 @@
 
 This file includes notes on major changes that might affect your application and require changes from you to update.
 
+### November 18, 2024
+
+* Refactored to use Hotwire Native.
+
+  The native authentication form now embeds the normal web auth form.
+  API endpoints now support cookies for authentication and native clients no longer need API tokens + cookies to interact with the backend.
+
 ### October 16, 2024
 
 * Added a "configure your own" option for Active Job queue adapter and simplified the supported list to Async, SolidQueue and Sidekiq.
