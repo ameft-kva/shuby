@@ -69,6 +69,7 @@ end
 # gem "redis", "~> 5.1"
 
 # Jumpstart Pro dependencies
+require_relative "lib/jumpstart/lib/jumpstart/configuration"
 eval_gemfile "Gemfile.jumpstart"
 
 # We recommend using strong migrations when your app is in production

@@ -25,7 +25,7 @@
 
 <div class="form-group">
   <label>Transactional Email Service</label>
-  <%= f.select :email_provider, Jumpstart::Configuration::Mailable::AVAILABLE_PROVIDERS, { include_blank: "None" }, { class: "form-control" } %>
+  <%= f.select :email_provider, Jumpstart::Configuration::MAIL_PROVIDERS, { include_blank: "None" }, { class: "form-control" } %>
   <p class="form-hint">This will only be configured for production use.</p>
 </div>
 
@@ -43,6 +43,6 @@
 
 <div class="form-group">
   <label>Background Job Processor</label>
-  <%= f.select :background_job_processor, Jumpstart::JobProcessor::AVAILABLE_PROVIDERS, {}, { class: "form-control" } %>
+  <%= f.select :background_job_processor, Jumpstart::Configuration::QUEUE_ADAPTERS, {}, { class: "form-control" } %>
   <p class="form-hint">Used for sending emails, broadcasting events, and more.</p>
 </div>

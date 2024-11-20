@@ -1,6 +1,4 @@
 # Gems cannot be loaded here since this runs during bundler/setup
-require_relative "yaml_serializer"
-require_relative "job_processor"
 
 module Jumpstart
   def self.config = @config ||= Configuration.load!
@@ -9,31 +7,100 @@ module Jumpstart
     @config = value
   end
 
-  class Configuration
-    # Manages email provider integrations
-    module Mailable
-      AVAILABLE_PROVIDERS = {
-        "Amazon SES" => :ses,
-        "Mailgun" => :mailgun,
-        "Mailjet" => :mailjet,
-        "Mandrill" => :mandrill,
-        "OhMySMTP" => :ohmysmtp,
-        "Postmark" => :postmark,
-        "Sendgrid" => :sendgrid,
-        "SendinBlue" => :sendinblue,
-        "SparkPost" => :sparkpost
-      }.freeze
+  module YAMLSerializer
+    # A simple YAML serializer that does not support nested elements
 
-      AVAILABLE_PROVIDERS.values.map(&:to_s).each do |name|
-        define_method :"#{name}?" do
-          email_provider == name
+    module_function
+
+    def load(path)
+      result = {}
+      key = nil
+      multiline = false
+
+      File.readlines(path, chomp: true).each do |line|
+        # multiline hash key
+        if (match = /^(\w+):\s*\|-/.match(line))
+          multiline = true
+          key = match[1]
+          result[key] = ""
+
+        # hash keys
+        elsif (match = /^(\w+):\s*(.*)/.match(line))
+          multiline = false
+          key, value = match[1], match[2]
+          result[key] = value unless value.empty?
+
+        # array entries
+        elsif line.start_with? "- "
+          result[key] ||= []
+          result[key] << line.delete_prefix("- ")
+
+        # multiline string
+        elsif multiline
+          result[key] += "\n" unless result[key].empty?
+          result[key] += line.strip
         end
+      end
+
+      result
+    end
+
+    def dump(object)
+      yaml = "---\n"
+      object.instance_variables.each do |ivar|
+        key = ivar.to_s.delete_prefix("@")
+        value = object.instance_variable_get(ivar)
+        yaml << key << ":"
+
+        if value.is_a?(Array)
+          yaml << value.map { |e| "\n- #{e.to_s.gsub(/\s+/, " ")}" }.join << "\n"
+        elsif value.is_a?(String) && value.include?("\n")
+          yaml << " |-\n  " << value.split("\n").join("\n  ") << "\n"
+        else
+          yaml << " " << value.to_s.gsub(/\s+/, " ") << "\n"
+        end
+      end
+
+      yaml
+    end
+
+    def dump_to_file(path, object)
+      File.write(path, dump(object))
+    end
+  end
+
+  class Configuration
+    QUEUE_ADAPTERS = {
+      "I'll configure my own" => nil,
+      "Async" => :async,
+      "SolidQueue" => :solid_queue,
+      "Sidekiq" => :sidekiq
+    }.freeze
+
+    def job_command(processor)
+      case processor.to_s
+      when "solid_queue"
+        "bin/jobs"
+      when "sidekiq"
+        "bundle exec sidekiq"
       end
     end
 
+    MAIL_PROVIDERS = {
+      "Amazon SES" => :ses,
+      "Mailgun" => :mailgun,
+      "Mailjet" => :mailjet,
+      "Mandrill" => :mandrill,
+      "OhMySMTP" => :ohmysmtp,
+      "Postmark" => :postmark,
+      "Sendgrid" => :sendgrid,
+      "SendinBlue" => :sendinblue,
+      "SparkPost" => :sparkpost
+    }.freeze
+
     # Manages 3rd party service integrations
     module Integratable
-      AVAILABLE_PROVIDERS = {
+      INTEGRATIONS = {
         "AirBrake" => "airbrake",
         "AppSignal" => "appsignal",
         "BugSnag" => "bugsnag",
@@ -47,7 +114,7 @@ module Jumpstart
 
       attr_writer :integrations
 
-      AVAILABLE_PROVIDERS.values.each do |provider|
+      INTEGRATIONS.values.each do |provider|
         define_method(:"#{provider}?") do
           integrations.include?(provider)
         end
@@ -84,7 +151,6 @@ module Jumpstart
       def paddle_classic? = payment_processors.include? "paddle_classic"
     end
 
-    include Mailable
     include Integratable
     include Payable
 
@@ -124,7 +190,7 @@ module Jumpstart
       @domain = options["domain"] || "example.com"
       @support_email = options["support_email"] || "support@example.com"
       @default_from_email = options["default_from_email"] || "My App <no-reply@example.com>"
-      @background_job_processor = Jumpstart::JobProcessor::AVAILABLE_PROVIDERS.values.map(&:to_s).include?(options["background_job_processor"]) ? options["background_job_processor"] : nil
+      @background_job_processor = QUEUE_ADAPTERS.values.map(&:to_s).include?(options["background_job_processor"]) ? options["background_job_processor"] : nil
       @email_provider = options["email_provider"]
       @personal_accounts = cast_to_boolean(options["personal_accounts"], default: true)
       @apns = cast_to_boolean(options["apns"])
@@ -184,7 +250,7 @@ module Jumpstart
     end
 
     def copy_configs
-      if job_processor == :sidekiq
+      if queue_adapter == :sidekiq
         copy_template("config/sidekiq.yml")
       end
 
@@ -235,7 +301,7 @@ module Jumpstart
       content = {web: "bundle exec rails s"}
 
       # Background workers
-      if (worker_command = Jumpstart::JobProcessor.command(job_processor))
+      if (worker_command = job_command(queue_adapter))
         content[:worker] = worker_command
       end
 
