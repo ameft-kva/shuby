@@ -314,7 +314,7 @@ GEM
     orm_adapter (0.5.0)
     os (1.1.4)
     ostruct (0.6.3)
-    pagy (43.0.2)
+    pagy (43.1.4)
       json
       yaml
     parallel (1.27.0)
@@ -597,7 +597,7 @@ DEPENDENCIES
   nokogiri (>= 1.12.5)
   noticed (~> 2.2)
   openssl (~> 3.3)
-  pagy (~> 43.0.0.rc2)
+  pagy (~> 43.1.4)
   pay (~> 11.0)
   pg
   postmark-rails
@@ -743,7 +743,7 @@ CHECKSUMS
   orm_adapter (0.5.0) sha256=aa5d0be5d540cbb46d3a93e88061f4ece6a25f6e97d6a47122beb84fe595e9b9
   os (1.1.4) sha256=57816d6a334e7bd6aed048f4b0308226c5fb027433b67d90a9ab435f35108d3f
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
-  pagy (43.0.2) sha256=6623cb73f30c76d8edf9b1beb0381b56e523b7f36f92d343b848204d7ad2c2ec
+  pagy (43.1.4) sha256=fc90273b134110a0f9ee34ad24ad645166fb09c4944b91c5f430907d7b75970c
   parallel (1.27.0) sha256=4ac151e1806b755fb4e2dc2332cbf0e54f2e24ba821ff2d3dcf86bf6dc4ae130
   parser (3.3.10.0) sha256=ce3587fa5cc55a88c4ba5b2b37621b3329aadf5728f9eafa36bbd121462aabd6
   pay (11.3.1) sha256=004fd240a407971f7c502255b6325da6d5e4499c562bb75f98b91bc75b423661
