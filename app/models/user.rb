@@ -12,6 +12,9 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_person_name
 
+  # Shuby chat conversations
+  has_many :shuby_chats, dependent: :destroy
+
   validates :avatar, resizable_image: true
   validates :name, presence: true
 end

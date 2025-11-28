@@ -44,6 +44,9 @@ gem "thruster", require: false
 gem "image_processing", "~> 1.12"
 
 group :development, :test do
+  # Load environment variables from .env
+  gem "dotenv-rails"
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri windows], require: "debug/prelude"
 
@@ -80,3 +83,7 @@ eval_gemfile "Gemfile.jumpstart"
 
 # We recommend using strong migrations when your app is in production
 # gem "strong_migrations"
+
+# Shuby Chat Assistant - AI integration
+gem "ruby_llm", "~> 1.2"
+gem "ruby-openai", "~> 7.0"  # For direct Vector Store API calls

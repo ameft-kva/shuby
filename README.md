@@ -61,6 +61,28 @@ git fetch jumpstart-pro
 git merge jumpstart-pro/main
 ```
 
+## Shuby Chat Assistant
+
+This application includes **Shuby**, an AI-powered chat assistant for child development (0-36 months).
+
+### Setup Shuby
+
+1. Add your OpenAI credentials:
+```bash
+bin/rails credentials:edit
+```
+
+Add:
+```yaml
+openai:
+  api_key: sk-your-api-key
+  vector_store_id: vs_your-vector-store-id
+```
+
+2. Access Shuby at `/shuby` (requires login)
+
+For full documentation, see `docs/shuby_setup.md`.
+
 ## Contributing
 
 If you have an improvement you'd like to share, create a fork of the repository and send us a pull request.
