@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   draw :api
   draw :billing
   draw :hotwire_native
+  draw :shuby
   draw :users
   draw :dev if Rails.env.local?
 
