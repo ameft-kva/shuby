@@ -147,12 +147,15 @@ class ShubyAssistantService
 
     # Save citations as tool call if any
     if citations.any?
-      assistant_message.tool_calls.create!(
+      tool_call = assistant_message.tool_calls.new(
         tool_call_id: "file_search_#{SecureRandom.hex(8)}",
         name: "file_search",
-        arguments: { query: message },
-        result: { citations: citations, snippets: file_search_results }
+        arguments: {query: message}
       )
+      # Use write_attribute to store in the result JSON column directly
+      # (bypassing the has_one :result association from acts_as_tool_call)
+      tool_call.write_attribute(:result, {citations: citations, snippets: file_search_results})
+      tool_call.save!
     end
 
     # Yield final events

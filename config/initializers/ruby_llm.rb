@@ -3,7 +3,7 @@
 # RubyLLM configuration for Shuby chat assistant
 RubyLLM.configure do |config|
   # OpenAI API key from environment variable
-  config.openai_api_key = "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"
+  config.openai_api_key = Rails.application.credentials.dig(:openai, :api_key)
 
   # Default model for chat
   config.default_model = "gpt-5-mini"
