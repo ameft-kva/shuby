@@ -90,7 +90,7 @@ class ShubyAssistantService
           delta = event_data["delta"]
           if delta.present?
             accumulated_text += delta
-            block.call({ type: :delta, content: delta }) if block
+            block&.call({type: :delta, content: delta})
           end
 
         when "response.file_search_call.results"
@@ -101,10 +101,10 @@ class ShubyAssistantService
             text = result["text"]
 
             unless citations.any? { |c| c[:file_name] == file_name }
-              citations << { file_name: file_name }
+              citations << {file_name: file_name}
             end
             if text.present?
-              file_search_results << { file_name: file_name, text: text.truncate(500) }
+              file_search_results << {file_name: file_name, text: text.truncate(500)}
             end
           end
 
@@ -113,7 +113,7 @@ class ShubyAssistantService
           annotation = event_data["annotation"] || {}
           file_name = annotation["filename"]
           if file_name.present? && !citations.any? { |c| c[:file_name] == file_name }
-            citations << { file_name: file_name }
+            citations << {file_name: file_name}
           end
 
         when "response.completed"
@@ -126,10 +126,10 @@ class ShubyAssistantService
           output_tokens = usage["output_tokens"] || 0
         end
       end
-    rescue StandardError => e
+    rescue => e
       Rails.logger.error("OpenAI Streaming Error: #{e.message}")
       Rails.logger.error(e.backtrace.join("\n"))
-      block.call({ type: :error, message: e.message }) if block
+      block&.call({type: :error, message: e.message})
       raise e
     end
 
@@ -159,15 +159,15 @@ class ShubyAssistantService
     end
 
     # Yield final events
-    block.call({ type: :citations, citations: citations }) if block && citations.any?
-    block.call({
+    block.call({type: :citations, citations: citations}) if block && citations.any?
+    block&.call({
       type: :completed,
       content: accumulated_text,
       citations: citations,
       message: assistant_message
-    }) if block
+    })
 
-    { response_id: response_id, content: accumulated_text, citations: citations, message: assistant_message }
+    {response_id: response_id, content: accumulated_text, citations: citations, message: assistant_message}
   end
 
   # Legacy ask method for non-streaming (falls back to streaming but waits)
@@ -247,7 +247,7 @@ class ShubyAssistantService
   def build_http_request(uri, message)
     request = Net::HTTP::Post.new(uri)
     request["Content-Type"] = "application/json"
-    request["Authorization"] = "Bearer #{ENV['OPENAI_API_KEY']}"
+    request["Authorization"] = "Bearer #{ENV["OPENAI_API_KEY"]}"
 
     body = {
       model: @shuby_chat.model || DEFAULT_MODEL,

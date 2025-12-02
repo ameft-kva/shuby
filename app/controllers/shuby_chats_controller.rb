@@ -56,7 +56,7 @@ class ShubyChatsController < ApplicationController
           render turbo_stream: turbo_stream.replace(
             "message_form",
             partial: "shuby_chats/message_form",
-            locals: { shuby_chat: @shuby_chat, error: "Il messaggio non può essere vuoto" }
+            locals: {shuby_chat: @shuby_chat, error: "Il messaggio non può essere vuoto"}
           )
         end
         format.html { redirect_to shuby_chat_path(@shuby_chat), alert: "Il messaggio non può essere vuoto" }
@@ -77,13 +77,13 @@ class ShubyChatsController < ApplicationController
         streams << turbo_stream.remove("welcome-message")
 
         # Append user message
-        streams << turbo_stream.append("messages", partial: "shuby_chats/message", locals: { message: user_message })
+        streams << turbo_stream.append("messages", partial: "shuby_chats/message", locals: {message: user_message})
 
         # Append assistant placeholder
-        streams << turbo_stream.append("messages", partial: "shuby_chats/assistant_message_placeholder", locals: { message_id: streaming_message_id })
+        streams << turbo_stream.append("messages", partial: "shuby_chats/assistant_message_placeholder", locals: {message_id: streaming_message_id})
 
         # Reset the form
-        streams << turbo_stream.replace("message_form", partial: "shuby_chats/message_form", locals: { shuby_chat: @shuby_chat })
+        streams << turbo_stream.replace("message_form", partial: "shuby_chats/message_form", locals: {shuby_chat: @shuby_chat})
 
         render turbo_stream: streams
       end
@@ -131,7 +131,7 @@ class ShubyChatsController < ApplicationController
           broadcast_error(streaming_message_id, event[:message])
         end
       end
-    rescue StandardError => e
+    rescue => e
       Rails.logger.error("Shuby streaming error: #{e.message}")
       Rails.logger.error(e.backtrace.join("\n"))
       broadcast_error(streaming_message_id, "Si è verificato un errore durante l'elaborazione.")
@@ -149,7 +149,7 @@ class ShubyChatsController < ApplicationController
       "shuby_chat_#{@shuby_chat.id}",
       target: message_id,
       partial: "shuby_chats/assistant_message_streaming",
-      locals: { message_id: message_id, content: content }
+      locals: {message_id: message_id, content: content}
     )
   end
 
@@ -162,7 +162,7 @@ class ShubyChatsController < ApplicationController
       "shuby_chat_#{@shuby_chat.id}",
       target: message_id,
       partial: "shuby_chats/message",
-      locals: { message: message, message_id: message_id }
+      locals: {message: message, message_id: message_id}
     )
   end
 
@@ -175,7 +175,7 @@ class ShubyChatsController < ApplicationController
       "shuby_chat_#{@shuby_chat.id}",
       target: message_id,
       partial: "shuby_chats/error_message",
-      locals: { message_id: message_id, error: error_text }
+      locals: {message_id: message_id, error: error_text}
     )
   end
 end
