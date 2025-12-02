@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 file_search_call:
-  shuby_message: assistant_message
+  message: assistant_message
   tool_call_id: call_abc123
   name: file_search
   arguments:
