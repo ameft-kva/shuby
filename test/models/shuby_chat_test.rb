@@ -47,8 +47,18 @@ class ShubyChatTest < ActiveSupport::TestCase
   end
 
   test "recent scope orders by updated_at desc" do
-    chats = ShubyChat.recent
-    assert_equal chats, chats.sort_by(&:updated_at).reverse
+    # Create chats with explicit different timestamps to test ordering
+    old_chat = @user.shuby_chats.create!(model: "gpt-4o-mini")
+    old_chat.update_column(:updated_at, 1.day.ago)
+
+    new_chat = @user.shuby_chats.create!(model: "gpt-4o-mini")
+    new_chat.update_column(:updated_at, Time.current)
+
+    recent_chats = @user.shuby_chats.recent.to_a
+
+    # The most recently updated chat should come first
+    assert_equal new_chat.id, recent_chats.first.id
+    assert recent_chats.index(new_chat) < recent_chats.index(old_chat)
   end
 
   test "destroys dependent messages" do

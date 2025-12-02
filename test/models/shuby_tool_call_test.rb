@@ -61,12 +61,14 @@ class ShubyToolCallTest < ActiveSupport::TestCase
   end
 
   test "citations returns empty array when result is nil" do
-    @tool_call.result = nil
+    # Use write_attribute to set the JSON column directly (avoiding the :result association)
+    @tool_call.write_attribute(:result, nil)
     assert_equal [], @tool_call.citations
   end
 
   test "snippets returns empty array when result is nil" do
-    @tool_call.result = nil
+    # Use write_attribute to set the JSON column directly (avoiding the :result association)
+    @tool_call.write_attribute(:result, nil)
     assert_equal [], @tool_call.snippets
   end
 end
