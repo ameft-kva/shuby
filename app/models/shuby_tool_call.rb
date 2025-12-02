@@ -15,8 +15,8 @@ class ShubyToolCall < ApplicationRecord
   # This creates: belongs_to :message (with ShubyMessage, shuby_message_id foreign key)
   #               has_one :result (with ShubyMessage, shuby_tool_call_id foreign key)
   acts_as_tool_call message_class: "ShubyMessage",
-                    message_foreign_key: "shuby_message_id",
-                    result_foreign_key: "shuby_tool_call_id"
+    message_foreign_key: "shuby_message_id",
+    result_foreign_key: "shuby_tool_call_id"
 
   # Alias for code that uses shuby_message instead of message
   alias_method :shuby_message, :message

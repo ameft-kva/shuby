@@ -33,7 +33,7 @@ class ShubyChatsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not show other user's chat" do
-    other_user = users(:two)
+    users(:two)
     other_chat = shuby_chats(:two)
 
     get shuby_chat_path(other_chat)
@@ -59,7 +59,7 @@ class ShubyChatsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "message action requires valid message" do
-    post message_shuby_chat_path(@chat), params: { message: "" }
+    post message_shuby_chat_path(@chat), params: {message: ""}
 
     # Should not create a new message with empty content
     assert_response :success

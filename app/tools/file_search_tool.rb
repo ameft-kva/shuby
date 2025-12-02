@@ -13,20 +13,20 @@ class FileSearchTool < RubyLLM::Tool
 
   param :query, type: :string, desc: "Search query for finding relevant documents about child development"
 
-  OPENAI_API_URL = "https://api.openai.com/v1".freeze
+  OPENAI_API_URL = "https://api.openai.com/v1"
 
   # Executes the vector store search
   #
   # @param query [String] The search query
   # @return [Hash] Search results with citations and snippets
   def execute(query:)
-    return { error: "Query cannot be blank" } if query.blank?
+    return {error: "Query cannot be blank"} if query.blank?
 
     store_id = vector_store_id
-    return { error: "Vector store not configured" } unless store_id
+    return {error: "Vector store not configured"} unless store_id
 
     api_key = openai_api_key
-    return { error: "OpenAI API key not configured" } unless api_key
+    return {error: "OpenAI API key not configured"} unless api_key
 
     # Search the vector store using direct HTTP call
     # (ruby-openai gem doesn't have this endpoint yet)
@@ -84,7 +84,7 @@ class FileSearchTool < RubyLLM::Tool
     }
   rescue Faraday::Error => e
     Rails.logger.error("FileSearchTool error: #{e.message}")
-    { error: "Errore nella ricerca: #{e.message}" }
+    {error: "Errore nella ricerca: #{e.message}"}
   end
 
   private

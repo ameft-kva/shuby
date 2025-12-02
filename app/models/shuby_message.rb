@@ -10,9 +10,9 @@ class ShubyMessage < ApplicationRecord
   # This creates: belongs_to :chat (with ShubyChat, shuby_chat_id foreign key)
   #               has_many :tool_calls (with ShubyToolCall)
   acts_as_message chat_class: "ShubyChat",
-                  chat_foreign_key: "shuby_chat_id",
-                  tool_call_class: "ShubyToolCall",
-                  tool_call_foreign_key: "shuby_tool_call_id"
+    chat_foreign_key: "shuby_chat_id",
+    tool_call_class: "ShubyToolCall",
+    tool_call_foreign_key: "shuby_tool_call_id"
 
   # Alias for code that uses shuby_chat instead of chat
   alias_method :shuby_chat, :chat
@@ -20,7 +20,7 @@ class ShubyMessage < ApplicationRecord
 
   ROLES = %w[user assistant system tool].freeze
 
-  validates :role, presence: true, inclusion: { in: ROLES }
+  validates :role, presence: true, inclusion: {in: ROLES}
 
   scope :by_role, ->(role) { where(role: role) }
   scope :user_messages, -> { by_role("user") }
