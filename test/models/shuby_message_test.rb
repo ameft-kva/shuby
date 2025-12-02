@@ -26,7 +26,7 @@ class ShubyMessageTest < ActiveSupport::TestCase
 
   test "valid roles" do
     ShubyMessage::ROLES.each do |role|
-      message = ShubyMessage.new(shuby_chat: @chat, role: role)
+      message = ShubyMessage.new(chat: @chat, role: role)
       assert message.valid?, "Role #{role} should be valid"
     end
   end

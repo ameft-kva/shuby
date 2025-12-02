@@ -61,8 +61,8 @@ class ShubyChatsControllerTest < ActionDispatch::IntegrationTest
   test "message action requires valid message" do
     post message_shuby_chat_path(@chat), params: {message: ""}
 
-    # Should not create a new message with empty content
-    assert_response :success
+    # With empty message, controller redirects back to chat with alert
+    assert_redirected_to shuby_chat_path(@chat)
   end
 
   test "message action with valid message" do
