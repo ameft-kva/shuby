@@ -12,6 +12,14 @@
 
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
+
+      <!-- TEMP: DaisyUI test -->
+      <div class="p-4">
+        <button class="btn btn-primary">Hello daisyUI!</button>
+        <div class="alert alert-info mt-4">
+          <span>Shuby DaisyUI test alert</span>
+        </div>
+      </div>
     </main>
 
     <%= render "footer" unless hotwire_native_app? %>

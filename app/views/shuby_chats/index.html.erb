@@ -1,0 +1,49 @@
+<% content_for :title, "Shuby - Chat Assistant" %>
+
+<div class="container px-4 mx-auto my-8">
+  <div class="flex items-center justify-between mb-6">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Shuby</h1>
+      <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Il tuo assistente per lo sviluppo infantile</p>
+    </div>
+    <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "btn btn-primary" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-2">
+        <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+      </svg>
+      Nuova conversazione
+    <% end %>
+  </div>
+
+  <% if @shuby_chats.any? %>
+    <div class="space-y-3">
+      <% @shuby_chats.each do |chat| %>
+        <%= link_to shuby_chat_path(chat), class: "block p-4 bg-white dark:bg-gray-800 rounded-lg shadow hover:shadow-md transition-shadow border border-gray-200 dark:border-gray-700" do %>
+          <div class="flex items-center justify-between">
+            <div class="flex-1 min-w-0">
+              <h3 class="text-base font-medium text-gray-900 dark:text-white truncate">
+                <%= chat.display_title %>
+              </h3>
+              <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                <%= chat.messages.count %> messaggi • <%= time_ago_in_words(chat.updated_at) %> fa
+              </p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-gray-400">
+              <path fill-rule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto text-gray-400">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+      </svg>
+      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Nessuna conversazione</h3>
+      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Inizia una nuova conversazione con Shuby</p>
+      <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "btn btn-primary mt-4" do %>
+        Inizia a chattare
+      <% end %>
+    </div>
+  <% end %>
+</div>

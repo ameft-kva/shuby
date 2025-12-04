@@ -105,6 +105,48 @@ Routes are modularized in `config/routes/`:
 - `config/routes/` - Modular route definitions
 - `app/components/` - View components for reusable UI
 
+## Shuby Chat Assistant
+
+Shuby is an AI-powered chat assistant for child development (0-36 months) integrated using RubyLLM and OpenAI.
+
+### Architecture
+- **RubyLLM** (`~> 1.2`) for AI chat functionality with `acts_as_chat` models
+- **OpenAI Vector Store** for RAG (Retrieval Augmented Generation)
+- **Turbo Streams** for real-time message streaming
+- **Custom Tool**: `FileSearchTool` searches OpenAI's hosted Vector Store
+
+### Key Files
+```
+app/controllers/shuby_chats_controller.rb  # Main controller
+app/services/shuby_assistant_service.rb    # Service with system prompt
+app/tools/file_search_tool.rb              # Vector Store search tool
+app/models/shuby_chat.rb                   # Chat model (acts_as_chat)
+app/models/shuby_message.rb                # Message model (acts_as_message)
+app/models/shuby_tool_call.rb              # Tool call model (acts_as_tool_call)
+config/routes/shuby.rb                     # Routes at /shuby
+config/initializers/ruby_llm.rb            # RubyLLM configuration
+```
+
+### Configuration
+Requires credentials in `bin/rails credentials:edit`:
+```yaml
+openai:
+  api_key: sk-your-api-key
+  vector_store_id: vs_your-vector-store-id
+```
+
+### Routes
+- `GET /shuby` - List conversations
+- `GET /shuby/:id` - View conversation
+- `POST /shuby` - Create new conversation
+- `POST /shuby/:id/message` - Send message (with streaming)
+- `DELETE /shuby/:id` - Delete conversation
+
+### Model
+Default: `gpt-5-mini` (configurable in `ShubyAssistantService::DEFAULT_MODEL`)
+
+Full documentation: `docs/shuby_setup.md`
+
 ## Development Notes
 
 - **Current account** available via `current_account` helper in controllers/views
