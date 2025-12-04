@@ -105,12 +105,22 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci
+
       - name: Run tests
         env:
           DATABASE_URL: postgres://postgres:password@localhost:5432/test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          NODE_PATH: ${{ github.workspace }}/node_modules
         run: bin/rails db:test:prepare zeitwerk:check test
 
   system-test:
@@ -150,12 +160,22 @@ jobs:
         with:
           bundler-cache: true
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install npm dependencies
+        run: npm ci
+
       - name: Run tests
         env:
           DATABASE_URL: postgres://postgres:password@localhost:5432/test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+          NODE_PATH: ${{ github.workspace }}/node_modules
         run: bin/rails db:test:prepare test:system
 
       - name: Keep screenshots from failed system tests

@@ -1,0 +1,45 @@
+<%# Renders a single chat message (user or assistant) %>
+<% is_user = message.user? %>
+<% message_dom_id = local_assigns[:message_id] || dom_id(message) %>
+
+<div id="<%= message_dom_id %>" class="flex <%= is_user ? 'justify-end' : 'justify-start' %>">
+  <div class="<%= is_user ? 'bg-primary-600 text-white' : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700' %> rounded-2xl px-4 py-3 max-w-[85%] shadow-sm">
+    <% unless is_user %>
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-xs font-medium text-primary-600 dark:text-primary-400">Shuby</span>
+      </div>
+    <% end %>
+
+    <div class="<%= is_user ? '' : 'prose prose-sm dark:prose-invert max-w-none' %> shuby-message-content">
+      <% if message.content.present? %>
+        <% if is_user %>
+          <%= simple_format(message.content, {}, wrapper_tag: 'span') %>
+        <% else %>
+          <%# Render markdown for assistant messages %>
+          <div data-controller="markdown" data-markdown-content-value="<%= message.content %>">
+            <div data-markdown-target="output"><%= simple_format(message.content) %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%# Citations for assistant messages %>
+    <% if !is_user && message.respond_to?(:citations) && message.citations.any? %>
+      <div class="mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
+        <p class="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2">📚 Fonti:</p>
+        <div class="flex flex-wrap gap-1">
+          <% message.citations.uniq { |c| c[:file_name] || c["file_name"] }.each do |citation| %>
+            <span class="inline-flex items-center px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded">
+              <%= citation[:file_name] || citation["file_name"] || "Documento" %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%# Timestamp %>
+    <div class="<%= is_user ? 'text-primary-200' : 'text-gray-400 dark:text-gray-500' %> text-xs mt-2">
+      <%= message.created_at&.strftime("%H:%M") || Time.current.strftime("%H:%M") %>
+    </div>
+  </div>
+</div>

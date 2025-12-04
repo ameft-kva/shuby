@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+user_message:
+  chat: one
+  role: user
+  content: What are the milestones at 6 months?
+  input_tokens: 10
+
+assistant_message:
+  chat: one
+  role: assistant
+  content: At 6 months, your baby can sit with support and may start solid foods.
+  output_tokens: 20
+
+second_user_message:
+  chat: two
+  role: user
+  content: Tell me about tummy time
+  input_tokens: 5

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+file_search_call:
+  message: assistant_message
+  tool_call_id: call_abc123
+  name: file_search
+  arguments:
+    query: milestones 6 months
+  result:
+    citations:
+      - file_name: Neurosviluppo_0-12.docx
+        file_id: file_123
+    snippets:
+      - file_name: Neurosviluppo_0-12.docx
+        content: A 6 mesi il bambino inizia a sedersi con supporto...
+        score: 0.95

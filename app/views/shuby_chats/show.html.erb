@@ -1,0 +1,74 @@
+<% content_for :title, @shuby_chat.display_title %>
+
+<div class="flex flex-col h-[calc(100vh-4rem)]" data-controller="shuby-chat" data-shuby-chat-chat-id-value="<%= @shuby_chat.id %>">
+  <%# Header %>
+  <div class="flex items-center justify-between px-4 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <div class="flex items-center gap-3">
+      <%= link_to shuby_chats_path, class: "p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+          <path fill-rule="evenodd" d="M17 10a.75.75 0 0 1-.75.75H5.612l4.158 3.96a.75.75 0 1 1-1.04 1.08l-5.5-5.25a.75.75 0 0 1 0-1.08l5.5-5.25a.75.75 0 1 1 1.04 1.08L5.612 9.25H16.25A.75.75 0 0 1 17 10Z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+      <div>
+        <h1 class="text-lg font-semibold text-gray-900 dark:text-white"><%= @shuby_chat.display_title %></h1>
+        <p class="text-xs text-gray-500 dark:text-gray-400">Powered by <%= ShubyAssistantService::MODEL_DISPLAY_NAME %></p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "btn btn-small btn-secondary" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 mr-1">
+          <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+        </svg>
+        Nuova
+      <% end %>
+      <%= button_to shuby_chat_path(@shuby_chat), method: :delete, data: { turbo_confirm: "Sei sicuro di voler eliminare questa conversazione?" }, class: "btn btn-small btn-danger" do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M8.75 1A2.75 2.75 0 0 0 6 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 1 0 .23 1.482l.149-.022.841 10.518A2.75 2.75 0 0 0 7.596 19h4.807a2.75 2.75 0 0 0 2.742-2.53l.841-10.519.149.023a.75.75 0 0 0 .23-1.482A41.03 41.03 0 0 0 14 4.193V3.75A2.75 2.75 0 0 0 11.25 1h-2.5ZM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4ZM8.58 7.72a.75.75 0 0 0-1.5.06l.3 7.5a.75.75 0 1 0 1.5-.06l-.3-7.5Zm4.34.06a.75.75 0 1 0-1.5-.06l-.3 7.5a.75.75 0 1 0 1.5.06l.3-7.5Z" clip-rule="evenodd" />
+        </svg>
+      <% end %>
+    </div>
+  </div>
+
+  <%# Messages area %>
+  <%= turbo_stream_from "shuby_chat_#{@shuby_chat.id}" %>
+  <div id="messages-container" class="flex-1 overflow-y-auto px-4 py-6 space-y-4 bg-gray-50 dark:bg-gray-900" data-shuby-chat-target="messages">
+    <div id="messages" class="max-w-3xl mx-auto space-y-4">
+      <% if @messages.empty? %>
+        <div id="welcome-message" class="text-center py-12">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary-100 dark:bg-primary-900 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary-600 dark:text-primary-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
+            </svg>
+          </div>
+          <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Ciao! Sono Shuby 👋</h2>
+          <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
+            Sono qui per aiutarti con domande sullo sviluppo del tuo bambino (0-36 mesi).
+            Chiedimi qualsiasi cosa!
+          </p>
+          <div class="mt-6 flex flex-wrap justify-center gap-2">
+            <button type="button" data-action="click->shuby-chat#insertSuggestion" data-suggestion="Quali sono le tappe di sviluppo a 6 mesi?" class="px-3 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+              Tappe a 6 mesi
+            </button>
+            <button type="button" data-action="click->shuby-chat#insertSuggestion" data-suggestion="Come posso aiutare il mio bambino a dormire meglio?" class="px-3 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+              Consigli sul sonno
+            </button>
+            <button type="button" data-action="click->shuby-chat#insertSuggestion" data-suggestion="Cos'è il tummy time e come farlo?" class="px-3 py-2 text-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300">
+              Tummy time
+            </button>
+          </div>
+        </div>
+      <% else %>
+        <% @messages.each do |message| %>
+          <%= render "shuby_chats/message", message: message %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <%# Input area %>
+  <div class="px-4 py-3 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+    <div class="max-w-3xl mx-auto">
+      <%= render "shuby_chats/message_form", shuby_chat: @shuby_chat %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "shuby",
+  "version": "1.0.0",
+  "description": "Welcome! To get started, clone the repository and push it to a new repository.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ameft-kva/shuby.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ameft-kva/shuby/issues"
+  },
+  "homepage": "https://github.com/ameft-kva/shuby#readme",
+  "dependencies": {
+    "daisyui": "^5.5.8"
+  }
+}
