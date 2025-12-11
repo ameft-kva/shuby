@@ -1,0 +1,1761 @@
+/* Shuby Component Styles
+ * Custom component classes for the Shuby design system
+ */
+
+/* =====================================================
+   TYPOGRAPHY UTILITIES
+   ===================================================== */
+
+/* Display D1 - Hero text */
+.shuby-d1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 34px;
+    letter-spacing: 0;
+    color: var(--text-primary);
+}
+
+/* Display D2 - Card titles */
+.shuby-d2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    color: var(--text-primary);
+}
+
+/* Heading H1 - Page title */
+.shuby-h1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0;
+    color: var(--base-text);
+}
+
+/* Heading H2 - Section title */
+.shuby-h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0;
+    color: var(--text-primary);
+}
+
+/* Heading H3 - Subsection */
+.shuby-h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: 0;
+    color: var(--base-text-secondary);
+}
+
+/* Body P1 - Main text */
+.shuby-p1 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0;
+    color: var(--base-text);
+}
+
+/* Body P2 - Secondary text */
+.shuby-p2 {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: 0;
+    color: var(--base-text-secondary);
+}
+
+/* Caption - Labels */
+.shuby-caption {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+/* Overline - Tags */
+.shuby-overline {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+/* Secondary text color utility */
+.shuby-text-secondary {
+    color: var(--base-text-tertiary);
+}
+
+/* =====================================================
+   BUTTON COMPONENTS
+   ===================================================== */
+
+/* Base button styles */
+.shuby-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    border-radius: var(--radius-xl);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.shuby-btn:focus {
+    outline: 2px solid var(--base-border-focus);
+    outline-offset: 2px;
+}
+
+/* Button sizes */
+.shuby-btn-lg {
+    padding: 12px 24px;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.shuby-btn-md {
+    padding: 10px 20px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.shuby-btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+/* Primary button - filled */
+.shuby-btn-primary {
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+}
+
+.shuby-btn-primary:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+/* Primary button - outlined */
+.shuby-btn-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+}
+
+.shuby-btn-outline:hover {
+    background-color: var(--base-bg-hover);
+}
+
+/* Secondary button */
+.shuby-btn-secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-on-secondary);
+    border: 1px solid var(--border-secondary);
+}
+
+.shuby-btn-secondary:hover {
+    background-color: var(--bg-secondary-hover);
+}
+
+/* Danger button */
+.shuby-btn-danger {
+    background-color: var(--bg-danger);
+    color: var(--text-on-danger);
+}
+
+.shuby-btn-danger:hover {
+    background-color: var(--bg-danger-hover);
+}
+
+/* Button disabled state */
+.shuby-btn:disabled,
+.shuby-btn.disabled {
+    background-color: var(--bg-disabled);
+    color: var(--base-text-disabled);
+    cursor: not-allowed;
+    border-color: var(--border-disabled);
+}
+
+/* =====================================================
+   TAB COMPONENTS
+   ===================================================== */
+
+/* Tab container */
+.shuby-tabs {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--base-border-tertiary);
+    border-radius: var(--radius-xl);
+}
+
+/* Tab item */
+.shuby-tab {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background-color: transparent;
+    color: var(--base-text-secondary);
+}
+
+.shuby-tab:hover {
+    background-color: var(--base-bg-hover);
+    color: var(--text-primary);
+}
+
+/* Active tab */
+.shuby-tab.active,
+.shuby-tab[aria-selected="true"] {
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+}
+
+.shuby-tab.active:hover,
+.shuby-tab[aria-selected="true"]:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+/* =====================================================
+   CARD COMPONENTS
+   ===================================================== */
+
+/* Base card */
+.shuby-card {
+    background-color: var(--bg-light);
+    border: 1px solid var(--base-border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+}
+
+/* Card with no border */
+.shuby-card-flat {
+    background-color: var(--bg-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+}
+
+/* Card small padding */
+.shuby-card-sm {
+    padding: var(--space-4);
+}
+
+/* Metric card (for measurements) */
+.shuby-card-metric {
+    background-color: var(--color-shuby-blue-50);
+    border: 1px solid var(--base-border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+}
+
+/* =====================================================
+   INFO BOX / NOTICE COMPONENTS
+   ===================================================== */
+
+/* Info box (like RICORDA) */
+.shuby-info-box {
+    background-color: var(--bg-info);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+}
+
+.shuby-info-box-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.shuby-info-box-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-on-primary);
+}
+
+.shuby-info-box-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-primary);
+}
+
+.shuby-info-box-content {
+    font-size: 14px;
+    line-height: 150%;
+    color: var(--base-text);
+}
+
+/* Warning box */
+.shuby-warning-box {
+    background-color: var(--bg-warning-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+}
+
+/* Success box */
+.shuby-success-box {
+    background-color: var(--bg-success-secondary);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+}
+
+/* =====================================================
+   INPUT COMPONENTS
+   ===================================================== */
+
+/* Text input */
+.shuby-input {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--base-text);
+    background-color: var(--bg-light);
+    border: 1px solid var(--base-border-tertiary);
+    border-radius: var(--radius-xl);
+    transition: border-color 0.2s ease;
+}
+
+.shuby-input::placeholder {
+    color: var(--base-text-disabled);
+}
+
+.shuby-input:focus {
+    outline: none;
+    border-color: var(--base-border-focus);
+    box-shadow: 0 0 0 3px rgba(1, 89, 181, 0.1);
+}
+
+/* =====================================================
+   BADGE COMPONENTS
+   ===================================================== */
+
+/* Base badge */
+.shuby-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    border-radius: var(--radius-full);
+}
+
+/* Primary badge */
+.shuby-badge-primary {
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+}
+
+/* Outline badge */
+.shuby-badge-outline {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--text-primary);
+}
+
+/* Success badge */
+.shuby-badge-success {
+    background-color: var(--bg-success);
+    color: var(--text-on-success);
+}
+
+/* Warning badge */
+.shuby-badge-warning {
+    background-color: var(--bg-warning);
+    color: var(--color-shuby-white);
+}
+
+/* Info badge */
+.shuby-badge-info {
+    background-color: var(--bg-info);
+    color: var(--text-on-info-secondary);
+}
+
+/* =====================================================
+   TAG COMPONENTS (with icon)
+   Based on Figma screenshot: pill-shaped tags with footprint icon
+   ===================================================== */
+
+/* Base tag styles */
+.shuby-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+/* Tag icon */
+.shuby-tag-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.shuby-tag-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Default tag - Light gray background */
+.shuby-tag-default {
+    background-color: var(--color-shuby-gray-100);
+    color: var(--color-shuby-gray-700);
+}
+
+.shuby-tag-default .shuby-tag-icon {
+    color: var(--color-shuby-gray-500);
+}
+
+/* Light tag - White background with subtle border */
+.shuby-tag-light {
+    background-color: var(--color-shuby-white);
+    color: var(--color-shuby-gray-700);
+    border: 1px solid var(--color-shuby-gray-200);
+}
+
+.shuby-tag-light .shuby-tag-icon {
+    color: var(--color-shuby-gray-500);
+}
+
+/* Primary tag - Blue filled */
+.shuby-tag-primary {
+    background-color: var(--color-shuby-blue-800);
+    color: var(--color-shuby-white);
+}
+
+.shuby-tag-primary .shuby-tag-icon {
+    color: var(--color-shuby-white);
+}
+
+/* Magenta/Selection tag - Magenta filled */
+.shuby-tag-magenta {
+    background-color: var(--color-shuby-magenta-500);
+    color: var(--color-shuby-white);
+}
+
+.shuby-tag-magenta .shuby-tag-icon {
+    color: var(--color-shuby-white);
+}
+
+/* Info tag - Light blue background */
+.shuby-tag-info {
+    background-color: var(--color-shuby-blue-100);
+    color: var(--color-shuby-blue-800);
+}
+
+.shuby-tag-info .shuby-tag-icon {
+    color: var(--color-shuby-blue-500);
+}
+
+/* Yellow/Amber tag */
+.shuby-tag-yellow {
+    background-color: var(--color-shuby-orange-500);
+    color: var(--color-shuby-gray-700);
+}
+
+.shuby-tag-yellow .shuby-tag-icon {
+    color: var(--color-shuby-gray-600);
+}
+
+/* Outline tag - Border only */
+.shuby-tag-outline {
+    background-color: transparent;
+    color: var(--color-shuby-blue-800);
+    border: 1px solid var(--color-shuby-blue-800);
+}
+
+.shuby-tag-outline .shuby-tag-icon {
+    color: var(--color-shuby-blue-800);
+}
+
+/* Outline Magenta tag */
+.shuby-tag-outline-magenta {
+    background-color: transparent;
+    color: var(--color-shuby-magenta-500);
+    border: 1px solid var(--color-shuby-magenta-500);
+}
+
+.shuby-tag-outline-magenta .shuby-tag-icon {
+    color: var(--color-shuby-magenta-500);
+}
+
+/* Small tag variant */
+.shuby-tag-sm {
+    padding: 4px 10px;
+    font-size: 11px;
+    line-height: 14px;
+    gap: 3px;
+}
+
+.shuby-tag-sm .shuby-tag-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Tag interactive state (for clickable/selectable tags) */
+.shuby-tag-clickable {
+    cursor: pointer;
+}
+
+.shuby-tag-clickable:hover {
+    opacity: 0.85;
+}
+
+.shuby-tag-clickable:active {
+    transform: scale(0.98);
+}
+
+/* Tag selected state */
+.shuby-tag.selected {
+    background-color: var(--color-shuby-magenta-500);
+    color: var(--color-shuby-white);
+    border-color: var(--color-shuby-magenta-500);
+}
+
+.shuby-tag.selected .shuby-tag-icon {
+    color: var(--color-shuby-white);
+}
+
+/* =====================================================
+   TOGGLE SWITCH
+   ===================================================== */
+
+.shuby-toggle {
+    position: relative;
+    width: 48px;
+    height: 28px;
+    background-color: var(--base-border-tertiary);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.shuby-toggle.active {
+    background-color: var(--bg-primary);
+}
+
+.shuby-toggle-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-shuby-white);
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shuby-toggle.active .shuby-toggle-knob {
+    transform: translateX(20px);
+}
+
+/* =====================================================
+   AVATAR
+   ===================================================== */
+
+.shuby-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--base-border-primary);
+}
+
+.shuby-avatar-sm {
+    width: 32px;
+    height: 32px;
+}
+
+.shuby-avatar-lg {
+    width: 80px;
+    height: 80px;
+}
+
+.shuby-avatar-xl {
+    width: 120px;
+    height: 120px;
+}
+
+/* =====================================================
+   LIST ITEM
+   ===================================================== */
+
+.shuby-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--base-border-tertiary);
+}
+
+.shuby-list-item:last-child {
+    border-bottom: none;
+}
+
+.shuby-list-item-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.shuby-list-item-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.shuby-list-item-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--base-text);
+}
+
+.shuby-list-item-subtitle {
+    font-size: 14px;
+    color: var(--base-text-tertiary);
+}
+
+/* =====================================================
+   SECTION BACKGROUNDS
+   ===================================================== */
+
+.shuby-bg-section {
+    background-color: var(--base-bg-section);
+}
+
+.shuby-bg-white {
+    background-color: var(--color-shuby-white);
+}
+
+/* =====================================================
+   ICON BUTTON
+   ===================================================== */
+
+.shuby-icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.shuby-icon-btn:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+.shuby-icon-btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--text-primary);
+    color: var(--text-primary);
+}
+
+.shuby-icon-btn-outline:hover {
+    background-color: var(--base-bg-hover);
+}
+
+/* =====================================================
+   BOTTOM NAVIGATION (App Menu Bar)
+   Based on Figma screenshot: Oggi, AI-helper, Archivio, Gestione
+   ===================================================== */
+
+/* Navigation bar container */
+.shuby-bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 0;
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--base-border-tertiary);
+    position: relative;
+}
+
+/* Fixed position variant (for mobile apps) */
+.shuby-bottom-nav-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+/* Navigation item */
+.shuby-bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 12px 16px 8px;
+    min-width: 72px;
+    color: var(--color-shuby-gray-500);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hover state */
+.shuby-bottom-nav-item:hover {
+    color: var(--text-primary);
+}
+
+/* Active state - Blue color from Figma */
+.shuby-bottom-nav-item.active {
+    color: var(--text-primary);
+}
+
+/* Active indicator bar (dark underline) */
+.shuby-bottom-nav-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 3px;
+    background-color: var(--color-shuby-gray-700);
+    border-radius: 2px 2px 0 0;
+}
+
+/* Navigation icon container */
+.shuby-bottom-nav-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shuby-bottom-nav-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Navigation label */
+.shuby-bottom-nav-label {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 14px;
+    text-align: center;
+}
+
+/* Active label styling */
+.shuby-bottom-nav-item.active .shuby-bottom-nav-label {
+    font-weight: 600;
+}
+
+/* =====================================================
+   PROGRESS INDICATOR
+   ===================================================== */
+
+.shuby-progress {
+    width: 100%;
+    height: 8px;
+    background-color: var(--base-border-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.shuby-progress-bar {
+    height: 100%;
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-full);
+    transition: width 0.3s ease;
+}
+
+.shuby-progress-bar-success {
+    background-color: var(--bg-success);
+}
+
+/* =====================================================
+   METRIC VALUE (for measurements display)
+   ===================================================== */
+
+.shuby-metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.shuby-metric-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.shuby-metric-value-success {
+    color: var(--text-success);
+}
+
+.shuby-metric-unit {
+    font-size: 12px;
+    color: var(--base-text-tertiary);
+}
+
+.shuby-metric-percentile {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-success);
+}
+
+/* =====================================================
+   DATE PICKER PILLS (Magenta selection)
+   Used for date selection in calendars and date pickers
+   ===================================================== */
+
+/* Date pill container (horizontal scrolling row of dates) */
+.shuby-date-picker {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: var(--space-2) 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.shuby-date-picker::-webkit-scrollbar {
+    display: none;
+}
+
+/* Individual date pill */
+.shuby-date-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    padding: 8px 12px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--base-border-tertiary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.shuby-date-pill:hover {
+    border-color: var(--border-selection);
+    background-color: var(--bg-selection-light);
+}
+
+/* Selected date pill - uses Magenta */
+.shuby-date-pill.selected,
+.shuby-date-pill[aria-selected="true"] {
+    background-color: var(--bg-selection);
+    border-color: var(--bg-selection);
+    color: var(--text-on-selection);
+}
+
+.shuby-date-pill.selected:hover,
+.shuby-date-pill[aria-selected="true"]:hover {
+    background-color: var(--bg-selection-hover);
+}
+
+/* Date pill day label (e.g., "Lu", "Ma", "Me") */
+.shuby-date-pill-day {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.7;
+    line-height: 1;
+}
+
+.shuby-date-pill.selected .shuby-date-pill-day {
+    opacity: 1;
+    color: var(--text-on-selection);
+}
+
+/* Date pill number (e.g., "12", "13", "14") */
+.shuby-date-pill-number {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.shuby-date-pill.selected .shuby-date-pill-number {
+    color: var(--text-on-selection);
+}
+
+/* Disabled date pill */
+.shuby-date-pill.disabled,
+.shuby-date-pill:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* =====================================================
+   WEEK/STEP SELECTOR (Magenta selection)
+   Used for selecting weeks, months, or progress steps
+   ===================================================== */
+
+/* Week selector container */
+.shuby-week-selector {
+    display: flex;
+    gap: 4px;
+    padding: 4px;
+    background-color: var(--base-bg-high);
+    border-radius: var(--radius-xl);
+}
+
+/* Individual week/step item */
+.shuby-week-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    min-width: 44px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    background-color: transparent;
+    color: var(--base-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.shuby-week-item:hover {
+    background-color: var(--bg-selection-light);
+    color: var(--text-selection);
+}
+
+/* Selected week/step - uses Magenta */
+.shuby-week-item.selected,
+.shuby-week-item[aria-selected="true"] {
+    background-color: var(--bg-selection);
+    color: var(--text-on-selection);
+}
+
+.shuby-week-item.selected:hover,
+.shuby-week-item[aria-selected="true"]:hover {
+    background-color: var(--bg-selection-hover);
+}
+
+/* Completed step indicator */
+.shuby-week-item.completed {
+    background-color: var(--bg-selection-light);
+    color: var(--text-selection);
+}
+
+.shuby-week-item.completed::before {
+    content: "✓";
+    margin-right: 4px;
+    font-size: 12px;
+}
+
+/* =====================================================
+   STEP PROGRESS INDICATOR
+   Horizontal dots/steps with magenta active state
+   ===================================================== */
+
+.shuby-step-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shuby-step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--base-border-tertiary);
+    transition: all 0.2s ease;
+}
+
+.shuby-step-dot.active {
+    background-color: var(--bg-selection);
+    width: 24px;
+    border-radius: 4px;
+}
+
+.shuby-step-dot.completed {
+    background-color: var(--bg-selection);
+}
+
+/* =====================================================
+   SELECTION BADGE (Magenta variant)
+   ===================================================== */
+
+.shuby-badge-selection {
+    background-color: var(--bg-selection);
+    color: var(--text-on-selection);
+}
+
+.shuby-badge-selection-outline {
+    background-color: transparent;
+    color: var(--text-selection);
+    border: 1px solid var(--border-selection);
+}
+
+/* =====================================================
+   CALENDAR GRID
+   Full calendar with magenta selection
+   ===================================================== */
+
+.shuby-calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    padding: var(--space-4);
+}
+
+.shuby-calendar-header {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    padding: 0 var(--space-4);
+    margin-bottom: var(--space-2);
+}
+
+.shuby-calendar-header-day {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--base-text-tertiary);
+    padding: var(--space-2) 0;
+}
+
+.shuby-calendar-day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    color: var(--base-text);
+}
+
+.shuby-calendar-day:hover {
+    background-color: var(--bg-selection-light);
+}
+
+.shuby-calendar-day.selected {
+    background-color: var(--bg-selection);
+    color: var(--text-on-selection);
+}
+
+.shuby-calendar-day.today {
+    border: 2px solid var(--border-selection-outline);
+}
+
+.shuby-calendar-day.other-month {
+    color: var(--base-text-disabled);
+}
+
+.shuby-calendar-day.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   TIMELINE DATE PICKER (from Figma screenshots)
+   Horizontal scrolling date pills with container variants
+   ===================================================== */
+
+/* Timeline container with lavender border (first row in screenshot) */
+.shuby-timeline-container {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: var(--bg-timeline-container);
+    border: 2px solid var(--border-timeline-container);
+    border-radius: var(--radius-xl);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.shuby-timeline-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Timeline container alternate (gray background, no border) */
+.shuby-timeline-container-alt {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    background-color: var(--bg-timeline-container-alt);
+    border-radius: var(--radius-xl);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.shuby-timeline-container-alt::-webkit-scrollbar {
+    display: none;
+}
+
+/* Timeline date pill (Sett./Mese style) */
+.shuby-timeline-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    padding: 8px 12px;
+    border-radius: var(--radius-lg);
+    background-color: var(--bg-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    border: none;
+}
+
+.shuby-timeline-pill:hover {
+    background-color: var(--base-bg-hover);
+}
+
+/* Outline selected state (light blue/purple border, white bg) */
+.shuby-timeline-pill.selected-outline {
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-selection-outline);
+}
+
+/* Filled selected state (magenta background) */
+.shuby-timeline-pill.selected {
+    background-color: var(--bg-selection);
+    color: var(--text-on-selection);
+}
+
+.shuby-timeline-pill.selected:hover {
+    background-color: var(--bg-selection-hover);
+}
+
+/* Timeline pill label (e.g., "Sett.", "Mese") */
+.shuby-timeline-pill-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 2px;
+}
+
+.shuby-timeline-pill.selected .shuby-timeline-pill-label {
+    color: var(--text-on-selection);
+}
+
+/* Timeline pill number (e.g., "3", "6") */
+.shuby-timeline-pill-number {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.shuby-timeline-pill.selected .shuby-timeline-pill-number {
+    color: var(--text-on-selection);
+}
+
+/* =====================================================
+   SETTIMANA (WEEK) SELECTOR (from Figma screenshot)
+   Full text week labels with magenta active state
+   ===================================================== */
+
+/* Settimana selector container */
+.shuby-settimana-selector {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--bg-timeline-container-alt);
+    border-radius: var(--radius-xl);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Individual settimana item */
+.shuby-settimana-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    color: var(--base-text);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.shuby-settimana-item:hover {
+    background-color: var(--bg-selection-light);
+    color: var(--text-selection);
+}
+
+/* Active/selected settimana */
+.shuby-settimana-item.active,
+.shuby-settimana-item[aria-selected="true"] {
+    background-color: var(--bg-selection);
+    color: var(--text-on-selection);
+}
+
+.shuby-settimana-item.active:hover,
+.shuby-settimana-item[aria-selected="true"]:hover {
+    background-color: var(--bg-selection-hover);
+}
+
+/* Progressive state indicator (shows progression through weeks) */
+.shuby-settimana-item.past {
+    font-weight: 700;
+    color: var(--base-text);
+}
+
+/* =====================================================
+   TIMELINE UTILITY BACKGROUNDS
+   ===================================================== */
+
+.shuby-bg-timeline {
+    background-color: var(--bg-timeline-container);
+}
+
+.shuby-bg-timeline-alt {
+    background-color: var(--bg-timeline-container-alt);
+}
+
+.shuby-border-timeline {
+    border: 2px solid var(--border-timeline-container);
+}
+
+/* =====================================================
+   TAPPA DI SVILUPPO (Developmental Milestone Card)
+   Full-width hero card for displaying child progress
+   Based on Figma screenshot with cyan background
+   ===================================================== */
+
+/* Section container with cyan background */
+.shuby-tappa-section {
+    background-color: var(--color-shuby-blue-100);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+}
+
+/* Section header (TAPPA DI SVILUPPO) */
+.shuby-tappa-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+/* Main card container - white card on cyan background */
+.shuby-tappa-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--color-shuby-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Left content area */
+.shuby-tappa-content {
+    flex: 1;
+    max-width: 70%;
+}
+
+/* Tags row (Tappa di sviluppo + Mese 1) */
+.shuby-tappa-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: var(--space-3);
+}
+
+/* Calendar icon tag (blue filled) */
+.shuby-tappa-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-shuby-blue-800);
+    color: var(--color-shuby-white);
+}
+
+.shuby-tappa-tag-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+.shuby-tappa-tag-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Month tag (white with border) */
+.shuby-tappa-tag-month {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-shuby-white);
+    color: var(--color-shuby-gray-700);
+    border: 1px solid var(--color-shuby-gray-200);
+}
+
+/* Progress subtitle (I progressi di Alessandro su:) */
+.shuby-tappa-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-shuby-gray-600);
+    margin-bottom: 4px;
+}
+
+/* Category title (Comunicazione e linguaggio) */
+.shuby-tappa-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+/* Duration indicator (⏱ 2 MIN) */
+.shuby-tappa-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-shuby-gray-500);
+}
+
+.shuby-tappa-duration-icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* Mascot/character container (right side) */
+.shuby-tappa-mascot {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    margin-left: var(--space-4);
+}
+
+.shuby-tappa-mascot img,
+.shuby-tappa-mascot svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Pentagon mascot shape with face */
+.shuby-tappa-mascot-shape {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #9DD8E8 0%, #7BC4D7 100%);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 4px;
+}
+
+/* Mascot face expression */
+.shuby-tappa-mascot-face {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.shuby-tappa-mascot-eyes {
+    display: flex;
+    gap: 10px;
+}
+
+.shuby-tappa-mascot-eye {
+    width: 8px;
+    height: 10px;
+    background-color: var(--color-shuby-white);
+    border-radius: 50%;
+}
+
+.shuby-tappa-mascot-smile {
+    width: 16px;
+    height: 8px;
+    border: 3px solid var(--color-shuby-white);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .shuby-tappa-card {
+        flex-direction: column;
+    }
+
+    .shuby-tappa-content {
+        max-width: 100%;
+    }
+
+    .shuby-tappa-mascot {
+        margin-left: 0;
+        margin-top: var(--space-4);
+        align-self: flex-end;
+    }
+}
+
+/* =====================================================
+   TAPPA CARD VARIANTS
+   ===================================================== */
+
+/* Compact variant (smaller padding) */
+.shuby-tappa-card-compact {
+    padding: var(--space-4);
+}
+
+.shuby-tappa-card-compact .shuby-tappa-mascot {
+    width: 60px;
+    height: 60px;
+}
+
+/* Full-width section variant */
+.shuby-tappa-section-full {
+    border-radius: 0;
+    margin: 0 calc(-1 * var(--space-4));
+    padding: var(--space-6) var(--space-4);
+}
+
+/* =====================================================
+   GESTIONE PAGE COMPONENTS
+   Management page layout based on Figma screenshot
+   Includes: Page header, Section header, Member lists
+   ===================================================== */
+
+/* Page container */
+.shuby-gestione-page {
+    background-color: var(--color-shuby-white);
+    min-height: 100vh;
+    padding: var(--space-4);
+}
+
+/* Page title (Gestione) */
+.shuby-page-title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    color: var(--base-text);
+    margin-bottom: var(--space-4);
+}
+
+/* Section header with title and action buttons */
+.shuby-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+}
+
+.shuby-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 26px;
+    color: var(--text-primary);
+}
+
+.shuby-section-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Small circular icon buttons (+ and edit) */
+.shuby-action-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.shuby-action-btn:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+.shuby-action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Category label (ADULTI, BAMBINI) */
+.shuby-category-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--base-text-secondary);
+    padding: var(--space-4) 0 var(--space-2);
+}
+
+/* =====================================================
+   MEMBER CARD (Gestione list item)
+   White rounded card with avatar, info, and edit button
+   ===================================================== */
+
+.shuby-member-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-shuby-white);
+    border: 1px solid var(--base-border-tertiary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-bottom: var(--space-3);
+    transition: box-shadow 0.2s ease;
+}
+
+.shuby-member-card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.shuby-member-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Member card content (left side: avatar + info) */
+.shuby-member-content {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Member avatar container */
+.shuby-member-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-shuby-gray-100);
+}
+
+.shuby-member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Default user icon avatar (gray circle with person icon) */
+.shuby-member-avatar-default {
+    background-color: var(--color-shuby-gray-200);
+    color: var(--color-shuby-gray-500);
+}
+
+.shuby-member-avatar-default svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Member text info */
+.shuby-member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.shuby-member-name {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--base-text);
+}
+
+.shuby-member-role {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--base-text-tertiary);
+}
+
+/* Edit button (right side of member card) */
+.shuby-member-edit {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.shuby-member-edit:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+.shuby-member-edit svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* =====================================================
+   MEMBER CARD VARIANTS
+   ===================================================== */
+
+/* Adult member card (with default avatar) */
+.shuby-member-card-adult .shuby-member-avatar {
+    background-color: var(--color-shuby-gray-200);
+}
+
+/* Child member card (with photo or emoji) */
+.shuby-member-card-child .shuby-member-avatar {
+    background-color: var(--color-shuby-blue-50);
+}
+
+/* Emoji avatar for children */
+.shuby-member-avatar-emoji {
+    font-size: 28px;
+    line-height: 1;
+}
+
+/* Highlighted member card (selected state) */
+.shuby-member-card.selected {
+    border-color: var(--bg-primary);
+    box-shadow: 0 0 0 2px var(--color-shuby-blue-100);
+}
+
+/* =====================================================
+   GESTIONE TABS (Famiglia, Impostazioni, Piano)
+   Pill-style tabs matching the Figma screenshot
+   ===================================================== */
+
+.shuby-gestione-tabs {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    background-color: var(--color-shuby-gray-100);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--space-4);
+}
+
+.shuby-gestione-tab {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    background-color: transparent;
+    color: var(--base-text-secondary);
+}
+
+.shuby-gestione-tab:hover {
+    color: var(--text-primary);
+}
+
+/* Active tab - filled blue */
+.shuby-gestione-tab.active,
+.shuby-gestione-tab[aria-selected="true"] {
+    background-color: var(--bg-primary);
+    color: var(--text-on-primary);
+}
+
+.shuby-gestione-tab.active:hover,
+.shuby-gestione-tab[aria-selected="true"]:hover {
+    background-color: var(--bg-primary-hover);
+}
+
+/* =====================================================
+   FAMILY MEMBER LIST CONTAINER
+   ===================================================== */
+
+.shuby-family-section {
+    margin-bottom: var(--space-6);
+}
+
+.shuby-family-section:last-child {
+    margin-bottom: 0;
+}
+
+/* Empty state for family sections */
+.shuby-family-empty {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+    color: var(--base-text-tertiary);
+}
+
+.shuby-family-empty-icon {
+    font-size: 48px;
+    margin-bottom: var(--space-4);
+    opacity: 0.5;
+}
+
+.shuby-family-empty-text {
+    font-size: 14px;
+    line-height: 150%;
+}

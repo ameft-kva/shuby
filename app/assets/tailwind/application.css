@@ -9,9 +9,9 @@
 @variant not-hotwire-native (html:not(.hotwire-native) &);
 
 @theme {
-  --font-sans: InterVariable, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  /* https://rsms.me/inter/lab */
-  --font-sans--font-feature-settings: 'liga', 'cv02', 'cv03', 'cv04', 'cv11';
+  /* Shuby Design System: Nunito as primary font (child-friendly, rounded) */
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-display: "Nunito", ui-sans-serif, system-ui, sans-serif;
   --color-primary: var(--bg-primary);
 }
 
@@ -20,6 +20,7 @@
 @import "./themes/light.css" layer(theme);
 @import "./themes/jumpstart-dark.css" layer(theme);
 @import "./themes/jumpstart.css" layer(theme);
+@import "./themes/shuby.css" layer(theme);
 
 @import "./components/base.css" layer(components);
 @import "./components/actiontext.css" layer(components);
@@ -45,3 +46,4 @@
 @import "./components/typography.css" layer(components);
 @import "./components/wells.css" layer(components);
 @import "./components/braintree.css" layer(components);
+@import "./components/shuby.css" layer(components);
