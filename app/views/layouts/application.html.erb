@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html class="<%= class_names(dark: current_user&.dark_theme?, "hotwire-native": hotwire_native_app?) %>" lang="<%= I18n.locale %>">
+<html class="<%= class_names(dark: current_user&.dark_theme?, "hotwire-native": hotwire_native_app?) %>" lang="<%= I18n.locale %>" data-theme="shuby">
   <head>
     <%= render "head" %>
   </head>
-  <body data-controller="theme bridge--menu-button <%= "bridge--notification-token" if user_signed_in? %>" data-theme-preference-value="<%= current_user&.theme %>">
+  <body data-controller="theme bridge--menu-button <%= "bridge--notification-token" if user_signed_in? %>" data-theme-preference-value="<%= current_user&.theme || 'shuby' %>">
     <header>
       <%= impersonation_banner %>
       <%= render "flash" %>
@@ -12,14 +12,6 @@
 
     <main>
       <%= content_for?(:content) ? yield(:content) : yield %>
-
-      <!-- TEMP: DaisyUI test -->
-      <div class="p-4">
-        <button class="btn btn-primary">Hello daisyUI!</button>
-        <div class="alert alert-info mt-4">
-          <span>Shuby DaisyUI test alert</span>
-        </div>
-      </div>
     </main>
 
     <%= render "footer" unless hotwire_native_app? %>
