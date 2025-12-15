@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/ameft-kva/shuby#readme",
   "dependencies": {
-    "daisyui": "^5.5.8"
+    "daisyui": "^5.5.14"
   }
 }
