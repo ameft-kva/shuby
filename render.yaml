@@ -4,7 +4,7 @@ services:
     name: rails
     plan: free
     runtime: ruby
-    region: oregon # the region must be consistent across all services for the internal keys to be read
+    region: frankfurt # the region must be consistent across all services for the internal keys to be read
     buildCommand: "./bin/render-build.sh"
     startCommand: bundle exec rails s
     healthCheckPath: "/up"
@@ -69,20 +69,20 @@ services:
 databases:
   - name: primary
     plan: basic-256mb
-    region: oregon # the region must be consistent across all services for the internal keys to be read
+    region: frankfurt # the region must be consistent across all services for the internal keys to be read
     ipAllowList: [] # only allow internal connections
 
   - name: solid_cable
     plan: basic-256mb
-    region: oregon # the region must be consistent across all services for the internal keys to be read
+    region: frankfurt # the region must be consistent across all services for the internal keys to be read
     ipAllowList: [] # only allow internal connections
 
   - name: solid_cache
     plan: basic-256mb
-    region: oregon # the region must be consistent across all services for the internal keys to be read
+    region: frankfurt # the region must be consistent across all services for the internal keys to be read
     ipAllowList: [] # only allow internal connections
 
   - name: solid_queue
     plan: basic-256mb
-    region: oregon # the region must be consistent across all services for the internal keys to be read
+    region: frankfurt # the region must be consistent across all services for the internal keys to be read
     ipAllowList: [] # only allow internal connections
