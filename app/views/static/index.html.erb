@@ -1,10 +1,212 @@
-<div class="py-32 max-w-2xl m-auto text-center flex flex-col items-center justify-center">
-  <h1 class="mb-2">Welcome to Jumpstart</h1>
-  <p class="mb-6 text-gray-700 dark:text-gray-200 leading-normal text-xl">Jumpstart is the perfect starting point for your next Ruby on Rails app. Skip the boilerplate setup and build your app faster.</p>
-  <% if Rails.env.development? %>
-    <div class="flex flex-col items-center gap-4">
-      <%= link_to "Configure Jumpstart", jumpstart_path, data: { turbo: false }, class: "btn btn-primary" %>
-      <%= link_to "Read the Docs", jumpstart.docs_path, target: :_blank, data: { turbo: false }, class: "btn btn-secondary btn-outline" %>
+<% Current.meta_tags.set(
+  title: "Shuby - Il tuo compagno per i primi 1000 giorni",
+  description: "Shuby ti aiuta a seguire lo sviluppo del tuo bambino da 0 a 36 mesi con un assistente AI dedicato, consigli personalizzati e tracking delle tappe fondamentali."
+) %>
+
+<%# ========== HERO SECTION ========== %>
+<section class="bg-[var(--color-shuby-blue-100)] dark:bg-gray-900">
+  <div class="container mx-auto px-4 py-10 sm:py-16 lg:py-24">
+    <div class="flex flex-col items-center gap-6 sm:gap-8 lg:flex-row lg:gap-12">
+      <%# Mascot Image - Mobile first: show on top %>
+      <div class="order-first lg:order-last flex-shrink-0 flex justify-center">
+        <%= image_tag "shuby/illustrations/mascot-sorriso-tall.png",
+            class: "w-40 h-auto sm:w-56 lg:w-72 drop-shadow-lg",
+            alt: "Shuby mascot - assistente per lo sviluppo infantile",
+            loading: "eager" %>
+      </div>
+      <%# Text Content %>
+      <div class="flex-1 text-center lg:text-left">
+        <h1 class="shuby-d1 text-[var(--color-shuby-blue-800)] dark:text-white mb-3 sm:mb-4 text-2xl sm:text-3xl lg:text-4xl leading-tight">
+          Il tuo compagno per i primi 1000 giorni
+        </h1>
+        <p class="shuby-p1 text-gray-700 dark:text-gray-300 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed">
+          Shuby ti aiuta a seguire lo sviluppo del tuo bambino da 0 a 36 mesi con un assistente AI dedicato, consigli personalizzati e tracking delle tappe fondamentali.
+        </p>
+        <div class="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center lg:justify-start">
+          <%= link_to new_user_registration_path, class: "shuby-btn shuby-btn-lg shuby-btn-primary w-full sm:w-auto" do %>
+            Inizia Gratis
+          <% end %>
+          <a href="#features" class="shuby-btn shuby-btn-lg shuby-btn-outline w-full sm:w-auto">
+            Scopri come funziona
+          </a>
+        </div>
+      </div>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>
+
+<%# ========== FEATURES SECTION ========== %>
+<section id="features" class="bg-white dark:bg-gray-800 py-12 sm:py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8 sm:mb-12">
+      <h2 class="shuby-h2 text-gray-900 dark:text-white mb-3 text-xl sm:text-2xl">Tutto quello di cui hai bisogno</h2>
+      <p class="shuby-p1 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
+        Strumenti semplici e intuitivi per accompagnarti nel percorso di crescita del tuo bambino.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3 md:gap-8">
+      <%# Feature 1: Tracking %>
+      <div class="shuby-card p-5 sm:p-6 text-center hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-[var(--color-shuby-blue-100)] dark:bg-gray-700 flex items-center justify-center">
+          <%= image_tag "shuby/icons/icon-footprints.svg", class: "w-7 h-7 sm:w-8 sm:h-8", alt: "" %>
+        </div>
+        <h3 class="shuby-d2 text-gray-900 dark:text-white mb-2 sm:mb-3 text-lg">Monitora le tappe</h3>
+        <p class="shuby-p1 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+          Segui peso, altezza e le milestones dello sviluppo motorio, cognitivo e sociale del tuo bambino.
+        </p>
+      </div>
+
+      <%# Feature 2: AI Assistant %>
+      <div class="shuby-card p-5 sm:p-6 text-center hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-[var(--color-shuby-verde-200)] dark:bg-gray-700 flex items-center justify-center">
+          <%= image_tag "shuby/icons/icon-robot.svg", class: "w-7 h-7 sm:w-8 sm:h-8", alt: "" %>
+        </div>
+        <h3 class="shuby-d2 text-gray-900 dark:text-white mb-2 sm:mb-3 text-lg">Assistente AI 24/7</h3>
+        <p class="shuby-p1 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+          Chiedi a Shuby qualsiasi dubbio sullo sviluppo infantile e ricevi risposte basate su fonti mediche affidabili.
+        </p>
+      </div>
+
+      <%# Feature 3: Consigli %>
+      <div class="shuby-card p-5 sm:p-6 text-center hover:shadow-lg transition-shadow">
+        <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-full bg-[var(--color-shuby-giallo-400)] dark:bg-gray-700 flex items-center justify-center">
+          <%= image_tag "shuby/icons/icon-book.svg", class: "w-7 h-7 sm:w-8 sm:h-8", alt: "" %>
+        </div>
+        <h3 class="shuby-d2 text-gray-900 dark:text-white mb-2 sm:mb-3 text-lg">Consigli personalizzati</h3>
+        <p class="shuby-p1 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+          Ricevi suggerimenti su attività, giochi e alimentazione adatti all'età del tuo bambino.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ========== COME FUNZIONA SECTION ========== %>
+<section class="bg-[var(--color-shuby-blue-50)] dark:bg-gray-900 py-12 sm:py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-8 sm:mb-12">
+      <h2 class="shuby-h2 text-gray-900 dark:text-white mb-3 text-xl sm:text-2xl">Semplice da usare</h2>
+      <p class="shuby-p1 text-gray-600 dark:text-gray-400 text-sm sm:text-base">
+        Inizia in pochi minuti e scopri tutto quello che Shuby può fare per te.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-6 sm:gap-8 md:flex-row md:gap-6 max-w-4xl mx-auto">
+      <%# Step 1 %>
+      <div class="flex-1 text-center">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 rounded-full bg-[var(--color-shuby-blue-800)] text-white flex items-center justify-center font-bold text-lg sm:text-xl">
+          1
+        </div>
+        <h3 class="shuby-d2 text-gray-900 dark:text-white mb-2 text-base sm:text-lg">Crea il tuo account</h3>
+        <p class="shuby-p2 text-gray-600 dark:text-gray-400 text-sm">
+          Registrati in pochi secondi con email o social login.
+        </p>
+      </div>
+
+      <%# Step 2 %>
+      <div class="flex-1 text-center">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 rounded-full bg-[var(--color-shuby-blue-800)] text-white flex items-center justify-center font-bold text-lg sm:text-xl">
+          2
+        </div>
+        <h3 class="shuby-d2 text-gray-900 dark:text-white mb-2 text-base sm:text-lg">Aggiungi il tuo bambino</h3>
+        <p class="shuby-p2 text-gray-600 dark:text-gray-400 text-sm">
+          Inserisci nome, data di nascita e le prime informazioni.
+        </p>
+      </div>
+
+      <%# Step 3 %>
+      <div class="flex-1 text-center">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 rounded-full bg-[var(--color-shuby-blue-800)] text-white flex items-center justify-center font-bold text-lg sm:text-xl">
+          3
+        </div>
+        <h3 class="shuby-d2 text-gray-900 dark:text-white mb-2 text-base sm:text-lg">Inizia a esplorare</h3>
+        <p class="shuby-p2 text-gray-600 dark:text-gray-400 text-sm">
+          Accedi al tracking, parla con Shuby AI e scopri i consigli personalizzati.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ========== AI ASSISTANT SHOWCASE ========== %>
+<section class="bg-white dark:bg-gray-800 py-12 sm:py-16 lg:py-24">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col items-center gap-8 sm:gap-10 lg:flex-row lg:gap-12">
+      <%# Mock Chat %>
+      <div class="w-full max-w-sm lg:flex-1 lg:max-w-md">
+        <div class="bg-gray-50 dark:bg-gray-900 rounded-2xl p-4 sm:p-6 shadow-lg">
+          <%# Chat Header %>
+          <div class="flex items-center gap-3 mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-gray-200 dark:border-gray-700">
+            <%= image_tag "shuby/icons/icon-robot.svg", class: "w-8 h-8 sm:w-10 sm:h-10", alt: "Shuby" %>
+            <div>
+              <h4 class="shuby-d2 text-gray-900 dark:text-white text-base sm:text-lg">Shuby</h4>
+              <p class="shuby-p2 text-gray-500 dark:text-gray-400 text-xs sm:text-sm">Online</p>
+            </div>
+          </div>
+
+          <%# Messages %>
+          <div class="space-y-3 sm:space-y-4">
+            <%# User message %>
+            <div class="flex justify-end">
+              <div class="bg-[var(--color-shuby-blue-800)] text-white rounded-2xl rounded-br-sm px-3 py-2 sm:px-4 sm:py-3 max-w-[85%]">
+                <p class="shuby-p1 text-sm sm:text-base">Quando il mio bambino dovrebbe iniziare a gattonare?</p>
+              </div>
+            </div>
+
+            <%# Assistant message %>
+            <div class="flex justify-start">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-bl-sm px-3 py-2 sm:px-4 sm:py-3 max-w-[85%] shadow-sm">
+                <p class="shuby-p1 text-gray-800 dark:text-gray-200 text-sm sm:text-base">
+                  La maggior parte dei bambini inizia a gattonare tra i 7 e i 10 mesi. Ogni bambino ha i suoi tempi!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%# Description %>
+      <div class="lg:flex-1 text-center lg:text-left">
+        <h2 class="shuby-h2 text-gray-900 dark:text-white mb-3 text-xl sm:text-2xl">Incontra Shuby</h2>
+        <p class="shuby-d2 text-[var(--color-shuby-blue-800)] dark:text-blue-400 mb-3 text-base sm:text-lg">
+          Il tuo assistente intelligente per ogni domanda
+        </p>
+        <p class="shuby-p1 text-gray-600 dark:text-gray-400 mb-6 max-w-lg mx-auto lg:mx-0 text-sm sm:text-base">
+          Shuby è sempre disponibile per rispondere alle tue domande sullo sviluppo infantile. Dalle tappe motorie all'alimentazione, dalle coliche al sonno - Shuby ti supporta con risposte affidabili.
+        </p>
+        <% if user_signed_in? %>
+          <%= link_to shuby_chats_path, class: "shuby-btn shuby-btn-lg shuby-btn-primary w-full sm:w-auto" do %>
+            <%= image_tag "shuby/icons/icon-robot.svg", class: "w-5 h-5 mr-2", style: "filter: brightness(0) invert(1);", alt: "" %>
+            Parla con Shuby
+          <% end %>
+        <% else %>
+          <%= link_to new_user_registration_path, class: "shuby-btn shuby-btn-lg shuby-btn-primary w-full sm:w-auto" do %>
+            Prova Shuby
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%# ========== FINAL CTA SECTION ========== %>
+<section class="bg-[var(--color-shuby-blue-800)] py-12 sm:py-16 lg:py-20">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="shuby-d1 text-white mb-3 sm:mb-4 text-xl sm:text-2xl lg:text-3xl">
+      Inizia oggi il viaggio con Shuby
+    </h2>
+    <p class="shuby-p1 text-blue-100 mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base lg:text-lg">
+      Unisciti a migliaia di genitori che usano Shuby ogni giorno per supportare la crescita dei loro bambini.
+    </p>
+    <% unless user_signed_in? %>
+      <%= link_to new_user_registration_path, class: "shuby-btn shuby-btn-lg bg-white text-[var(--color-shuby-blue-800)] hover:bg-gray-100 font-semibold w-full sm:w-auto" do %>
+        Crea Account Gratuito
+      <% end %>
+    <% else %>
+      <%= link_to shuby_chats_path, class: "shuby-btn shuby-btn-lg bg-white text-[var(--color-shuby-blue-800)] hover:bg-gray-100 font-semibold w-full sm:w-auto" do %>
+        Vai a Shuby
+      <% end %>
+    <% end %>
+  </div>
+</section>
