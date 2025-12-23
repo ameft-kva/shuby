@@ -61,6 +61,9 @@ class ShubyAssistantService
   # OpenAI API endpoint for Responses API
   OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 
+  # Regex pattern to match OpenAI citation markers like 【filecite...】, 【turn0file1】, etc.
+  CITATION_MARKER_PATTERN = /【[^】]*】/
+
   # Initialize the service with a ShubyChat record
   #
   # @param shuby_chat [ShubyChat] The chat record
@@ -90,7 +93,9 @@ class ShubyAssistantService
           delta = event_data["delta"]
           if delta.present?
             accumulated_text += delta
-            block&.call({type: :delta, content: delta})
+            # Strip citation markers before sending to UI
+            cleaned_delta = strip_citation_markers(delta)
+            block&.call({type: :delta, content: cleaned_delta}) if cleaned_delta.present?
           end
 
         when "response.file_search_call.results"
@@ -136,10 +141,13 @@ class ShubyAssistantService
     # Store the response_id for conversation context
     @shuby_chat.update(previous_response_id: response_id) if response_id
 
+    # Clean citation markers from accumulated text before saving
+    cleaned_content = strip_citation_markers(accumulated_text)
+
     # Save the assistant message
     assistant_message = @shuby_chat.messages.create!(
       role: "assistant",
-      content: accumulated_text,
+      content: cleaned_content,
       model_id: DEFAULT_MODEL,
       input_tokens: input_tokens,
       output_tokens: output_tokens
@@ -162,12 +170,12 @@ class ShubyAssistantService
     block.call({type: :citations, citations: citations}) if block && citations.any?
     block&.call({
       type: :completed,
-      content: accumulated_text,
+      content: cleaned_content,
       citations: citations,
       message: assistant_message
     })
 
-    {response_id: response_id, content: accumulated_text, citations: citations, message: assistant_message}
+    {response_id: response_id, content: cleaned_content, citations: citations, message: assistant_message}
   end
 
   # Legacy ask method for non-streaming (falls back to streaming but waits)
@@ -180,6 +188,18 @@ class ShubyAssistantService
       result = event if event[:type] == :completed
     end
     result&.dig(:message)
+  end
+
+  # Strips OpenAI citation markers from text content
+  # These markers like 【filecite...】, 【turn0file1】 are inserted by the API
+  # but should not be displayed to users.
+  #
+  # @param text [String] The text to clean
+  # @return [String] Text with citation markers removed
+  def strip_citation_markers(text)
+    return text if text.blank?
+
+    text.gsub(CITATION_MARKER_PATTERN, "")
   end
 
   # Updates the chat title based on the first message

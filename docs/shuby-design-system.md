@@ -5,10 +5,10 @@ Complete design system implementation based on Figma design tokens and screensho
 ## Overview
 
 The Shuby design system is implemented as a DaisyUI/Tailwind CSS theme named `shuby`. It provides:
-- Complete color palette (Primary, Accent, Success, Warning, Danger, Neutrals)
-- Typography system with Nunito font
+- Complete color palette (Primary, Verde, Success, Warning, Danger, Neutrals, Fucsia)
+- Typography system with Baloo 2 (display) and Montserrat (body) fonts
 - Component classes for buttons, tabs, cards, badges, etc.
-- Spacing and border-radius systems
+- Spacing, border-radius, and shadow systems
 
 **Theme Files:**
 - `app/assets/tailwind/themes/shuby.css` - Color variables and theme mappings
@@ -28,19 +28,39 @@ The Shuby design system is implemented as a DaisyUI/Tailwind CSS theme named `sh
 | Blue 100 | `#D4EDFF` | `--color-shuby-blue-100` | Section backgrounds (AI-helper, quiz) |
 | Blue 200 | `#A8DBFF` | `--color-shuby-blue-200` | Light accents |
 | Blue 300 | `#E5F2FF` | `--color-shuby-blue-300` | Card borders |
-| Blue 500 | `#3B9EE8` | `--color-shuby-blue-500` | Mid-tone blue |
-| Blue 700 | `#0D6EBF` | `--color-shuby-blue-700` | Hover on primary |
+| Blue 400 | `#CAE4FF` | `--color-shuby-blue-400` | Light blue accent |
+| Blue 500 | `#9EC6F0` | `--color-shuby-blue-500` | Mid-tone blue |
+| Blue 700 | `#3B83CF` | `--color-shuby-blue-700` | Form borders, hover states |
 | Blue 800 | `#0159B5` | `--color-shuby-blue-800` | **Primary brand color** |
 | Blue 900 | `#004488` | `--color-shuby-blue-900` | Dark blue |
 
-### Accent Colors
+### Verde (Green/Teal) Scale - Figma: Colori/Verde
 
 | Token | HEX | CSS Variable | Usage |
 |-------|-----|--------------|-------|
-| Cyan 400 | `#4FC3C3` | `--color-shuby-cyan-400` | Character illustrations |
+| Verde 200 | `#D1F8F9` | `--color-shuby-verde-200` | Light accent backgrounds |
+| Verde 300 | `#99E0E2` | `--color-shuby-verde-300` | Medium accents |
+| Verde 400 | `#7DCBCD` | `--color-shuby-verde-400` | Character illustrations |
+| Verde 500 | `#38A3A5` | `--color-shuby-verde-500` | Primary accent |
+| Verde Scuro 400 | `#37A3C1` | `--color-shuby-verde-scuro-400` | Dark accent |
+| Verde Scuro 500 | `#007FA3` | `--color-shuby-verde-scuro-500` | Darker accent |
+
+### Yellow (Giallo) - Figma: Colori/Giallo
+
+| Token | HEX | CSS Variable | Usage |
+|-------|-----|--------------|-------|
+| Giallo 400 | `#FFF7D4` | `--color-shuby-giallo-400` | Light yellow card backgrounds (Consigli) |
+| Giallo 500 | `#FFE882` | `--color-shuby-giallo-500` | Highlights, attention elements, tags |
+
+### Other Accent Colors
+
+| Token | HEX | CSS Variable | Usage |
+|-------|-----|--------------|-------|
 | Green 500 | `#2ECC71` | `--color-shuby-green-500` | Success, positive metrics |
 | Orange 500 | `#F39C12` | `--color-shuby-orange-500` | Warnings, "Aggiorna" badge |
 | Red 500 | `#E74C3C` | `--color-shuby-red-500` | Danger, "Elimina Account" |
+| Fucsia 500 | `#C500A2` | `--color-shuby-fucsia-500` | Vibrant accent |
+| Fucsia 700 | `#91018A` | `--color-shuby-fucsia-700` | Form error text |
 
 ### Magenta/Pink Scale (Selection Accent)
 
@@ -83,27 +103,37 @@ Used for date pickers, week selectors, and other selection states.
 
 ## Typography System
 
-### Font Family
+### Font Families (from Figma)
 
-**Nunito** - A rounded, child-friendly sans-serif font from Google Fonts.
+The Shuby design system uses two font families from Figma:
 
+**Font Primario: Baloo 2** - Display/headline font (D1, D2 styles)
 ```css
---font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+--font-display: "Baloo 2", ui-sans-serif, system-ui, sans-serif;
+```
+
+**Font Secondario: Montserrat** - Body text and UI elements
+```css
+--font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
 ```
 
 ### Typography Classes
 
-| Class | Size | Weight | Line-Height | Usage |
-|-------|------|--------|-------------|-------|
-| `.shuby-d1` | 28px | Bold | 34px | Hero text |
-| `.shuby-d2` | 20px | Bold | 24px | Card titles |
-| `.shuby-h1` | 24px | Bold | 30px | Page titles |
-| `.shuby-h2` | 20px | Semibold | 26px | Section titles |
-| `.shuby-h3` | 16px | Semibold | 22px | Subsection titles |
-| `.shuby-p1` | 14px | Regular | 150% | Main body text |
-| `.shuby-p2` | 12px | Regular | 150% | Secondary text |
-| `.shuby-caption` | 11px | Semibold | 14px | Labels (uppercase) |
-| `.shuby-overline` | 12px | Semibold | 16px | Tags (uppercase) |
+| Class | Font | Size | Weight | Line-Height | Usage |
+|-------|------|------|--------|-------------|-------|
+| `.shuby-d1` | Baloo 2 | 28px | Bold (700) | 34px | Hero text |
+| `.shuby-d2` | Baloo 2 | 20px | Bold (700) | 24px | Card titles (Figma: Display/D2) |
+| `.shuby-h1` | Montserrat | 24px | Bold (700) | 30px | Page titles |
+| `.shuby-h2` | Montserrat | 20px | Semibold (600) | 26px | Section titles |
+| `.shuby-h3` | Montserrat | 20px | Semibold (600) | 150% | Subsection titles (Figma: Headings/H3) |
+| `.shuby-p1` | Montserrat | 14px | Regular (400) | 150% | Main body text (Figma: Body/P1/Light) |
+| `.shuby-p1-dark` | Montserrat | 14px | Semibold (600) | 150% | Emphasized body text (Figma: Body/P1/Dark) |
+| `.shuby-p2` | Montserrat | 12px | Regular (400) | 150% | Secondary text (Figma: Body/P2/Light) |
+| `.shuby-caption` | Montserrat | 10px | Medium (500) | 150% | Labels (Figma: Caption/Span/Light) |
+| `.shuby-overline` | Montserrat | 10px | Regular (400) | 150% | Tags, uppercase (Figma: Overline/OL/Light) |
+| `.shuby-overline-dark` | Montserrat | 10px | Semibold (600) | 150% | Form labels, uppercase (Figma: Overline/OL/Dark) |
+| `.shuby-btn-text-s` | Montserrat | 16px | Semibold (600) | 150% | Button text small (Figma: Button/Button S) |
+| `.shuby-btn-text-l` | Montserrat | 20px | Semibold (600) | 150% | Button text large (Figma: Button/Button L) |
 
 ### Usage Example
 
@@ -134,13 +164,43 @@ Based on an 8px unit system:
 
 ## Border Radius
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--radius-sm` | 8px | Buttons, small elements |
-| `--radius-md` | 12px | Cards, containers |
-| `--radius-lg` | 16px | Large cards |
-| `--radius-xl` | 24px | Pill buttons, inputs |
-| `--radius-full` | 9999px | Circles, avatars |
+| Token | Value | Figma Token | Usage |
+|-------|-------|-------------|-------|
+| `--radius-xs` | 4px | Radius/Piccolo | Small elements |
+| `--radius-sm` | 8px | - | Buttons |
+| `--radius-md` | 12px | Radius/Grande | Cards, containers |
+| `--radius-lg` | 16px | - | Large cards |
+| `--radius-xl` | 24px | - | Pill buttons, inputs |
+| `--radius-full` | 999px | Radius/Tondo | Circles, avatars |
+| `--radius-assente` | 0 | Radius/Assente | No radius (square corners) |
+
+**Figma Aliases:**
+- `--radius-piccolo` = 4px (alias for `--radius-xs`)
+- `--radius-grande` = 12px (alias for `--radius-md`)
+- `--radius-tondo` = 999px (alias for `--radius-full`)
+
+---
+
+## Shadows
+
+| Token | Value | Figma Token | Usage |
+|-------|-------|-------------|-------|
+| `--shadow-blu` | `0 0 10px 0 rgba(158, 198, 240, 0.3)` | Shadow Blu | Modal overlays, cards |
+| `--shadow-dark-blue` | `0 0 8px 0 rgba(59, 131, 207, 0.8)` | Shadow Dark Blue | Focus states |
+
+### Shadow Utility Classes
+
+```erb
+<%# Blue shadow (modal overlays) %>
+<div class="shuby-shadow-blu">
+  Card with blue glow shadow
+</div>
+
+<%# Shadow on hover %>
+<div class="shuby-shadow-blu-hover">
+  Card that gets shadow on hover
+</div>
+```
 
 ---
 
@@ -161,15 +221,38 @@ Based on an 8px unit system:
 <%# Danger button %>
 <button class="shuby-btn shuby-btn-lg shuby-btn-danger">Elimina</button>
 
+<%# Dark outlined button (Figma: Type=Outline, Colore=Nero) %>
+<button class="shuby-btn shuby-btn-sm shuby-btn-outline-dark">Elimina bambino/a</button>
+
+<%# Text/Link button (Figma: Type=Testo) %>
+<a href="#" class="shuby-btn-text">
+  Tutti gli Articoli
+  <svg class="shuby-btn-text-icon"><!-- arrow_forward icon --></svg>
+</a>
+
 <%# Icon button %>
 <button class="shuby-icon-btn">+</button>
 <button class="shuby-icon-btn shuby-icon-btn-outline">✏️</button>
+
+<%# Ghost icon button (no background) %>
+<button class="shuby-icon-btn-ghost">
+  <svg><!-- refresh icon --></svg>
+</button>
+<button class="shuby-icon-btn-ghost shuby-icon-btn-ghost-primary">
+  <svg><!-- icon in primary blue --></svg>
+</button>
 ```
 
-**Button Sizes:**
-- `.shuby-btn-lg` - Large (12px 24px padding, 16px font)
+**Icon Button Variants:**
+- `.shuby-icon-btn` - Primary filled (blue background)
+- `.shuby-icon-btn-outline` - Outlined (transparent with border)
+- `.shuby-icon-btn-ghost` - Ghost (no background, gray icon)
+- `.shuby-icon-btn-ghost-primary` - Ghost with primary blue icon
+
+**Button Sizes (Figma aligned):**
+- `.shuby-btn-lg` - Large (12px 24px padding, 20px font) - Figma: Button/Button L
 - `.shuby-btn-md` - Medium (10px 20px padding, 14px font)
-- `.shuby-btn-sm` - Small (8px 16px padding, 14px font)
+- `.shuby-btn-sm` - Small (8px 16px padding, 16px font) - Figma: Button/Button S
 
 ### Tabs
 
@@ -196,6 +279,373 @@ Based on an 8px unit system:
   <p class="shuby-h3">Peso</p>
   <span class="shuby-metric-value-success">3900</span>
   <span class="shuby-metric-unit">gr</span>
+</div>
+```
+
+### Article Cards (Figma: Articolo)
+
+Horizontal cards with image on left and content on right, used in the Archivio screen.
+
+```erb
+<div class="shuby-card-article">
+  <div class="shuby-card-article-image">
+    <img src="illustration.jpg" alt="Article illustration">
+  </div>
+  <div class="shuby-card-article-content">
+    <div class="shuby-card-article-tags">
+      <span class="shuby-tag shuby-tag-info">
+        <span class="shuby-tag-icon"><!-- icon --></span>
+        Abilità motorie
+      </span>
+      <span class="shuby-tag shuby-tag-default">0-2 mesi</span>
+    </div>
+    <p class="shuby-card-article-title">Riflessi e scoperte iniziali</p>
+    <p class="shuby-card-article-description">
+      Come stimolarlo e campanelli di allarme.
+    </p>
+  </div>
+</div>
+```
+
+**Article Card Classes:**
+| Class | Description |
+|-------|-------------|
+| `.shuby-card-article` | Container (flex, 117px height) |
+| `.shuby-card-article-image` | Image container (94px width, left rounded) |
+| `.shuby-card-article-content` | Content area with Blue 300 border |
+| `.shuby-card-article-tags` | Tags row container |
+| `.shuby-card-article-title` | Title (14px semibold, Blue 800) |
+| `.shuby-card-article-description` | Description (10px, 2-line clamp) |
+
+### Consigli Cards (Figma: Scheda Consigli)
+
+Yellow cards for tips, books, and games recommendations.
+
+```erb
+<%# Book recommendation card %>
+<div class="shuby-card-consigli">
+  <div class="shuby-card-consigli-content">
+    <div class="shuby-card-consigli-tags">
+      <span class="shuby-tag shuby-tag-giallo">
+        <span class="shuby-tag-icon"><!-- book icon --></span>
+        Lettura
+      </span>
+      <span class="shuby-tag shuby-tag-light">0-12 Mesi</span>
+    </div>
+    <div class="shuby-card-consigli-body">
+      <p class="shuby-card-consigli-author">Teresa Porcella</p>
+      <p class="shuby-card-consigli-title">Quelli là</p>
+      <p class="shuby-card-consigli-publisher">Bacchilega Editore</p>
+    </div>
+  </div>
+  <div class="shuby-card-consigli-thumbnail">
+    <img src="book-cover.jpg" alt="Book cover">
+  </div>
+</div>
+
+<%# Game/Activity card (no thumbnail) %>
+<div class="shuby-card-consigli">
+  <div class="shuby-card-consigli-content">
+    <div class="shuby-card-consigli-tags">
+      <span class="shuby-tag shuby-tag-giallo">
+        <span class="shuby-tag-icon"><!-- game icon --></span>
+        Giochi
+      </span>
+      <span class="shuby-tag shuby-tag-light">0-2 Mesi</span>
+    </div>
+    <div class="shuby-card-consigli-body">
+      <p class="shuby-card-consigli-title">Guarda lo specchio… chi c'è qui?</p>
+      <div class="shuby-card-consigli-time">
+        <svg class="shuby-card-consigli-time-icon"><!-- alarm icon --></svg>
+        <span class="shuby-card-consigli-time-text">3 min</span>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+**Consigli Card Classes:**
+| Class | Description |
+|-------|-------------|
+| `.shuby-card-consigli` | Container (Giallo 400 background) |
+| `.shuby-card-consigli-content` | Content area (flex column) |
+| `.shuby-card-consigli-tags` | Tags row |
+| `.shuby-card-consigli-body` | Text content area |
+| `.shuby-card-consigli-author` | Author name (12px) |
+| `.shuby-card-consigli-title` | Title (Baloo 2, 20px bold) |
+| `.shuby-card-consigli-publisher` | Publisher name (10px) |
+| `.shuby-card-consigli-thumbnail` | Book cover image (78x99px) |
+| `.shuby-card-consigli-time` | Time indicator row |
+
+### Scheda Attività (Activity Cards)
+
+Simple activity list items with title, duration, and arrow.
+
+```erb
+<div class="shuby-scheda-attivita">
+  <div class="shuby-scheda-attivita-content">
+    <p class="shuby-scheda-attivita-title">Tummy time musicale</p>
+    <div class="shuby-scheda-attivita-time">
+      <svg class="shuby-scheda-attivita-time-icon"><!-- alarm icon --></svg>
+      <span class="shuby-scheda-attivita-time-text">5 min</span>
+    </div>
+  </div>
+  <svg class="shuby-scheda-attivita-arrow"><!-- arrow_forward icon --></svg>
+</div>
+```
+
+**Scheda Attività Classes:**
+| Class | Description |
+|-------|-------------|
+| `.shuby-scheda-attivita` | Container (80px height, Blue 300 border) |
+| `.shuby-scheda-attivita-content` | Text content area |
+| `.shuby-scheda-attivita-title` | Title (Baloo 2, 20px bold) |
+| `.shuby-scheda-attivita-time` | Duration indicator |
+| `.shuby-scheda-attivita-arrow` | Arrow icon (24px) |
+
+### Article Body / Prose Styling
+
+Rich text styling for article detail pages with proper paragraph spacing and bold highlights.
+
+```erb
+<div class="shuby-article-body">
+  <p>Il primo anno di vita del bambino è caratterizzato da importanti <strong>tappe di sviluppo motorio</strong>. Ogni mese porta con sé nuove abilità e possibilità di interazione.</p>
+
+  <h2>Sviluppo tipico</h2>
+  <p>Nei primi mesi, il neonato si muove principalmente grazie ai <strong>riflessi primitivi</strong>, come il riflesso di Moro.</p>
+
+  <h3>Come stimolarlo</h3>
+  <p>Dedica 1-2 minuti di <strong>tummy time</strong> al giorno, aumentando gradualmente.</p>
+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-article-body` | Container with proper font, line-height (1.7) |
+| `.shuby-article-body p` | Paragraphs with bottom margin |
+| `.shuby-article-body strong` | Bold text (600 weight) |
+| `.shuby-article-body h2` | Section headers (16px, 700 weight) |
+| `.shuby-article-body h3` | Sub-section headers (14px, 600 weight) |
+
+### Colored Bullet Lists
+
+Styled unordered lists with colored bullet points for article content.
+
+```erb
+<%# Blue bullet list (default for articles) %>
+<ul class="shuby-list-blue">
+  <li>Le illustrazioni semplici e ad alto contrasto catturano lo sguardo del neonato</li>
+  <li>Il testo breve e musicale invita all'ascolto e alla partecipazione</li>
+  <li>La ripetizione delle parole sostiene l'attenzione</li>
+</ul>
+
+<%# Red/warning bullet list (Campanelli d'allarme) %>
+<ul class="shuby-list-red">
+  <li>Non reagisce ai suoni forti (assenza del riflesso di Moro)</li>
+  <li>Non cerca il seno o non reagisce al tocco sulla guancia</li>
+  <li>Non solleva minimamente la testa quando è sdraiato a pancia in giù</li>
+</ul>
+
+<%# Verde/teal bullet list %>
+<ul class="shuby-list-verde">
+  <li>Oggetti consigliati: sonagli morbidi, tappetino per tummy time</li>
+  <li>Stimola: controllo visivo, motricità grossolana</li>
+</ul>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-list-blue` | Blue bullet points (Primary Blue 800) |
+| `.shuby-list-red` / `.shuby-list-warning` | Red bullet points (Red 500) - for warnings |
+| `.shuby-list-verde` | Teal bullet points (Verde 500) |
+
+### Yellow Section Container (TAPPE)
+
+Yellow background section for linked development stages.
+
+```erb
+<div class="shuby-section-giallo">
+  <div class="shuby-section-giallo-header">
+    <span class="shuby-section-giallo-title">TAPPE DI SVILUPPO COLLEGATE</span>
+  </div>
+  <div class="shuby-section-giallo-content">
+    <a href="#" class="shuby-pill-verde">
+      <span class="shuby-pill-verde-icon">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+        </svg>
+      </span>
+      Comunicazione e linguaggio
+      <svg class="shuby-pill-verde-arrow" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+      </svg>
+    </a>
+  </div>
+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-section-giallo` | Yellow container (Giallo 400 background) |
+| `.shuby-section-giallo-header` | Header with title |
+| `.shuby-section-giallo-title` | Uppercase title (11px, 700 weight) |
+| `.shuby-section-giallo-content` | Content area with gap spacing |
+
+### Green Linked Pill (Verde)
+
+Clickable green pill for linked content items.
+
+```erb
+<a href="#" class="shuby-pill-verde">
+  <span class="shuby-pill-verde-icon">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/>
+    </svg>
+  </span>
+  Comunicazione e linguaggio
+  <svg class="shuby-pill-verde-arrow" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+  </svg>
+</a>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-pill-verde` | Green pill container (Verde 200 background) |
+| `.shuby-pill-verde:hover` | Hover state (Verde 300) |
+| `.shuby-pill-verde-icon` | Left icon (20px) |
+| `.shuby-pill-verde-arrow` | Right arrow icon (16px) |
+
+### Book Detail Layout
+
+Layout for book/reading detail pages with author information.
+
+```erb
+<div class="shuby-book-detail">
+  <div class="shuby-book-cover">
+    <img src="/book-cover.jpg" alt="Book cover">
+  </div>
+
+  <h1 class="shuby-book-title">Quelli là</h1>
+  <p class="shuby-book-author">Elisa Mazzoli, Marianna Balducci</p>
+  <p class="shuby-book-publisher">Bacchilega Editore, 2019</p>
+
+  <p class="shuby-book-description">
+    Quelli là è un libro cartonato, colorato e pieno di ritmo, perfetto per le prime letture condivise.
+  </p>
+
+  <div class="shuby-book-meta">
+    <div class="shuby-book-meta-row">
+      <span class="shuby-book-meta-label">Autore:</span>
+      <span class="shuby-book-meta-value">Teresa Porcella</span>
+    </div>
+    <div class="shuby-book-meta-row">
+      <span class="shuby-book-meta-label">Illustrazioni:</span>
+      <span class="shuby-book-meta-value">Bruno Zocca</span>
+    </div>
+    <div class="shuby-book-meta-row">
+      <span class="shuby-book-meta-label">Editore:</span>
+      <span class="shuby-book-meta-value">Bacchilega Junior</span>
+    </div>
+  </div>
+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-book-detail` | Container with padding |
+| `.shuby-book-cover` | Cover image container (4:3 aspect ratio) |
+| `.shuby-book-title` | Title (22px, Blue 800) |
+| `.shuby-book-author` | Author name (14px) |
+| `.shuby-book-publisher` | Publisher info (12px, secondary color) |
+| `.shuby-book-description` | Description text (14px, 1.7 line-height) |
+| `.shuby-book-meta` | Metadata section with border-top |
+| `.shuby-book-meta-row` | Row with label and value |
+| `.shuby-book-meta-label` | Label (600 weight) |
+| `.shuby-book-meta-value` | Value text |
+
+### Article Hero Container
+
+Hero section at top of article with gradient background and optional illustration.
+
+```erb
+<div class="shuby-article-hero">
+  <div class="shuby-article-hero-illustration">
+    <img src="/cloud-mascot.png" alt="">
+  </div>
+  <div class="shuby-article-hero-content">
+    <div class="shuby-article-hero-tags">
+      <span class="shuby-tag shuby-tag-light shuby-tag-sm">
+        <span class="shuby-tag-icon">🏃</span>
+        Attività motorie
+      </span>
+      <span class="shuby-tag shuby-tag-light shuby-tag-sm">0-2 mesi</span>
+      <span class="shuby-tag shuby-tag-light shuby-tag-sm">
+        <span class="shuby-tag-icon">⏱️</span>
+        4 min
+      </span>
+    </div>
+    <div class="shuby-article-hero-icon">
+      <svg viewBox="0 0 48 48" fill="currentColor"><!-- icon --></svg>
+    </div>
+    <h1 class="shuby-article-hero-title">Riflessi e scoperte iniziali</h1>
+  </div>
+</div>
+
+<%# Full-width illustration variant %>
+<div class="shuby-article-hero shuby-article-hero-full">
+  <div class="shuby-article-hero-illustration">
+    <img src="/cloud-illustration.png" alt="">
+  </div>
+  <div class="shuby-article-hero-content">
+    <!-- content -->
+  </div>
+</div>
+```
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-article-hero` | Container with gradient (Blue 100 → White) |
+| `.shuby-article-hero-full` | Variant with centered top illustration |
+| `.shuby-article-hero-content` | Content wrapper (centered) |
+| `.shuby-article-hero-tags` | Tags row (centered) |
+| `.shuby-article-hero-icon` | Icon container (48px) |
+| `.shuby-article-hero-title` | Title (22px, Blue 800) |
+| `.shuby-article-hero-illustration` | Illustration container (absolute positioned) |
+
+### Metric Range Cards
+
+Cards showing measurement ranges (e.g., PESO: 2,3 - 4,4 kg).
+
+```erb
+<%# Grid of metric range cards %>
+<div class="shuby-metric-range-grid">
+  <div class="shuby-metric-range-card">
+    <span class="shuby-metric-range-label">PESO</span>
+    <div class="shuby-metric-range-values">
+      <span class="shuby-metric-range-value">2,3</span>
+      <span class="shuby-metric-range-value">4,4</span>
+    </div>
+    <span class="shuby-metric-range-unit">chilogrammi</span>
+  </div>
+
+  <div class="shuby-metric-range-card">
+    <span class="shuby-metric-range-label">ALTEZZA</span>
+    <div class="shuby-metric-range-values">
+      <span class="shuby-metric-range-value">46</span>
+      <span class="shuby-metric-range-value">55</span>
+    </div>
+    <span class="shuby-metric-range-unit">centimetri</span>
+  </div>
+
+  <div class="shuby-metric-range-card">
+    <span class="shuby-metric-range-label">CIRC. CRANICA</span>
+    <div class="shuby-metric-range-values">
+      <span class="shuby-metric-range-value">33</span>
+      <span class="shuby-metric-range-value">36</span>
+    </div>
+    <span class="shuby-metric-range-unit">centimetri</span>
+  </div>
 </div>
 ```
 
@@ -263,10 +713,16 @@ Pill-shaped tags with optional icon (footprint icon for child tracking features)
   Tag
 </span>
 
-<%# Yellow/Amber tag %>
+<%# Yellow/Amber tag (warning) %>
 <span class="shuby-tag shuby-tag-yellow">
   <span class="shuby-tag-icon"><!-- icon --></span>
   Tag
+</span>
+
+<%# Giallo tag (Figma yellow - for categories like Lettura, Giochi) %>
+<span class="shuby-tag shuby-tag-giallo">
+  <span class="shuby-tag-icon"><!-- icon --></span>
+  Lettura
 </span>
 
 <%# Outline tag %>
@@ -286,6 +742,7 @@ Pill-shaped tags with optional icon (footprint icon for child tracking features)
 | `.shuby-tag-magenta` | Magenta 500 | White | Selection/highlight |
 | `.shuby-tag-info` | Blue 100 | Blue 800 | Informational |
 | `.shuby-tag-yellow` | Orange 500 | Gray 700 | Warning/attention |
+| `.shuby-tag-giallo` | Giallo 500 | Blue 800 | Category tags (Lettura, Giochi) |
 | `.shuby-tag-outline` | Transparent | Blue 800 | Outlined variant |
 
 **Size Variants:**
@@ -313,6 +770,81 @@ Pill-shaped tags with optional icon (footprint icon for child tracking features)
 </div>
 ```
 
+### Underline Form Inputs (Figma: Form component)
+
+Minimalist form inputs with bottom border only, used in edit/profile screens.
+
+```erb
+<%# Basic underline input %>
+<div class="shuby-form-group">
+  <label class="shuby-form-label">NOME *</label>
+  <div class="shuby-form-input-wrapper">
+    <input type="text" class="shuby-form-input-underline" value="Alessandro">
+  </div>
+</div>
+
+<%# With icon (calendar, dropdown arrow) %>
+<div class="shuby-form-group">
+  <label class="shuby-form-label">DATA DI NASCITA</label>
+  <div class="shuby-form-input-wrapper">
+    <input type="text" class="shuby-form-input-underline" value="17 . 09 . 2023">
+    <svg class="shuby-form-icon"><!-- calendar icon --></svg>
+  </div>
+</div>
+
+<%# With error message %>
+<div class="shuby-form-group">
+  <label class="shuby-form-label">EMAIL</label>
+  <div class="shuby-form-input-wrapper">
+    <input type="text" class="shuby-form-input-underline" value="invalid">
+  </div>
+  <span class="shuby-form-error">Email non valida</span>
+</div>
+```
+
+**Form Classes:**
+| Class | Description |
+|-------|-------------|
+| `.shuby-form-group` | Container with flex column, 8px gap |
+| `.shuby-form-label` | Uppercase label, 10px semibold (Figma: Overline/OL/Dark) |
+| `.shuby-form-input-wrapper` | Bottom border container (Blue 700) |
+| `.shuby-form-input-underline` | Transparent background input, 14px |
+| `.shuby-form-icon` | 16px icon in Blue 800 |
+| `.shuby-form-error` | Error text in Fucsia 700 |
+
+### Segmented Switch (Figma: Switch component)
+
+Two-option toggle buttons like "Maschio/Femmina" gender selector.
+
+```erb
+<%# Gender switch example %>
+<div class="shuby-switch">
+  <button class="shuby-switch-option active">Maschio</button>
+  <button class="shuby-switch-option">Femmina</button>
+</div>
+
+<%# With form label %>
+<div class="shuby-form-group">
+  <label class="shuby-form-label">SESSO ALLA NASCITA</label>
+  <div class="shuby-switch">
+    <button class="shuby-switch-option active">Maschio</button>
+    <button class="shuby-switch-option">Femmina</button>
+  </div>
+</div>
+```
+
+**Segmented Switch States:**
+| State | Background | Text Color |
+|-------|------------|------------|
+| Active | Blue 800 (`#0159B5`) | White |
+| Inactive | Blue 400 (`#CAE4FF`) | Gray 800 |
+| Hover (inactive) | Blue 500 | Gray 800 |
+
+**Structure:**
+- `.shuby-switch` - Container with inline-flex, rounded pill ends
+- `.shuby-switch-option` - Individual option button (min-width: 150px, height: 36px)
+- `.active` - Active state modifier
+
 ### List Items
 
 ```erb
@@ -326,6 +858,59 @@ Pill-shaped tags with optional icon (footprint icon for child tracking features)
   </div>
   <button class="shuby-icon-btn shuby-icon-btn-outline">✏️</button>
 </div>
+```
+
+### Activity Items with Thumbnail
+
+Activity list items with circular thumbnails (e.g., "Attività" section).
+
+```erb
+<div class="shuby-activity-item-with-thumb">
+  <div class="shuby-activity-thumbnail">
+    <img src="activity.jpg" alt="Tummy time">
+  </div>
+  <div class="shuby-activity-item-content">
+    <span class="shuby-activity-title">Tummy time musicale</span>
+    <span class="shuby-activity-duration">
+      <span class="shuby-activity-duration-icon">
+        <svg><!-- clock icon --></svg>
+      </span>
+      5 min
+    </span>
+  </div>
+</div>
+```
+
+**Thumbnail Sizes:**
+- Default: 48px
+- `.shuby-activity-thumbnail-sm` - 40px
+- `.shuby-activity-thumbnail-lg` - 56px
+
+### Consiglio (Tip) Items
+
+List items for tips/advice with avatar, tags, title, and author.
+
+```erb
+<div class="shuby-consiglio-item">
+  <div class="shuby-consiglio-thumbnail">
+    <img src="author.jpg" alt="Author">
+  </div>
+  <div class="shuby-consiglio-content">
+    <div class="shuby-consiglio-tags">
+      <span class="shuby-tag shuby-tag-sm shuby-tag-outline">Lettura</span>
+      <span class="shuby-tag shuby-tag-sm shuby-tag-info">0-12 Mesi</span>
+    </div>
+    <span class="shuby-consiglio-title">Il viaggio di piedino</span>
+    <span class="shuby-consiglio-author">Bacchilega Editore</span>
+  </div>
+</div>
+```
+
+### Author/Source Text
+
+```erb
+<span class="shuby-author">Bacchilega Editore</span>
+<a href="#" class="shuby-author-link">View Source</a>
 ```
 
 ### Progress Indicators
@@ -347,6 +932,45 @@ Pill-shaped tags with optional icon (footprint icon for child tracking features)
 <%# Light blue section background (AI-helper, quiz screens) %>
 <div class="shuby-bg-section">
   <h2>Content here...</h2>
+</div>
+```
+
+### Back Link
+
+Navigation back link with arrow icon.
+
+```erb
+<a href="/back" class="shuby-back-link">
+  <span class="shuby-back-link-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M15 18l-6-6 6-6"/>
+    </svg>
+  </span>
+  Timeline
+</a>
+
+<%# Small variant %>
+<a href="/back" class="shuby-back-link shuby-back-link-sm">
+  <span class="shuby-back-link-icon"><!-- arrow icon --></span>
+  Back
+</a>
+```
+
+### Section Label
+
+Uppercase category headers for sections (e.g., "MISURE MEDIE", "TAPPE DI SVILUPPO").
+
+```erb
+<%# Simple section label %>
+<p class="shuby-section-label">MISURE MEDIE</p>
+
+<%# Section label with border %>
+<p class="shuby-section-label shuby-section-label-bordered">TAPPE DI SVILUPPO</p>
+
+<%# Section header with label and link %>
+<div class="shuby-section-header-row">
+  <p class="shuby-section-label" style="margin-bottom: 0;">TAPPE DI SVILUPPO</p>
+  <a href="/completate" class="shuby-link">Completate 6/6</a>
 </div>
 ```
 
@@ -561,8 +1185,14 @@ Bordered container with lavender background for date pills.
   <span class="shuby-timeline-pill-number">6</span>
 </div>
 
-<%# Filled selected (magenta bg) %>
+<%# Filled selected - Magenta (magenta bg) %>
 <div class="shuby-timeline-pill selected">
+  <span class="shuby-timeline-pill-label">Sett.</span>
+  <span class="shuby-timeline-pill-number">6</span>
+</div>
+
+<%# Filled selected - Primary Blue (blue bg) %>
+<div class="shuby-timeline-pill selected-primary">
   <span class="shuby-timeline-pill-label">Sett.</span>
   <span class="shuby-timeline-pill-number">6</span>
 </div>
@@ -572,6 +1202,7 @@ Bordered container with lavender background for date pills.
 - Default: White background
 - `.selected-outline` - White background with purple/blue outline border
 - `.selected` - Magenta filled background with white text
+- `.selected-primary` - Primary Blue filled background with white text
 
 ### Settimana (Week) Selector
 
@@ -641,6 +1272,96 @@ Use CSS variables directly in styles:
 
 ---
 
+## Celebration/Success Screens
+
+Full-screen celebration modals for milestone completions, achievements, and success states.
+
+### Tappa Completata (Teal Variant)
+
+The teal variant matches the Figma design for milestone completion screens.
+
+```erb
+<%# Full celebration screen with teal gradient %>
+<div class="shuby-tappa-completed-teal">
+  <%# Header with mascot and text %>
+  <div class="shuby-tappa-completed-header">
+    <div class="shuby-tappa-completed-mascot">
+      <%# Pentagon mascot component %>
+      <div class="shuby-mascot-pentagon shuby-mascot-pentagon-teal">
+        <!-- mascot SVG/HTML -->
+      </div>
+    </div>
+    <span class="shuby-tappa-completed-label">Comunicazione e linguaggio</span>
+    <h1 class="shuby-tappa-completed-title">Tappa completata!</h1>
+    <p class="shuby-tappa-completed-description">
+      Alessandro mostra buoni progressi nella comunicazione...
+    </p>
+  </div>
+
+  <%# Content area with info box %>
+  <div class="shuby-tappa-completed-content">
+    <div class="shuby-info-box-dark">
+      <p>Il Report di Crescita è stato aggiornato.
+         Puoi aprirlo e <strong>condividerlo con il pediatra</strong>
+         per un confronto durante le visite di controllo.</p>
+    </div>
+  </div>
+
+  <%# Footer with CTA button %>
+  <div class="shuby-tappa-completed-footer">
+    <button class="shuby-btn shuby-btn-lg shuby-btn-teal w-full">
+      Apri il Report di Crescita
+    </button>
+  </div>
+</div>
+```
+
+### Background Variants
+
+| Class | Background | Usage |
+|-------|------------|-------|
+| `.shuby-tappa-completed` | Blue gradient | Default blue celebration |
+| `.shuby-tappa-completed-teal` | Teal gradient (Verde Scuro) | Teal/green celebration |
+
+### Info Boxes on Dark Backgrounds
+
+```erb
+<%# Semi-transparent dark info box %>
+<div class="shuby-info-box-dark">
+  <p>Message with <strong>bold text</strong> here...</p>
+</div>
+
+<%# Blurred glass effect variant %>
+<div class="shuby-info-box-dark-blur">
+  <p>Message with blur backdrop...</p>
+</div>
+```
+
+### White Typography Variants
+
+For use on dark/colored backgrounds:
+
+| Class | Description |
+|-------|-------------|
+| `.shuby-d1-white` | Display 1 in white |
+| `.shuby-d2-white` | Display 2 in white |
+| `.shuby-p1-white` | Body text in white |
+| `.shuby-p1-white-muted` | Body text in white (90% opacity) |
+| `.shuby-overline-white` | Overline in white (85% opacity) |
+| `.shuby-caption-white` | Caption in white (85% opacity) |
+
+### Button Variants for Dark Backgrounds
+
+```erb
+<%# Teal button %>
+<button class="shuby-btn shuby-btn-lg shuby-btn-teal">Action</button>
+
+<%# Light transparent button %>
+<button class="shuby-btn shuby-btn-lg shuby-btn-light-on-dark">Action</button>
+```
+
+---
+
 ## File Structure
 
 ```
@@ -653,7 +1374,7 @@ app/assets/tailwind/
 
 app/views/
 ├── application/
-│   └── _head.html.erb        # Nunito font import
+│   └── _head.html.erb        # Baloo 2 + Montserrat font imports
 ├── design_system/
 │   └── show.html.erb         # Design system demo page
 └── layouts/

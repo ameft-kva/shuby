@@ -9,9 +9,11 @@
 @variant not-hotwire-native (html:not(.hotwire-native) &);
 
 @theme {
-  /* Shuby Design System: Nunito as primary font (child-friendly, rounded) */
-  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-display: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  /* Shuby Design System Fonts (from Figma) */
+  /* Font Secondario: Montserrat - for body text, UI elements */
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* Font Primario: Baloo 2 - for display/headline text (D1, D2) */
+  --font-display: "Baloo 2", ui-sans-serif, system-ui, sans-serif;
   --color-primary: var(--bg-primary);
 }
 

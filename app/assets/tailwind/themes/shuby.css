@@ -22,25 +22,30 @@
     --color-shuby-blue-200: #A8DBFF;
     --color-shuby-blue-300: #E5F2FF;
     /* Card borders */
-    --color-shuby-blue-400: #5AA3E8;
-    --color-shuby-blue-500: #3B9EE8;
+    --color-shuby-blue-400: #CAE4FF;    /* Figma: Colori/Blu 400 */
+    --color-shuby-blue-500: #9EC6F0;    /* Figma: Colori/Blu 500 */
     --color-shuby-blue-600: #1A6DC2;
-    --color-shuby-blue-700: #0D6EBF;
+    --color-shuby-blue-700: #3b83cf;    /* Figma: Colori/Blu 700 - Form borders */
     --color-shuby-blue-800: #0159B5;
     /* Primary brand color */
     --color-shuby-blue-900: #004488;
     --color-shuby-blue-950: #003066;
 
     /* =====================================================
-       CYAN/TEAL ACCENT (Decorative)
+       VERDE (Green/Teal) - Figma: Colori/Verde
        ===================================================== */
-    --color-shuby-cyan-100: #E0F7F7;
-    --color-shuby-cyan-200: #B8EBEB;
-    --color-shuby-cyan-300: #7DD3D3;
-    --color-shuby-cyan-400: #4FC3C3;
-    /* Character illustrations */
-    --color-shuby-cyan-500: #38B2AC;
-    --color-shuby-cyan-600: #2C9A94;
+    --color-shuby-verde-100: #E0F7F7;
+    --color-shuby-verde-200: #D1F8F9;    /* Figma: Colori/Verde 200 */
+    --color-shuby-verde-300: #99E0E2;    /* Figma: Colori/Verde 300 */
+    --color-shuby-verde-400: #7DCBCD;    /* Figma: Colori/Verde 400 */
+    --color-shuby-verde-500: #38A3A5;    /* Figma: Colori/Verde 500 */
+    --color-shuby-verde-600: #2C9A94;
+
+    /* =====================================================
+       VERDE SCURO (Dark Green/Teal) - Figma: Colori/Verde Scuro
+       ===================================================== */
+    --color-shuby-verde-scuro-400: #37A3C1;    /* Figma: Colori/Verde Scuro 400 */
+    --color-shuby-verde-scuro-500: #007FA3;    /* Figma: Colori/Verde Scuro 500 */
 
     /* =====================================================
        SUCCESS GREEN
@@ -63,6 +68,12 @@
     --color-shuby-orange-500: #F39C12;
     /* Aggiorna badge */
     --color-shuby-orange-600: #EA8C00;
+
+    /* =====================================================
+       GIALLO (Yellow) - Figma: Colori/Giallo
+       ===================================================== */
+    --color-shuby-giallo-400: #fff7d4;    /* Figma: Colori/Giallo 400 - Light yellow card bg */
+    --color-shuby-giallo-500: #ffe882;    /* Figma: Colori/Giallo 500 */
 
     /* =====================================================
        DANGER RED
@@ -92,6 +103,12 @@
     --color-shuby-magenta-900: #701A75;
 
     /* =====================================================
+       FUCSIA - Figma: Colori/Fucsia
+       ===================================================== */
+    --color-shuby-fucsia-500: #C500A2;    /* Figma: Colori/Fucsia 500 */
+    --color-shuby-fucsia-700: #91018a;    /* Figma: Colori/Fucsia 700 - Error text */
+
+    /* =====================================================
        PURPLE/INDIGO (Outline accents)
        Used for outline borders and secondary accents
        ===================================================== */
@@ -106,7 +123,7 @@
     --color-shuby-purple-500: #6366F1;
 
     /* =====================================================
-       NEUTRAL GRAYS
+       NEUTRAL GRAYS (Aligned with Figma tokens)
        ===================================================== */
     --color-shuby-gray-50: #F9FAFB;
     --color-shuby-gray-100: #F3F4F6;
@@ -114,14 +131,15 @@
     --color-shuby-gray-200: #E5E7EB;
     /* Borders, dividers */
     --color-shuby-gray-300: #D1D5DB;
-    --color-shuby-gray-400: #9CA3AF;
-    /* Placeholder text */
-    --color-shuby-gray-500: #6B7280;
-    /* Secondary text, inactive */
+    --color-shuby-gray-400: #f6f8fa;
+    /* Figma: Colori/Grigio 400 - Light background */
+    --color-shuby-gray-500: #e2e5e8;
+    /* Figma: Colori/Grigio 500 - Borders */
     --color-shuby-gray-600: #4B5563;
-    --color-shuby-gray-700: #374151;
-    /* Secondary headings */
-    --color-shuby-gray-800: #1F2937;
+    --color-shuby-gray-700: #898d91;
+    /* Figma: Colori/Grigio 700 - Secondary text */
+    --color-shuby-gray-800: #616467;
+    /* Figma: Colori/Grigio 800 - Inactive nav items */
     --color-shuby-gray-900: #111827;
 
     /* =====================================================
@@ -144,13 +162,25 @@
     --space-12: 48px;
 
     /* =====================================================
-       BORDER RADIUS
+       BORDER RADIUS (Figma aligned)
+       Figma tokens: Radius/Piccolo = 4px, Radius/Grande = 12px, Radius/Tondo = 999px, Radius/Assente = 0
        ===================================================== */
+    --radius-xs: 4px;         /* Figma: Radius/Piccolo */
     --radius-sm: 8px;
-    --radius-md: 12px;
+    --radius-md: 12px;        /* Figma: Radius/Grande */
     --radius-lg: 16px;
     --radius-xl: 24px;
-    --radius-full: 9999px;
+    --radius-full: 999px;     /* Figma: Radius/Tondo (fully round) */
+    --radius-piccolo: 4px;    /* Figma: Radius/Piccolo (alias) */
+    --radius-grande: 12px;    /* Figma: Radius/Grande (alias) */
+    --radius-tondo: 999px;    /* Figma: Radius/Tondo (alias) */
+    --radius-assente: 0;      /* Figma: Radius/Assente (no radius) */
+
+    /* =====================================================
+       SHADOWS (Figma aligned)
+       ===================================================== */
+    --shadow-dark-blue: 0 0 8px 0 rgba(59, 131, 207, 0.8);    /* Figma: Shadow Dark Blue */
+    --shadow-blu: 0 0 10px 0 rgba(158, 198, 240, 0.3);        /* Figma: Shadow Blu */
 
     /* =====================================================
        THEME VARIABLE MAPPINGS
@@ -184,6 +214,9 @@
     --text-on-danger-secondary: var(--color-shuby-red-600);
     --icon-on-danger-secondary: var(--color-shuby-red-500);
 
+    /* Error - Figma: Colori/Fucsia 700 for form error text */
+    --text-error: var(--color-shuby-fucsia-700);
+
     /* Success */
     --bg-success: var(--color-shuby-green-500);
     --bg-success-hover: var(--color-shuby-green-600);
@@ -208,11 +241,11 @@
     --text-on-warning-secondary: var(--color-shuby-orange-600);
     --icon-on-warning-secondary: var(--color-shuby-orange-500);
 
-    /* Accent - Cyan/Teal */
-    --bg-accent: var(--color-shuby-cyan-400);
+    /* Accent - Verde (Green/Teal) */
+    --bg-accent: var(--color-shuby-verde-400);
     --text-on-accent: var(--color-shuby-white);
-    --border-accent: var(--color-shuby-cyan-500);
-    --text-accent: var(--color-shuby-cyan-500);
+    --border-accent: var(--color-shuby-verde-500);
+    --text-accent: var(--color-shuby-verde-500);
 
     /* Selection - Magenta/Pink (for date pickers, week selectors) */
     --bg-selection: var(--color-shuby-magenta-500);

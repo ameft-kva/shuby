@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 178 201" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 709">
+<path id="Rectangle 392" d="M0 136.5H178V140.5C178 147.127 172.627 152.5 166 152.5H12C5.37258 152.5 0 147.127 0 140.5V136.5Z" fill="var(--fill-0, #7DCBCD)"/>
+<path id="Rectangle 393" d="M178 200.5L0 200.5L2.62268e-06 170.5C3.20207e-06 163.873 5.37259 158.5 12 158.5L166 158.5C172.627 158.5 178 163.873 178 170.5L178 200.5Z" fill="var(--fill-0, #99E0E2)"/>
+<rect id="Rectangle 394" x="72" y="152.5" width="34" height="6" fill="var(--fill-0, #38A3A5)"/>
+<circle id="Ellipse 30" cx="88.5" cy="179" r="15.5" fill="var(--fill-0, #D1F8F9)"/>
+<path id="Polygon 6" d="M80.3395 15C84.1885 8.33333 93.811 8.33333 97.66 15L159.148 121.5C162.997 128.167 158.186 136.5 150.488 136.5H27.5119C19.8139 136.5 15.0027 128.167 18.8517 121.5L80.3395 15Z" fill="var(--fill-0, #CAE4FF)"/>
+<path id="Vector 49" d="M88.5557 63.5469V70.5469" stroke="var(--stroke-0, #0159B5)" stroke-width="4" stroke-linecap="round"/>
+<path id="Vector 50" d="M114.556 63.5469V70.5469" stroke="var(--stroke-0, #0159B5)" stroke-width="4" stroke-linecap="round"/>
+<circle id="Ellipse 29" cx="67.5" cy="95" r="12.5" fill="var(--fill-0, #FFE882)"/>
+<ellipse id="Ellipse 28" cx="138" cy="95" rx="13" ry="12.5" fill="var(--fill-0, #FFE882)"/>
+<path id="Ellipse 27" d="M115.709 87.7305C115.709 95.3755 109.493 101.573 101.825 101.573C94.1574 101.573 87.9414 95.3755 87.9414 87.7305" stroke="var(--stroke-0, #0159B5)" stroke-width="4" stroke-linecap="round"/>
+</g>
+</svg>

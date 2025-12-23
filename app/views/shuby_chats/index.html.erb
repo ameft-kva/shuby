@@ -1,15 +1,16 @@
 <% content_for :title, "Shuby - Chat Assistant" %>
 
-<div class="container px-4 mx-auto my-8">
+<div class="container px-4 mx-auto my-8 pb-24">
   <div class="flex items-center justify-between mb-6">
-    <div>
-      <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Shuby</h1>
-      <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Il tuo assistente per lo sviluppo infantile</p>
+    <div class="flex items-center gap-3">
+      <%= image_tag "shuby/icons/icon-robot.svg", class: "w-10 h-10", alt: "Shuby" %>
+      <div>
+        <h1 class="shuby-h2">Shuby</h1>
+        <p class="shuby-p2">Il tuo assistente per lo sviluppo infantile</p>
+      </div>
     </div>
-    <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "btn btn-primary" do %>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 mr-2">
-        <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-      </svg>
+    <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "shuby-btn shuby-btn-md shuby-btn-primary" do %>
+      <%= image_tag "shuby/icons/icon-add.svg", class: "w-5 h-5 mr-2", style: "filter: brightness(0) invert(1);", alt: "" %>
       Nuova conversazione
     <% end %>
   </div>
@@ -35,15 +36,16 @@
       <% end %>
     </div>
   <% else %>
-    <div class="text-center py-12 bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto text-gray-400">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z" />
-      </svg>
-      <h3 class="mt-4 text-lg font-medium text-gray-900 dark:text-white">Nessuna conversazione</h3>
-      <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">Inizia una nuova conversazione con Shuby</p>
-      <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "btn btn-primary mt-4" do %>
+    <div class="text-center py-12 shuby-card">
+      <%= image_tag "shuby/illustrations/mascot-scale.svg", class: "w-32 h-32 mx-auto mb-4", alt: "Shuby mascot" %>
+      <h3 class="shuby-h3 mt-4">Nessuna conversazione</h3>
+      <p class="shuby-p2 mt-2">Inizia una nuova conversazione con Shuby</p>
+      <%= link_to shuby_chats_path, data: { turbo_method: :post }, class: "shuby-btn shuby-btn-md shuby-btn-primary mt-4" do %>
         Inizia a chattare
       <% end %>
     </div>
   <% end %>
 </div>
+
+<%# Bottom Navigation %>
+<%= render "shared/shuby_bottom_nav", active: "ai-helper" %>
